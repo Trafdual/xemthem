@@ -7,9 +7,6 @@ const storage = multer.memoryStorage();
 const uploader = multer({ storage: storage });
 const checkAuth=require('../controllers/checkAuth')
 
-
-
-
 router.get('/', homeController.home);
 router.post('/', homeController.home);
 router.get('/ttshop', homeController.home2);
