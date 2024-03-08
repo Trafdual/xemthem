@@ -13,7 +13,7 @@ const { log } = require('console');
 const app = express();
 const MongoStore = require('connect-mongo');
 var db = require('./models/db');
-const uri = "mongodb+srv://ducbinhnguyennd:ducbinhnguyennd@cluster0.geuahvt.mongodb.net/qlbanhang?retryWrites=true&w=majority";
+const uri = "mongodb+srv://ducbinhnguyennd:ducbinhnguyennd@cluster0.geuahvt.mongodb.net/AntaoShop?retryWrites=true&w=majority";
 
 const mongoStoreOptions = {
   mongooseConnection: db.mongoose.connection,
