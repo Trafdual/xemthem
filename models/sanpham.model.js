@@ -2,7 +2,6 @@ var db = require('./db');
 
 const spChema = new db.mongoose.Schema(
     {
-
         img: { type: String, require: true },
         name: { type: String, require: true },
         noidung: { type: String, require: false },
