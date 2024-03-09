@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const db = require('./db');
 
-const tenSpSchema = new mongoose.Schema({
+const tenSpSchema = new db.mongoose.Schema({
 name:{type:String},
-chitietsp:[{ type: mongoose.Schema.Types.ObjectId, ref: 'chitietsp' }],
+chitietsp:[{ type: db.mongoose.Schema.Types.ObjectId, ref: 'chitietsp' }],
 });
 
-const TenSP = mongoose.model('loaisp', tenSpSchema);
-module.exports = TenSP;
+const TenSP = db.mongoose.model('loaisp', tenSpSchema);
+module.exports = {TenSP};

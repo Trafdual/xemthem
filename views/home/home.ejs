@@ -37,40 +37,27 @@
             <table class="table table-bordered table-striped" style="text-align: center;">
                 <tr>
                     <th>ID</th>
-                    <th>Ảnh đại diện</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá bán</th>
-                    <th>Tình trạng</th>
+                    <th>Tên</th>
 
-                    <th></th>
+                    <th>Chức năng</th>
                 </tr>
 
-                <% listSP.forEach( ( row )=>{ %>
+                <% listloai.forEach( ( row )=>{ %>
 
                     <tr>
                         <td>
                             <%= row._id%>
                         </td>
-                        <td style="text-align: center;">
-                            <img src="data:image/jpeg;base64, <%= row.img %>" alt="" style="width: 80px; height: 80px;">
-                        </td>
-
                         <td>
                             <a href="/chitiet/<%= row._id %>">
                                 <%= row.name %>
                             </a>
                         </td>
-                        <td>
-                            <%= row.price %>
-                        </td>
-                        <td>
-                            <%= row.noidung %>
-                        </td>
 
-                        <td> <a href="/home/edit/<%= row._id %>">
+                        <td> <a href="">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
-                            <form action="/home/deleteSP/<%= row._id %>" method="post" id="deleteForm">
+                            <form action="/deleteloaisp/<%= row._id %>" method="post" id="deleteForm">
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal<%= row._id %>">
                                     Xóa
@@ -95,6 +82,10 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <form action="/getchitietsp/<%= row._id %>" method="get">
+                                <button type="submit" class="btn btn-light">Sản phẩm</button>
+                            </form>
                         </td>
 
                     </tr>
@@ -117,7 +108,7 @@
                     <th></th>
                 </tr>
 
-                <% listBL.forEach((row)=> { %>
+                <% listblog.forEach((row)=> { %>
                     <tr>
                         <td>
                             <%= row._id %>

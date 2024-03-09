@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const db = require('./db');
 
-const chitietspSchema = new mongoose.Schema({
+const chitietspSchema = new db.mongoose.Schema({
     image:{type:String},
     name:{type:String},
     content: { type: String },
@@ -11,8 +11,8 @@ const chitietspSchema = new mongoose.Schema({
         color: { type: String },
         price:{type:String}
     }],
-    idloaisp: { type: mongoose.Schema.Types.ObjectId, ref: 'loaisp' }
+    idloaisp: { type: db.mongoose.Schema.Types.ObjectId, ref: 'loaisp' }
 });
 
-const ChitietSp = mongoose.model('chitietsp', chitietspSchema);
-module.exports = ChitietSp;
+const ChitietSp = db.mongoose.model('chitietsp', chitietspSchema);
+module.exports = {ChitietSp};

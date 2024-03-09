@@ -7,6 +7,7 @@ var accountsRouter = require('./routes/accounts.route');
 var apiAccRouter = require('./routes/acc.api');
 var sitmaprouter=require('./routes/sitemap.xml');
 var homeRouter = require('./routes/home.route');
+var apinewsanpham=require('./routes/apinewsanpham');
 var methodOverride = require('method-override');
 var bodyParser = require("body-parser");
 const { log } = require('console');
@@ -38,13 +39,14 @@ app.use(bodyParser.json());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
-app.use('/', homeRouter);
-app.use('/api', apiAccRouter);
-app.use('/accounts', accountsRouter);
-app.use('/', settingsRouter);
-app.use('/',sitmaprouter);
+// app.use('/', homeRouter);
+// app.use('/api', apiAccRouter);
+// app.use('/accounts', accountsRouter);
+// app.use('/', settingsRouter);
+// app.use('/',sitmaprouter);
 
 // app.use('/test', testRouter);
+app.use('/',apinewsanpham)
 
 app.use(express.static(path.join(__dirname, '/public')));
 

@@ -5,7 +5,6 @@ const multer = require('multer');
 const { route, render } = require('..');
 const storage = multer.memoryStorage();
 const uploader = multer({ storage: storage });
-const checkAuth=require('../controllers/checkAuth')
 
 router.get('/', homeController.home);
 router.post('/', homeController.home);
@@ -51,5 +50,6 @@ router.get('/thanhtoan/', homeController.thanhtoan);
 
 router.get('/chitiet/:idsp', homeController.chitiet);
 router.post('/chitiet/:idsp', homeController.chitiet);
-router.get('/main/',checkAuth, homeController.main);
+
+
 module.exports = router;

@@ -44,11 +44,7 @@ exports.home = async (req, res, next) => {
   let list_BL = await myMDBlog.blogModel.find();
   res.render("home/index.ejs", { listSP: list_TL, listBL: list_BL });
 };
-exports.main = async (req, res, next) => {
-  let list_TL = await myMD.spModel.find();
-  let list_BL = await myMDBlog.blogModel.find();
-  res.render("home/home.ejs", { listSP: list_TL, listBL: list_BL });
-};
+
 exports.shop = async (req, res, next) => {
   let list_TL = await myMD.spModel.find();
   res.render("home/shop.ejs", { listSP: list_TL });
@@ -467,4 +463,6 @@ exports.chitiet = async (req, res, next) => {
   let listSP = await myMD.spModel.find();
   res.render("home/single-product.ejs", { objSP: objSP, listSP: listSP });
 };
+
+
 
