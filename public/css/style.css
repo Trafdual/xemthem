@@ -226,8 +226,25 @@ a:hover {
     margin-bottom: 1em;
   }
 }
+/* banner  */
 
+/* #banner-products {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
 
+#banner-products .container.banner {
+  max-width: 100%;
+  position: relative;
+  padding: 0;
+}
+
+#banner-products .carousel-inner .carousel-item img {
+  width: 100%;
+  height: auto;
+} */
 /* - Section Title
 --------------------------------------------------------------*/
 h3.card-title,
