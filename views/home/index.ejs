@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>9 Mobile - 251 Xã Đàn</title>
+  <title>Bảo Minh Store</title>
   <meta charset="utf-8">
   <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,7 +88,7 @@
 
       .sale45 {
         padding-left: 2%;
-        padding-right: 5%;
+        padding-right: 2%;
         padding-bottom: 3%;
         padding-top: 2%;
         width: 100%;
@@ -301,6 +301,18 @@
 
       }
 
+      .sale46 {
+
+        overflow: hidden;
+        background-color: rgb(251, 251, 252);
+        margin-top: 0.5%;
+        margin: 0 auto;
+        margin-left: 12%;
+        margin-right: 12%;
+        border-radius: 10px;
+
+      }
+
       .divsale45 {
         width: 70%;
         margin-bottom: 10%;
@@ -492,9 +504,28 @@
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
   tabindex="0">
 
-  <button id="fanpageButton" class="message-button">
-    <i class="fab fa-facebook-messenger"></i>
-  </button>
+
+  <div class="container">
+    <div class="col">
+      <div class="row">
+
+        <button id="fanpageButton" class="message-button">
+          <i class="fab fa-facebook-messenger"></i> Messenger
+        </button>
+
+      </div>
+      <div class="row">
+
+        <button id="callButton" class="message-button">
+          <i class="fas fa-phone"></i> Gọi
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+
 
 
 
@@ -622,11 +653,13 @@
 
   <header id="header"
     class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
-    <nav id="header-nav" class="navbar navbar-expand-lg px-2 mb-3">
+    <nav id="header-nav" class="navbar navbar-expand-lg px-2">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img src="/images/main-logo.png" class="logo">
+          <img src="/images/main-logo.png" class="logo"
+            style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
         </a>
+
         <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
           <svg class="navbar-icon">
@@ -698,8 +731,34 @@
       </div>
     </nav>
   </header>
+  <div class="container" style="height: 100px;"></div>
+  <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale46">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="https://www.facebook.com/profile.php?id=100086450281606">
+              <img src="/images/banner1.png" class="d-block img-cover w-100" alt="Image 1">
+            </a>
+          </div>
+          <div class="carousel-item">
 
-  <section id="billboard" class="position-relative ">
+            <a href="https://www.facebook.com/profile.php?id=100086450281606"> <img src="/images/banner2.png"
+                class="d-block img-cover w-100" alt="Image 1"></a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- <section id="billboard" class="position-relative ">
     <div class="swiper main-swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -715,7 +774,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
+
+
 
   <div id="hi">
     <div id="imagedoi">
@@ -723,7 +785,11 @@
       <img id="right" src="https://fptshop.com.vn/Content/images/tet-2024/img-right.png?v=1221" alt="">
     </div>
     <div id="thich">
-      <section id="company-services" class="padding-large sc">
+      <!-- <section id="banner-products" class="product-store position-relative no-padding-top section"> -->
+
+      <!-- </section> -->
+
+      <!-- <section id="company-services" class="padding-large sc">
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-md-6 pb-3">
@@ -785,7 +851,7 @@
 
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section id="mobile-products" class="product-store position-relative no-padding-top section">
         <div class="container sp">
@@ -842,9 +908,7 @@
               </div>
             </div>
             <div class="divimgsale">
-              <img class="imgsale"
-                src="https://images.fpt.shop/unsafe/fit-in/1168x97/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/12/25/638391388651553863_H7-%201200x100.png"
-                alt="">
+              <img class="imgsale" src="/images/banner3.png" alt="">
             </div>
             <div class="swiper product-watch-swiper">
               <div class="swiper-wrapper list">
@@ -1182,7 +1246,8 @@
           <div class="row d-flex flex-wrap justify-content-between">
             <div class="col-lg-3 col-sm-6 pb-3">
               <div class="footer-menu">
-                <img src="/images/main-logo.png" class="logo">
+                <img src="/images/main-logo.png" class="logo"
+                  style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
                 <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến
                   cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới
                   mẻ!</p>
@@ -1273,7 +1338,7 @@
                 <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
                 <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">ducbinhnguyennd@gmail.com</a>
                 </p>
-                <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0812 251 251</a>
+                <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0833 354 354</a>
                 </p>
               </div>
             </div>
@@ -1307,7 +1372,7 @@
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="copyright">
-            <p>© Copyright 2023 9Mobile. Design by Nguyễn Đức Bình<a href="https://templatesjungle.com/"></a>
+            <p>© Copyright 2023 Bảo Minh Store. Design by Nguyễn Đức Bình<a href="https://templatesjungle.com/"></a>
             </p>
           </div>
         </div>
@@ -1347,6 +1412,38 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const callButton = document.getElementById("callButton");
+      var leftImage = document.getElementById("left");
+      var rightImage = document.getElementById("right");
+      var footer = document.getElementById("footer");
+
+      callButton.addEventListener("click", function () {
+        // Thay thế "SỐ_ĐIỆN_THOẠI_CỦA_BẠN" bằng số điện thoại của bạn
+        window.location.href = "tel:+0833354354";
+      });
+
+      leftImage.style.transition = "bottom 0.3s ease-in-out";
+      rightImage.style.transition = "bottom 0.3s ease-in-out";
+
+      window.addEventListener("scroll", function () {
+        var footerPosition = footer.getBoundingClientRect();
+        var imagePosition = leftImage.getBoundingClientRect();
+
+        // Kiểm tra nếu hình ảnh gần phần footer
+        if (imagePosition.bottom >= footerPosition.top) {
+          leftImage.style.bottom = "60%";
+          rightImage.style.bottom = "60%";
+        } else {
+          // Nếu không, đặt lại vị trí của hình ảnh
+          leftImage.style.bottom = "35%";
+          rightImage.style.bottom = "35%";
+        }
+      });
+    });
+  </script>
+
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
