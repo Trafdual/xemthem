@@ -57,8 +57,8 @@ router.get('/', async (req, res) => {
                 chitietsp: chitietspJson
             };
         }));
-        res.json(tenspjson)
-        // res.render('home/index.ejs',{tenspjson,listBl});
+        // res.json(tenspjson)
+        res.render('home/index.ejs',{tenspjson,listBl});
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
