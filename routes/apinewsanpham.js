@@ -150,7 +150,30 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+router.get('/getspchitiet/:idloaisp', async (req, res) => {
+    try {
+        const idloaisp = req.params.idloaisp;
+        const loaisp = await LoaiSP.TenSP.findById(idloaisp);
+        if (!loaisp) {
+            return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
+        }
 
+        const chitiet=await Promise.all(loaisp.chitietsp.map(async(ct)=>{
+            const chitietsp=await Sp.ChitietSp.findById(ct._id);
+            return{
+                _id:chitietsp._id,
+                image:chitietsp.image,
+                name:chitietsp.name,
+                content:chitietsp.content,
+                price:chitietsp.price
+            }
+        }))
+        res.render('home/shop.ejs', {chitiet})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
 router.get('/getchitiet/:idsp', async (req, res) => {
     try {
         const idsp = req.params.idsp;
