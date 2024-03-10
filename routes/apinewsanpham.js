@@ -10,17 +10,21 @@ const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
 
-
 router.post('/postloaisp', async (req, res) => {
     try {
-        const { name } = req.body
+        const { name } = req.body;
         const tensp = new LoaiSP.TenSP({ name });
-        await tensp.save();
-        res.render('home/home.ejs')
+        const savedTensp = await tensp.save();
+        res.json({ 
+            id: savedTensp._id, // Sử dụng _id của đối tượng đã lưu
+            name: savedTensp.name, // Thông tin về tên sản phẩm
+            message: "Sản phẩm đã được lưu thành công!" 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
+    
 });
 
 router.get('/main', async (req, res) => {

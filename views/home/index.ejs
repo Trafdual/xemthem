@@ -969,7 +969,7 @@
                 <div class="divimgsale">
                   <img class="imgsale" src="/images/banner3.png" alt="">
                 </div>
-                <div class="swiper product-swiper ">
+                <div class="swiper product-swiper swiper-container">
                   <div class="swiper-wrapper list">
                     <% row.chitietsp.forEach((item, index)=> { %>
                       <div class="swiper-slide">
@@ -980,8 +980,10 @@
                           </div>
                           <div class="cart-concern position-absolute ">
                             <div class="cart-button d-flex">
-                              <a style="font-size: 10px; max-height: 75%;"  href="/getchitiet/<%= item.id %>" class="btn btn-medium btn-danger">Xem chi tiết</a>
-                             <p onclick="makeCall()" style="font-size: 10px;"  class="btn btn-medium btn-danger">Mua ngay</p>
+                              <a style="font-size: 10px; max-height: 75%;" href="/getchitiet/<%= item.id %>"
+                                class="btn btn-medium btn-danger">Xem chi tiết</a>
+                              <p onclick="makeCall()" style="font-size: 10px;" class="btn btn-medium btn-danger">Mua
+                                ngay</p>
                             </div>
                           </div>
                           <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
@@ -996,14 +998,16 @@
                           </div>
                         </div>
                       </div>
-                      <% }) %>
+                    <% }) %>
                   </div>
+                  <div class="swiper-pagination position-absolute text-center"></div>
                 </div>
               </div>
             </div>
-            <div class="swiper-pagination position-absolute text-center"></div>
           </section>
-          <% }) %>
+        <% }) %>
+        
+        
             <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale45"
               style="background-image: url('/images/single-image1.png');background-position: right; background-repeat: no-repeat; background-size: cover;">
               <div class="row d-flex flex-wrap ">
@@ -1502,6 +1506,16 @@
           window.location.href = "tel:" + phoneNumber;
         }
       }
+    </script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        // Cấu hình Swiper tại đây
+        // Ví dụ:
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
     </script>
     <script src="/js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
