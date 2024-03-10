@@ -53,7 +53,6 @@ router.get('/', async (req, res) => {
                 chitietsp: chitietspJson
             };
         }));
-        // res.json(tenspjson)
         res.render('home/index.ejs',{tenspjson,listBl});
     } catch (error) {
         console.error(error);
@@ -161,7 +160,7 @@ router.get('/getchitiet/:idsp', async (req, res) => {
             price:sp.price,
             content:sp.content
         }
-
+// res.json(spjson)
         res.render('home/single-product.ejs', {spjson})
     } catch (error) {
         console.error(error);

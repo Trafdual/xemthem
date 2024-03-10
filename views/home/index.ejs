@@ -78,6 +78,8 @@
         /* Đặt điểm xoay tại trung tâm của ảnh */
       }
 
+ 
+
       @keyframes shake {
         0% {
           transform: rotate(-10deg);
@@ -396,6 +398,9 @@
           opacity: 1;
           /* Ẩn đi */
         }
+      }
+      .nutsp{
+        font-size: 1px;
       }
 
 
@@ -973,17 +978,15 @@
                             <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item"
                               class="img-fluid anh">
                           </div>
-                          <div class="cart-concern position-absolute">
+                          <div class="cart-concern position-absolute ">
                             <div class="cart-button d-flex">
-                              <a href="/chitiet/<%= item._id %>" class="btn btn-medium btn-black">Xem chi tiết<svg
-                                  class="cart-outline">
-                                  <use xlink:href="#cart-outline"></use>
-                                </svg></a>
+                              <a style="font-size: 10px; max-height: 75%;"  href="/getchitiet/<%= item.id %>" class="btn btn-medium btn-danger">Xem chi tiết</a>
+                             <p onclick="makeCall()" style="font-size: 10px;"  class="btn btn-medium btn-danger">Mua ngay</p>
                             </div>
                           </div>
                           <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
                             <h6>
-                              <a href="/chitiet/<%= item._id %>" class="name">
+                              <a href="/getchitiet/<%= item.id %>" class="name">
                                 <%= item.name %>
                               </a>
                             </h6>
