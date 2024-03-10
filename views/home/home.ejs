@@ -17,8 +17,8 @@
 
 
             <div class="col-sm-4 col-md-2">
-                <a type="button" class="btn btn-danger" href="/add">
-                    ➕ Thêm sản phẩm
+                <a type="button" class="btn btn-danger" href="/addloaisp">
+                    ➕ Thêm loại sản phẩm
                 </a>
             </div>
             <div class="col-sm-4 col-md-2">
@@ -49,12 +49,12 @@
                             <%= row._id%>
                         </td>
                         <td>
-                            <a href="/chitiet/<%= row._id %>">
+                            <a href="">
                                 <%= row.name %>
                             </a>
                         </td>
 
-                        <td> <a href="">
+                        <td> <a href="/editloaisp/<%= row._id %>">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
                             <form action="/deleteloaisp/<%= row._id %>" method="post" id="deleteForm">
