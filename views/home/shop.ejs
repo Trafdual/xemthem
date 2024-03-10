@@ -57,6 +57,15 @@
         width: 290px;
         height: auto;
       }
+      .btnsp{
+  
+  max-width: 85%;
+  justify-items: center;
+}
+      .thanhphan {
+        overflow: hidden;
+        width: 100%;
+      }
 
       @keyframes shake {
         0% {
@@ -140,6 +149,14 @@
       .anh {
         width: 270px;
         height: 310px;
+      }
+      .btnsp{
+  
+        max-width: 85%;
+        justify-items: center;
+      }
+      .thanhphan {
+        max-width: 85%;
       }
 
       @keyframes shake {
@@ -406,30 +423,28 @@
               </select>
             </div>
           </div>
-          <div class="product-content product-store d-flex justify-content-between flex-wrap">
-            <% listSP.forEach( ( row )=>{ %>
+          <div class="product-content product-store d-flex justify-content-between flex-wrap overflow-hidden">
+            <% chitiet.forEach( ( row )=>{ %>
               <div class="col-lg-4 col-md-6 ">
                 <div class="product-card position-relative pe-3 pb-3">
                   <div class="image-holder">
-                    <img src="data:image/jpeg;base64, <%= row.img %>" alt="product-item" class="img-fluid anh">
+                    <img src="data:image/jpeg;base64, <%= row.image %>" alt="product-item" class="img-fluid anh">
                   </div>
-                  <div class="cart-concern position-absolute">
+                  <div style="padding: 20%;" class="cart-concern position-absolute btnsp ">
                     <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="/chitiet/<%= row._id %>" class="btn btn-medium btn-black">Xem Chi Tiết</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
+                      <a style="font-size: 10px; max-height: 75%;" href="/getchitiet/<%= row._id %>"
+                        class="btn btn-medium btn-danger">Chi tiết</a>
+                      <p onclick="makeCall()" style="font-size: 10px; height: 75%;" class="btn btn-medium btn-danger">Mua
+                        ngay</p>
                     </div>
                   </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 pb-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="/chitiet/<%= row._id %>">
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan ">
+                    <h6 >
+                      <a href="/getchitiet/<%= row._id %>">
                         <%= row.name %>
                       </a>
-                    </h3>
-                    <span class="item-price text-primary">
+                    </h6>
+                    <span class="item-price text-primary price text-wrap">
                       <%= row.price %>
                     </span>
                   </div>
@@ -783,6 +798,30 @@
         window.location.href = "https://www.messenger.com/t/105703318958498";
       });
     });
+  </script>
+  <script>
+    function makeCall() {
+      // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
+      var phoneNumber = "0833354354";
+
+      // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
+      if ("contacts" in navigator && "ContactsManager" in window) {
+        // Sử dụng API Contacts để gọi điện
+        navigator.contacts.select(["phone"]).then(contacts => {
+          // Gọi điện đến số điện thoại đã được chỉ định
+          contacts.forEach(contact => {
+            contact.phoneNumbers.forEach(phone => {
+              if (phone.value === phoneNumber) {
+                contact.pick();
+              }
+            });
+          });
+        });
+      } else {
+        // Mở giao diện gọi điện của trình duyệt
+        window.location.href = "tel:" + phoneNumber;
+      }
+    }
   </script>
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

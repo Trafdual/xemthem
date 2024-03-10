@@ -372,14 +372,14 @@
       <div class="row mt-5">
         <div class="col-lg-6">
           <div class="product-preview mb-3">
-            <img src="data:image/jpeg;base64, <%= objSP.img %>" alt="single-product" class="img-fluid sanpham">
+            <img src="data:image/jpeg;base64, <%= spjson.image %>" alt="single-product" class="img-fluid sanpham">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="product-info">
             <div class="element-header">
               <h3 itemprop="name" class="display-7 text-uppercase">
-                <%= objSP.name %>
+                <%= spjson.name %>
               </h3>
               <div class="rating-container d-flex align-items-center">
                 <div class="rating" data-rating="1" onclick=rate(1)>
@@ -392,33 +392,13 @@
             </div>
             <div class="product-price pt-3 pb-3">
               <strong class="text-primary display-6 fw-bold">
-                <%= objSP.price %>
+                <%= spjson.price %>
               </strong>
             </div>
             <p>
-              <%= objSP.noidung %>
+              <%= spjson.content %>
             </p>
             <div class="cart-wrap padding-small">
-              <div class="color-options product-select">
-                <div class="color-toggle" data-option-index="0">
-                  <h4 class="item-title text-uppercase text-dark text-decoration-underline">Color:</h4>
-                  <ul class="select-list list-unstyled d-flex">
-                    <li class="select-item pe-3" data-val="Green" title="Green">
-                      <a href="#">Green</a>
-                    </li>
-                    <li class="select-item pe-3" data-val="Orange" title="Orange">
-                      <a href="#">Orange</a>
-                    </li>
-                    <li class="select-item pe-3" data-val="Red" title="Red">
-                      <a href="#">Red</a>
-                    </li>
-                    <li class="select-item" data-val="Black" title="Black">
-                      <a href="#">Black</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
               <div class="product-quantity">
                 <div class="stock-number text-dark">2 in stock</div>
                 <div class="stock-button-wrap pt-3">
@@ -457,136 +437,15 @@
         <div class="tabs-listing">
           <nav>
             <div class="nav nav-tabs d-flex flex-wrap justify-content-center" id="nav-tab" role="tablist">
-              <button class="nav-link active text-uppercase pe-5" id="nav-home-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Giới
-                Thiệu</button>
               <button class="nav-link text-uppercase pe-5" id="nav-information-tab" data-bs-toggle="tab"
                 data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information"
-                aria-selected="false">Dịch vụ bảo hành</button>
+                aria-selected="true">Dịch vụ bảo hành</button>
               <button class="nav-link text-uppercase pe-5" id="nav-review-tab" data-bs-toggle="tab"
                 data-bs-target="#nav-review" type="button" role="tab" aria-controls="nav-review"
                 aria-selected="false">Đánh giá</button>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active border-top border-bottom padding-small" id="nav-home" role="tabpanel"
-              aria-labelledby="nav-home-tab">
-              <p>Kích thước màn hình</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.kichthuocmanhinh %>
-                </li>
-              </ul>
-              <p>Công nghệ màn hình</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.congnghemanhinh %>
-                </li>
-              </ul>
-              <p>Camera sau</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.camerasau %>
-                </li>
-              </ul>
-              <p>Camera trước</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.cameratruoc %>
-                </li>
-              </ul>
-              <p>Chip</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.chip %>
-                </li>
-              </ul>
-              <p>Bộ nhớ</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.bonho %>
-                </li>
-              </ul>
-              <p>Pin</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.pin %>
-                </li>
-              </ul>
-              <p>Hệ điều hành</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.hedieuhanh %>
-                </li>
-              </ul>
-              <p>Độ phân giải</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.dophangiai %>
-                </li>
-              </ul>
-              <p>Tính năng màn hình</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.tinhnangmanhinh %>
-                </li>
-              </ul>
-              <p>GPU</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.GPU %>
-                </li>
-              </ul>
-              <p>Quay video</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.quayvideo %>
-                </li>
-              </ul>
-              <p>Tính năng camera</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.tinhnangcamera %>
-                </li>
-              </ul>
-              <p>Kích thước</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.kichthuoc %>
-                </li>
-              </ul>
-              <p>Trọng lượng</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.trongluong %>
-                </li>
-              </ul>
-              <p>Công nghệ sạc</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.congnghesac %>
-                </li>
-              </ul>
-              <p>Cổng sạc</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.congsac %>
-                </li>
-              </ul>
-              <p>Kiểu màn hình</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.kieumanhinh %>
-                </li>
-              </ul>
-              <p>Tính năng đặc biệt</p>
-              <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-                <li style="font-size: larger;overflow-wrap: break-word;">
-                  <%= objSP.tinhnagdacbiet %>
-                </li>
-              </ul>
-
-            </div>
 
             <div class="tab-pane fade border-top border-bottom padding-small" id="nav-information" role="tabpanel"
               aria-labelledby="nav-information-tab">
@@ -695,50 +554,7 @@
       </div>
     </div>
   </section>
-  <section id="related-products" class="product-store position-relative padding-large">
-    <div class="container">
-      <div class="row">
-        <div class="display-header d-flex justify-content-between pb-3">
-          <h2 class="display-7 text-dark text-uppercase">Các Sản Phẩm Bán Chạy</h2>
-          <div class="btn-right">
-            <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Xem Thêm</a>
-          </div>
-        </div>
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
-            <% listSP.forEach( ( row )=>{ %>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="data:image/jpeg;base64, <%= row.img %>" alt="product-item" class="img-fluid anh">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <a href="/chitiet/<%= row._id %>" class="btn btn-medium btn-black">Xem chi tiết<svg
-                          class="cart-outline">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg></a>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="/chitiet/<%= row._id %>">
-                        <%= row.name %>
-                      </a>
-                    </h3>
-                    <span class="item-price text-primary">
-                      <%= row.price %>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <% } ) %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-pagination position-absolute text-center"></div>
-  </section>
+
   <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
     <div class="container">
       <div class="row">
