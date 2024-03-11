@@ -153,6 +153,14 @@
       .message-button:hover {
         animation: shake 0.5s;
       }
+      .name {
+        font-size: 150%;
+      }
+
+      .price {
+        color: #3498db;
+        font-size: 150%;
+      }
 
       body {
 
@@ -171,9 +179,11 @@
         max-width: 85%;
         justify-items: center;
       }
-
+      .btnsp2{
+        margin-right: 60%;
+      }
       .thanhphan {
-        max-width: 85%;
+        max-width: 55%;
       }
 
       @keyframes shake {
@@ -442,7 +452,7 @@
           </div>
           <div class="product-content product-store d-flex justify-content-between flex-wrap overflow-hidden">
             <% chitiet.forEach( ( row )=>{ %>
-              <div style="width: 50%;" class="col-lg-4 col-sm-6 col-12">
+              <div style="width: 50%;" class="col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="product-card position-relative ">
                   <div class="image-holder">
                     <img src="data:image/jpeg;base64, <%= row.image %>" alt="product-item" class="img-fluid anh">
