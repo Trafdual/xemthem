@@ -14,12 +14,8 @@ router.post('/postloaisp', async (req, res) => {
     try {
         const { name } = req.body;
         const tensp = new LoaiSP.TenSP({ name });
-        const savedTensp = await tensp.save();
-        res.json({ 
-            id: savedTensp._id, // Sử dụng _id của đối tượng đã lưu
-            name: savedTensp.name, // Thông tin về tên sản phẩm
-            message: "Sản phẩm đã được lưu thành công!" 
-        });
+        await tensp.save();
+        res.redirect("/main");
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -27,7 +23,56 @@ router.post('/postloaisp', async (req, res) => {
     
 });
 
-router.get('/main', async (req, res) => {
+router.post('/putloaisp/:id', async (req, res) => {
+    try {
+        const id=req.params.id;
+        const { name } = req.body;
+        const tensp = await LoaiSP.TenSP.findById(id);
+        tensp.name=name;
+        await tensp.save();
+        res.redirect("/main");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+    
+});
+
+router.get('/editloaisp/:id', async (req, res) => {
+    try {
+        const id=req.params.id;
+        const tensp = await LoaiSP.TenSP.findById(id);
+        res.render("home/editloaisp.ejs",{tensp});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+    
+});
+
+router.get('/addloaisp', async (req, res) => {
+    try {
+        res.render("home/addloaisp.ejs");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+    
+});
+
+router.get('/addsp/:idloaisp', async (req, res) => {
+    try {
+        const idloaisp=req.params.idloaisp;
+        res.render("home/add.ejs",{idloaisp});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+    
+});
+
+
+router.get('/main',checkAuth, async (req, res) => {
     try {
         let listloai = await LoaiSP.TenSP.find()
         let listblog = await myMDBlog.blogModel.find()
@@ -76,7 +121,7 @@ router.post('/deleteloaisp/:id', async (req, res) => {
             await Sp.ChitietSp.findByIdAndDelete(chitietsp._id);
         }));
         await LoaiSP.TenSP.deleteOne({ _id: id });
-        res.render('home/home.ejs');
+        res.redirect('/main');
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -144,7 +189,7 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
                 price:chitietsp.price
             }
         }))
-        res.render('home/chitietsp.ejs', {chitiet})
+        res.render('home/chitietsp.ejs', {chitiet,idloaisp})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -211,30 +256,30 @@ router.post('/postmausac/:chitietspid', upload.single('image'), async (req, res)
     }
 })
 
-router.delete('/deletechitietsp/:id', async (req, res) => {
+router.post('/deletechitietsp/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const chitietsp = await Sp.ChitietSp.findById(id);
         if (!chitietsp) {
             return res.status(404).json({ message: 'Không tìm thấy chi tiết sản phẩm' });
         }
-        const loaisp = await LoaiSP.findById(chitietsp.idloaisp);
+        const loaisp = await LoaiSP.TenSP.findById(chitietsp.idloaisp);
         loaisp.chitietsp = loaisp.chitietsp.filter(chitiet => chitiet.toString() !== id);
         await loaisp.save();
 
         await Sp.ChitietSp.deleteOne({ _id: id });
 
-        res.json({ message: 'Xóa chi tiết sản phẩm thành công' });
+        res.redirect('/main');
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 });
 
-router.put('/updatechitietsp/:id', async (req, res) => {
+router.post('/updatechitietsp/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const { content, price } = req.body;
+        const {name, content, price } = req.body;
 
         const chitietsp = await Sp.ChitietSp.findById(id);
         if (!chitietsp) {
@@ -243,14 +288,27 @@ router.put('/updatechitietsp/:id', async (req, res) => {
 
         chitietsp.content = content;
         chitietsp.price = price;
+        chitietsp.name=name
 
         await chitietsp.save();
 
-        res.json(chitietsp);
+        res.redirect("/main");
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
+});
+
+router.get('/editsp/:id', async (req, res) => {
+    try {
+        const id=req.params.id;
+        const sp = await Sp.ChitietSp.findById(id);
+        res.render("home/edit.ejs",{sp});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+    
 });
 
 module.exports = router;

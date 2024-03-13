@@ -6,25 +6,8 @@ const { route, render } = require('..');
 const storage = multer.memoryStorage();
 const uploader = multer({ storage: storage });
 
-router.get('/', homeController.home);
-router.post('/', homeController.home);
-router.get('/ttshop', homeController.home2);
-
 
 router.get('/search', homeController.searchByName);
-
-// SẢN PHẨM
-router.get('/add', homeController.add);
-router.post('/add', uploader.single('image'), homeController.add);
-router.post('/add2', homeController.addJson);
-
-router.get('/home/edit/:idsp', homeController.edit);
-router.post('/home/edit/:idsp', uploader.single('image'), homeController.edit);
-router.put('/home/edit2/:idsp', homeController.editJson);
-
-router.get('/home/deleteSP/:idsp', homeController.deleteSP);
-router.post('/home/deleteSP/:idsp', homeController.deleteSP);
-router.delete('/home/delete2/:idsp', homeController.deleteJson);
 
 // BLOG
 router.get('/addblog', homeController.addblog);

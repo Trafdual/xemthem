@@ -54,17 +54,32 @@
       }
 
       .anh {
-        width: 290px;
+        width: 100%;
         height: auto;
       }
-      .btnsp{
-  
-  max-width: 85%;
-  justify-items: center;
-}
+
+      .btnsp {
+        margin-right: 50%;
+        max-width: 100%;
+        justify-items: center;
+      }
+      .btnsp2{
+        margin-right: 2%;
+      }
+      
+
+
       .thanhphan {
-        overflow: hidden;
         width: 100%;
+      }
+
+      .name {
+        font-size: 110%;
+      }
+
+      .price {
+        color: #3498db;
+        font-size: 110%;
       }
 
       @keyframes shake {
@@ -138,6 +153,14 @@
       .message-button:hover {
         animation: shake 0.5s;
       }
+      .name {
+        font-size: 150%;
+      }
+
+      .price {
+        color: #3498db;
+        font-size: 150%;
+      }
 
       body {
 
@@ -150,13 +173,17 @@
         width: 270px;
         height: 310px;
       }
-      .btnsp{
-  
+
+      .btnsp {
+
         max-width: 85%;
         justify-items: center;
       }
+      .btnsp2{
+        margin-right: 60%;
+      }
       .thanhphan {
-        max-width: 85%;
+        max-width: 55%;
       }
 
       @keyframes shake {
@@ -425,28 +452,29 @@
           </div>
           <div class="product-content product-store d-flex justify-content-between flex-wrap overflow-hidden">
             <% chitiet.forEach( ( row )=>{ %>
-              <div class="col-lg-4 col-md-6 ">
-                <div class="product-card position-relative pe-3 pb-3">
+              <div style="width: 50%;" class="col-lg-4 col-md-6 col-sm-6 col-12">
+                <div class="product-card position-relative ">
                   <div class="image-holder">
                     <img src="data:image/jpeg;base64, <%= row.image %>" alt="product-item" class="img-fluid anh">
                   </div>
-                  <div style="padding: 20%;" class="cart-concern position-absolute btnsp ">
-                    <div class="cart-button d-flex">
+                  <div style="padding: 20%;" class="cart-concern position-absolute btnsp overflow-hidden">
+                    <div class="cart-button d-flex btnsp2">
                       <a style="font-size: 10px; max-height: 75%;" href="/getchitiet/<%= row._id %>"
                         class="btn btn-medium btn-danger">Chi tiết</a>
-                      <p onclick="makeCall()" style="font-size: 10px; height: 75%;" class="btn btn-medium btn-danger">Mua
+                      <p onclick="makeCall()" style="font-size: 10px; height: 75%;" class="btn btn-medium btn-danger">
+                        Mua
                         ngay</p>
                     </div>
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan ">
-                    <h6 >
+                    <h6 class="name">
                       <a href="/getchitiet/<%= row._id %>">
                         <%= row.name %>
                       </a>
                     </h6>
-                    <span class="item-price text-primary price text-wrap">
+                    <h6 class="item-price text-primary price text-wrap">
                       <%= row.price %>
-                    </span>
+                    </h6>
                   </div>
                 </div>
               </div>

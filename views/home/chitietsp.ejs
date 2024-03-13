@@ -11,6 +11,11 @@
                         name="search">
                     <button class="btn btn-light" type="submit">Search</button>
                 </form>
+                <div class="col-sm-4 col-md-2">
+                    <a type="button" class="btn btn-danger" href="/addsp/<%= idloaisp %>">
+                        ➕ Thêm sản phẩm
+                    </a>
+                </div>
 
             </div>
 
@@ -55,10 +60,10 @@
                             <%= row.content %>
                         </td>
 
-                        <td> <a href="/home/edit/<%= row._id %>">
+                        <td> <a href="/editsp/<%= row._id %>">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
-                            <form action="/home/deleteSP/<%= row._id %>" method="post" id="deleteForm">
+                            <form action="/deletechitietsp/<%= row._id %>" method="post" id="deleteForm">
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal<%= row._id %>">
                                     Xóa

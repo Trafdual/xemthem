@@ -4,76 +4,19 @@
         <h3><a href="/main"><img style="width: 30px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Cập
             nhật sản phẩm</h3>
 
-        <form action="/home/edit/<%= objSP._id %>" method="post" enctype="multipart/form-data">
+        <form action="/updatechitietsp/<%= sp._id %>" method="post">
             <form class="px-4 py-3">
 
-                <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Ảnh sản phẩm</label>
-                    <input class="form-control" type="file" name="image" id="formFileMultiple" multiple>
-                </div>
-
                 <label class="form-label">Tên sản phẩm</label>
-                <input type="text" name="name" class="form-control" value="<%=objSP.name %>"><br>
+                <input type="text" name="name" class="form-control" value="<%=sp.name %>"><br>
 
                 <label class="form-label">Giá</label>
-                <input type="text" name="price" class="form-control" value="<%=objSP.price %>"><br>
+                <input type="text" name="price" class="form-control" value="<%=sp.price %>"><br>
 
-                <label class="form-label">Chi tiết sản phẩm</label>
-                <input type="text" name="noidung" class="form-control" value="<%=objSP.noidung %>"><br>
-
-                <label class="form-label">Kích thước màn hình</label>
-                <input type="text" name="kichthuocmanhinh" class="form-control"
-                    value="<%=objSP.kichthuocmanhinh %>"><br>
-
-                <label class="form-label">Công nghệ màn hình</label>
-                <input type="text" name="congnghemanhinh" class="form-control" value="<%=objSP.congnghemanhinh %>"><br>
-
-                <label class="form-label">Camera sau</label>
-                <input type="text" name="camerasau" class="form-control" value="<%=objSP.camerasau %>"><br>
-
-                <label class="form-label">Camera trước</label>
-                <input type="text" name="cameratruoc" class="form-control" value="<%=objSP.cameratruoc %>"><br>
-                <label class="form-label">chip</label>
-                <input type="text" name="chip" class="form-control" value="<%=objSP.chip %>"><br>
-
-                <label class="form-label">Bộ nhớ</label>
-                <input type="text" name="bonho" class="form-control" value="<%=objSP.bonho %>"><br>
-
-                <label class="form-label">Pin</label>
-                <input type="text" name="pin" class="form-control" value="<%=objSP.pin %>"><br>
-
-                <label class="form-label">Hệ điều hành</label>
-                <input type="text" name="hedieuhanh" class="form-control" value="<%=objSP.hedieuhanh %>"><br>
-
-                <label class="form-label">Độ phân giải</label>
-                <input type="text" name="dophangiai" class="form-control" value="<%=objSP.dophangiai %>"><br>
-
-                <label class="form-label">Tính năng màn hình</label>
-                <input type="text" name="tinhnangmanhinh" class="form-control" value="<%=objSP.tinhnangmanhinh %>"><br>
-
-                <label class="form-label">GPU</label>
-                <input type="text" name="GPU" class="form-control" value="<%=objSP.GPU %>"><br>
-
-                <label class="form-label">quayvideo</label>
-                <input type="text" name="quayvideo" class="form-control" value="<%=objSP.quayvideo %>"><br>
-
-                <label class="form-label">Tính năng camera</label>
-                <input type="text" name="tinhnangcamera" class="form-control" value="<%=objSP.tinhnangcamera %>"><br>
-
-                <label class="form-label">Trọng lượng</label>
-                <input type="text" name="trongluong" class="form-control" value="<%=objSP.trongluong %>"><br>
-
-                <label class="form-label">Công nghệ sạc</label>
-                <input type="text" name="congnghesac" class="form-control" value="<%=objSP.congnghesac %>"><br>
-
-                <label class="form-label">Cổng sạc</label>
-                <input type="text" name="congsac" class="form-control" value="<%=objSP.congsac %>"><br>
-
-                <label class="form-label">Kiểu màn hình</label>
-                <input type="text" name="kieumanhinh" class="form-control" value="<%=objSP.kieumanhinh %>"><br>
+                <label class="form-label">Nội dung</label>
+                <input type="text" name="content" class="form-control" value="<%=sp.content %>"><br>
 
                 <button type="submit" class="btn btn-danger">Cập nhật</button>
-                <%= msg %>
             </form>
         </form>
     </div>

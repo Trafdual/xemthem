@@ -1,0 +1,16 @@
+<%- include('../include/header.ejs') %>
+
+    <div class="container">
+        <h3><a href="/main"><img style="width: 30px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Cập
+            nhật loại sản phẩm</h3>
+
+        <form action="/putloaisp/<%= tensp._id %>" method="post">
+            <form class="px-4 py-3">
+
+                <label class="form-label">Tên sản phẩm</label>
+                <input type="text" name="name" class="form-control" value="<%=tensp.name %>"><br>
+
+                <button type="submit" class="btn btn-danger">Cập nhật</button>
+            </form>
+        </form>
+    </div>

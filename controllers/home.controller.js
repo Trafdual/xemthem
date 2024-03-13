@@ -132,9 +132,6 @@ exports.add = async (req, res, next) => {
       console.log(error);
     }
   }
-
-
-
   res.render("home/add.ejs", { msg: msg });
 };
 
