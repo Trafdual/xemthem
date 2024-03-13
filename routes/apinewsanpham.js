@@ -103,6 +103,7 @@ router.get('/', async (req, res) => {
             };
         }));
         res.render('home/index.ejs',{tenspjson,listBl});
+        // res.json(tenspjson);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
