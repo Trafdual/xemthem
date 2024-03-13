@@ -342,10 +342,6 @@
         right: 70px;
       }
 
-      /* Thiết lập hiệu ứng lắc lắc rung rung */
-      .message-button:hover {
-        animation: shake 0.5s;
-      }
 
       .facezalo {
         position: fixed;
@@ -491,9 +487,10 @@
       .ft {
         z-index: 9;
         background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
+        margin-top:0.5%;
         margin-left: 0;
         margin-right: 0;
+        padding-top: 10px;
       }
 
       .list {
@@ -1054,7 +1051,7 @@
                       <div class="card-body text-uppercase">
                         <div class="card-meta text-muted">
                           <span class="meta-date">Hàng chính hãng</span>
-                          <span class="meta-category">- 9 Mobile</span>
+                          <span class="meta-category">- Bảo Minh Store</span>
                         </div>
                         <h3 class="card-title">
                           <a href="#">Củ sạc nhanh Apple 20W Type-C</a>
@@ -1070,7 +1067,7 @@
                       <div class="card-body text-uppercase">
                         <div class="card-meta text-muted">
                           <span class="meta-date">Hàng chính hãng</span>
-                          <span class="meta-category">- 9 Mobile</span>
+                          <span class="meta-category">- Bảo Minh Store</span>
                         </div>
                         <h3 class="card-title">
                           <a href="#">Dây cáp sạc nhanh Apple</a>
@@ -1086,7 +1083,7 @@
                       <div class="card-body text-uppercase">
                         <div class="card-meta text-muted">
                           <span class="meta-date">Hàng chính hãng</span>
-                          <span class="meta-category">- 9 Mobile</span>
+                          <span class="meta-category">- Bảo Minh Store</span>
                         </div>
                         <h3 class="card-title">
                           <a href="#">Ốp lưng dẻo thời trang, cường lực chắc chắn</a>
@@ -1262,15 +1259,14 @@
       </div>
     </div>
     <footer id="footer" class="overflow-hidden ft">
-      <div class="container sp">
-        <div class="row justify-content-center">
+      <div class="container">
+        <div class="row">
           <div class="footer-top-area">
-            <div class="row d-flex flex-wrap justify-content-center">
+            <div class="row d-flex flex-wrap justify-content-between">
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
                   <img src="/images/main-logo.png" class="logo">
-                  <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy
-                    đến
+                  <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến
                     cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới
                     mẻ!</p>
                   <div class="social-links">
@@ -1314,7 +1310,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6 pb-3">
+              <div class="col-lg-2 col-sm-6 pb-3">
                 <div class="footer-menu text-uppercase">
                   <h5 class="widget-title pb-2">Đường dẫn nhanh</h5>
                   <ul class="menu-list list-unstyled text-uppercase">
@@ -1358,9 +1354,9 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
-                  <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">ducbinhnguyennd@gmail.com</a>
+                  <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">baominhstore354@gmail.com</a>
                   </p>
-                  <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0833 354 354</a>
+                  <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0816 354 354</a>
                   </p>
                 </div>
               </div>
@@ -1369,7 +1365,7 @@
         </div>
       </div>
       <hr>
-    </footer>
+    </footer>         
     <div id="footer-bottom">
       <div class="container">
         <div class="row d-flex flex-wrap justify-content-between">
@@ -1394,7 +1390,7 @@
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="copyright">
-              <p>© Copyright 2024 Bảo Minh Store. Design by Nguyễn Đức Bình<a href="https://templatesjungle.com/"></a>
+              <p>© Copyright 2024 Bảo Minh Store.<a href="https://templatesjungle.com/"></a>
               </p>
             </div>
           </div>
@@ -1402,62 +1398,62 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const fanpageButton = document.getElementById("fanpageButton");
-        var leftImage = document.getElementById("left");
-        var rightImage = document.getElementById("right");
-        var footer = document.getElementById("footer");
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const fanpageButton = document.getElementById("fanpageButton");
+          var leftImage = document.getElementById("left");
+          var rightImage = document.getElementById("right");
+          var footer = document.getElementById("footer");
 
-        fanpageButton.addEventListener("click", function () {
-          // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
-          window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+          fanpageButton.addEventListener("click", function () {
+            // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+            window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+          });
+
+          leftImage.style.transition = "bottom 0.3s ease-in-out";
+          rightImage.style.transition = "bottom 0.3s ease-in-out";
+
+          window.addEventListener("scroll", function () {
+            var footerPosition = footer.getBoundingClientRect();
+            var imagePosition = leftImage.getBoundingClientRect();
+
+            // Kiểm tra nếu hình ảnh gần phần footer
+            if (imagePosition.bottom >= footerPosition.top) {
+
+              leftImage.style.bottom = "60%";
+              rightImage.style.bottom = "60%";
+            } else {
+              // Nếu không, đặt lại vị trí của hình ảnh
+              leftImage.style.bottom = "35%";
+              rightImage.style.bottom = "35%";
+            }
+          });
         });
+      </script>
+      <script>
+        function makeCall() {
+          // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
+          var phoneNumber = "0833354354";
 
-        leftImage.style.transition = "bottom 0.3s ease-in-out";
-        rightImage.style.transition = "bottom 0.3s ease-in-out";
-
-        window.addEventListener("scroll", function () {
-          var footerPosition = footer.getBoundingClientRect();
-          var imagePosition = leftImage.getBoundingClientRect();
-
-          // Kiểm tra nếu hình ảnh gần phần footer
-          if (imagePosition.bottom >= footerPosition.top) {
-
-            leftImage.style.bottom = "60%";
-            rightImage.style.bottom = "60%";
-          } else {
-            // Nếu không, đặt lại vị trí của hình ảnh
-            leftImage.style.bottom = "35%";
-            rightImage.style.bottom = "35%";
-          }
-        });
-      });
-    </script>
-    <script>
-      function makeCall() {
-        // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
-        var phoneNumber = "0833354354";
-
-        // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
-        if ("contacts" in navigator && "ContactsManager" in window) {
-          // Sử dụng API Contacts để gọi điện
-          navigator.contacts.select(["phone"]).then(contacts => {
-            // Gọi điện đến số điện thoại đã được chỉ định
-            contacts.forEach(contact => {
-              contact.phoneNumbers.forEach(phone => {
-                if (phone.value === phoneNumber) {
-                  contact.pick();
-                }
+          // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
+          if ("contacts" in navigator && "ContactsManager" in window) {
+            // Sử dụng API Contacts để gọi điện
+            navigator.contacts.select(["phone"]).then(contacts => {
+              // Gọi điện đến số điện thoại đã được chỉ định
+              contacts.forEach(contact => {
+                contact.phoneNumbers.forEach(phone => {
+                  if (phone.value === phoneNumber) {
+                    contact.pick();
+                  }
+                });
               });
             });
-          });
-        } else {
-          // Mở giao diện gọi điện của trình duyệt
-          window.location.href = "tel:" + phoneNumber;
+          } else {
+            // Mở giao diện gọi điện của trình duyệt
+            window.location.href = "tel:" + phoneNumber;
+          }
         }
-      }
-    </script>
+      </script>
     <script>
       var swiper = new Swiper('.swiper-container', {
         // Cấu hình Swiper tại đây
