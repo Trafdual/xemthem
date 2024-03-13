@@ -342,10 +342,6 @@
         right: 70px;
       }
 
-      /* Thiết lập hiệu ứng lắc lắc rung rung */
-      .message-button:hover {
-        animation: shake 0.5s;
-      }
 
       .facezalo {
         position: fixed;
@@ -1402,62 +1398,62 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const fanpageButton = document.getElementById("fanpageButton");
-        var leftImage = document.getElementById("left");
-        var rightImage = document.getElementById("right");
-        var footer = document.getElementById("footer");
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const fanpageButton = document.getElementById("fanpageButton");
+          var leftImage = document.getElementById("left");
+          var rightImage = document.getElementById("right");
+          var footer = document.getElementById("footer");
 
-        fanpageButton.addEventListener("click", function () {
-          // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
-          window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+          fanpageButton.addEventListener("click", function () {
+            // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+            window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+          });
+
+          leftImage.style.transition = "bottom 0.3s ease-in-out";
+          rightImage.style.transition = "bottom 0.3s ease-in-out";
+
+          window.addEventListener("scroll", function () {
+            var footerPosition = footer.getBoundingClientRect();
+            var imagePosition = leftImage.getBoundingClientRect();
+
+            // Kiểm tra nếu hình ảnh gần phần footer
+            if (imagePosition.bottom >= footerPosition.top) {
+
+              leftImage.style.bottom = "60%";
+              rightImage.style.bottom = "60%";
+            } else {
+              // Nếu không, đặt lại vị trí của hình ảnh
+              leftImage.style.bottom = "35%";
+              rightImage.style.bottom = "35%";
+            }
+          });
         });
+      </script>
+      <script>
+        function makeCall() {
+          // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
+          var phoneNumber = "0833354354";
 
-        leftImage.style.transition = "bottom 0.3s ease-in-out";
-        rightImage.style.transition = "bottom 0.3s ease-in-out";
-
-        window.addEventListener("scroll", function () {
-          var footerPosition = footer.getBoundingClientRect();
-          var imagePosition = leftImage.getBoundingClientRect();
-
-          // Kiểm tra nếu hình ảnh gần phần footer
-          if (imagePosition.bottom >= footerPosition.top) {
-
-            leftImage.style.bottom = "60%";
-            rightImage.style.bottom = "60%";
-          } else {
-            // Nếu không, đặt lại vị trí của hình ảnh
-            leftImage.style.bottom = "35%";
-            rightImage.style.bottom = "35%";
-          }
-        });
-      });
-    </script>
-    <script>
-      function makeCall() {
-        // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
-        var phoneNumber = "0833354354";
-
-        // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
-        if ("contacts" in navigator && "ContactsManager" in window) {
-          // Sử dụng API Contacts để gọi điện
-          navigator.contacts.select(["phone"]).then(contacts => {
-            // Gọi điện đến số điện thoại đã được chỉ định
-            contacts.forEach(contact => {
-              contact.phoneNumbers.forEach(phone => {
-                if (phone.value === phoneNumber) {
-                  contact.pick();
-                }
+          // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
+          if ("contacts" in navigator && "ContactsManager" in window) {
+            // Sử dụng API Contacts để gọi điện
+            navigator.contacts.select(["phone"]).then(contacts => {
+              // Gọi điện đến số điện thoại đã được chỉ định
+              contacts.forEach(contact => {
+                contact.phoneNumbers.forEach(phone => {
+                  if (phone.value === phoneNumber) {
+                    contact.pick();
+                  }
+                });
               });
             });
-          });
-        } else {
-          // Mở giao diện gọi điện của trình duyệt
-          window.location.href = "tel:" + phoneNumber;
+          } else {
+            // Mở giao diện gọi điện của trình duyệt
+            window.location.href = "tel:" + phoneNumber;
+          }
         }
-      }
-    </script>
+      </script>
     <script>
       var swiper = new Swiper('.swiper-container', {
         // Cấu hình Swiper tại đây
