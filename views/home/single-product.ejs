@@ -755,11 +755,11 @@
                   </div>
                 </div>
                 <div class="btnmua d-flex">
-                  <div class="muangay">
+                  <div onclick="makeCall()" class="muangay">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA NGAY</h5>
                     <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Giao hàng tận nơi hoặc lấy tại của hàng</p>
                   </div>
-                  <div class="muatragop">
+                  <div onclick="makeCall()" class="muatragop">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA TRẢ GÓP 0%</h5>
                     <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Thủ tục đơn giản</p>
                   </div>
@@ -1045,6 +1045,30 @@
   <script>
     function openMessenger() {
       window.location.href = "https://www.messenger.com/t/105703318958498";
+    }
+  </script>
+  <script>
+    function makeCall() {
+      // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
+      var phoneNumber = "0833354354";
+
+      // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
+      if ("contacts" in navigator && "ContactsManager" in window) {
+        // Sử dụng API Contacts để gọi điện
+        navigator.contacts.select(["phone"]).then(contacts => {
+          // Gọi điện đến số điện thoại đã được chỉ định
+          contacts.forEach(contact => {
+            contact.phoneNumbers.forEach(phone => {
+              if (phone.value === phoneNumber) {
+                contact.pick();
+              }
+            });
+          });
+        });
+      } else {
+        // Mở giao diện gọi điện của trình duyệt
+        window.location.href = "tel:" + phoneNumber;
+      }
     }
   </script>
   <script src="/js/jquery-1.11.0.min.js"></script>
