@@ -312,6 +312,47 @@
         padding: 2%;
       }
 
+      .thongso {
+        padding: 2%;
+        background-color: rgb(251, 254, 255);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 2%;
+      }
+
+      .pthongso {
+        background-color: #e3e3e3;
+        color: black;
+        padding: 1%;
+      }
+
+      .pthongso2 {
+        color: black;
+        padding: 1%;
+      }
+
+      .pthongso3 {
+        background-color: #e3e3e3;
+        color: black;
+        padding: 1%;
+        max-height: 100px;
+        overflow: hidden;
+
+      }
+
+      .pthongso3.show-more {
+        max-height: none;
+        /* Hiển thị toàn bộ nội dung */
+      }
+
+      #toggle-button {
+        width: 100%;
+        font-size: 20px;
+        border: #3498db 1px solid;
+        color: #3498db;
+        background-color: #fff9f9;
+      }
+
       @keyframes shake {
         0% {
           transform: translate(0, 0);
@@ -647,12 +688,46 @@
       .bodykhuyenmai {
         padding: 2%;
       }
-      .thongso{
+
+      .thongso {
         padding: 2%;
         background-color: rgb(251, 254, 255);
         width: 90%;
         margin: 0 auto;
         margin-top: 2%;
+      }
+
+      .pthongso {
+        background-color: #e3e3e3;
+        color: black;
+        padding: 1%;
+      }
+
+      .pthongso2 {
+        color: black;
+        padding: 1%;
+      }
+
+      .pthongso3 {
+        background-color: #e3e3e3;
+        color: black;
+        padding: 1%;
+        max-height: 100px;
+        overflow: hidden;
+
+      }
+
+      .pthongso3.show-more {
+        max-height: none;
+        /* Hiển thị toàn bộ nội dung */
+      }
+
+      #toggle-button {
+        width: 100%;
+        font-size: 20px;
+        border: #3498db 1px solid;
+        color: #3498db;
+        background-color: #fff9f9;
       }
 
       @keyframes shake {
@@ -888,6 +963,32 @@
             <img src="data:image/jpeg;base64, <%= mangjson.spjson.image %>" alt="single-product"
               class="img-fluid sanpham">
           </div>
+          <div class="tab-pane fade show active border-top border-bottom padding-small " id="nav-home" role="tabpanel"
+            aria-labelledby="nav-home-tab">
+            <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
+            </h4>
+            <div>
+              <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
+              </p>
+              <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
+              </p>
+              <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
+              </p>
+              <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
+              </p>
+              <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
+              </p>
+              <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
+              </p>
+              <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
+              </p>
+              <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
+              </p>
+              <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
+              </p>
+              <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6">
           <div class="product-info">
@@ -1052,66 +1153,7 @@
       </div>
     </div>
   </section>
-  <div class="tab-pane fade show active border-top border-bottom padding-small thongso" id="nav-home" role="tabpanel"
-  aria-labelledby="nav-home-tab">
-  <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ</h4>
-<div>
-  <p>Màn hình:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.manhinh %>
-    </li>
-  </ul>
-  <p>Chip:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.chip %>
-    </li>
-  </ul>
-  <p>Ram:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.ram %>
-    </li>
-  </ul>
-  <p>Dung lượng:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.dungluong %>
-    </li>
-  </ul>
-  <p>Camera sau:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.camera %>
-    </li>
-  </ul>
-  <p>Pin:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.pinsac %>
-    </li>
-  </ul>
-  <p>Cổng sạc:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.congsac %>
-    </li>
-  </ul>
-  <p>Hãng:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.hang %>
-    </li>
-  </ul>
-  <p>Thông tin sản phẩm:</p>
-  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
-    <li style="font-size: larger;overflow-wrap: break-word;">
-      <%= mangjson.spjson.thongtin %>
-    </li>
-  </ul>
-</div>
-</div>
+
   <section class="product-info-tabs section">
     <div class="container">
       <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">ĐÁNH GIÁ</h4>
@@ -1441,34 +1483,46 @@
       }
     }
   </script>
-<script>
+  <script>
+    function toggleProductInfo() {
+      var productInfo = document.getElementById("product-info");
+      var toggleButton = document.getElementById("toggle-button");
+
+      if (productInfo.classList.contains("show-more")) {
+        productInfo.classList.remove("show-more");
+        toggleButton.textContent = "Xem thêm";
+      } else {
+        productInfo.classList.add("show-more");
+        toggleButton.textContent = "Ẩn đi";
+      }
+    }
     // Lưu giá trị ban đầu của pricestrong
     const pricestrongInitialValue = document.querySelector('.pricestrong').textContent.trim();
 
     document.querySelectorAll('.inputloai').forEach(item => {
-        item.addEventListener('click', function () {
-            // Loại bỏ chọn các checkbox khác
-            document.querySelectorAll('.inputloai').forEach(otherCheckbox => {
-                if (otherCheckbox !== this) {
-                    otherCheckbox.checked = false;
-                }
-            });
-
-            const price = parseFloat(this.getAttribute('data-price'));
-            const index = this.getAttribute('data-index');
-            const pricestrong = document.querySelector('.pricestrong');
-            const priceElement = document.querySelector(`#price${index}`);
-            const priceValue = priceElement.textContent.trim();
-
-            if (this.checked) {
-                pricestrong.textContent = priceValue;
-            } else {
-                // Khôi phục giá trị ban đầu của pricestrong
-                pricestrong.textContent = pricestrongInitialValue;
-            }
+      item.addEventListener('click', function () {
+        // Loại bỏ chọn các checkbox khác
+        document.querySelectorAll('.inputloai').forEach(otherCheckbox => {
+          if (otherCheckbox !== this) {
+            otherCheckbox.checked = false;
+          }
         });
+
+        const price = parseFloat(this.getAttribute('data-price'));
+        const index = this.getAttribute('data-index');
+        const pricestrong = document.querySelector('.pricestrong');
+        const priceElement = document.querySelector(`#price${index}`);
+        const priceValue = priceElement.textContent.trim();
+
+        if (this.checked) {
+          pricestrong.textContent = priceValue;
+        } else {
+          // Khôi phục giá trị ban đầu của pricestrong
+          pricestrong.textContent = pricestrongInitialValue;
+        }
+      });
     });
-</script>
+  </script>
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
