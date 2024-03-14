@@ -688,7 +688,7 @@
                   </div>
                   <div class=" divbtn cart-concern position-absolute btnsp">
                     <div class="cart-button d-flex btnsp2">
-                      <a href="/getchitiet/<%= row._id %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
+                      <a href="/getchitiet/<%= row._id %>/<%= idloaisp %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
                       <p onclick="makeCall()" class="btn btn-medium btn-danger btmua">
                         Mua
                         ngay</p>
@@ -696,7 +696,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan ">
                     <h6 class="name">
-                      <a  href="/getchitiet/<%= row._id %>">
+                      <a  href="">
                         <%= row.name %>
                       </a>
                     </h6>
