@@ -647,6 +647,13 @@
       .bodykhuyenmai {
         padding: 2%;
       }
+      .thongso{
+        padding: 2%;
+        background-color: rgb(251, 254, 255);
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 2%;
+      }
 
       @keyframes shake {
         0% {
@@ -1045,6 +1052,66 @@
       </div>
     </div>
   </section>
+  <div class="tab-pane fade show active border-top border-bottom padding-small thongso" id="nav-home" role="tabpanel"
+  aria-labelledby="nav-home-tab">
+  <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ</h4>
+<div>
+  <p>Màn hình:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.manhinh %>
+    </li>
+  </ul>
+  <p>Chip:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.chip %>
+    </li>
+  </ul>
+  <p>Ram:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.ram %>
+    </li>
+  </ul>
+  <p>Dung lượng:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.dungluong %>
+    </li>
+  </ul>
+  <p>Camera sau:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.camera %>
+    </li>
+  </ul>
+  <p>Pin:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.pinsac %>
+    </li>
+  </ul>
+  <p>Cổng sạc:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.congsac %>
+    </li>
+  </ul>
+  <p>Hãng:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.hang %>
+    </li>
+  </ul>
+  <p>Thông tin sản phẩm:</p>
+  <ul style="list-style-type: disc; line-height: 2.5;" class="list-unstyled ps-4">
+    <li style="font-size: larger;overflow-wrap: break-word;">
+      <%= mangjson.spjson.thongtin %>
+    </li>
+  </ul>
+</div>
+</div>
   <section class="product-info-tabs section">
     <div class="container">
       <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">ĐÁNH GIÁ</h4>

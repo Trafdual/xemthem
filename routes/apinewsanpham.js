@@ -12,8 +12,8 @@ const upload = multer({ storage: storage });
 
 router.post('/postloaisp', async (req, res) => {
     try {
-        const { name } = req.body;
-        const tensp = new LoaiSP.TenSP({ name });
+        const { name,manhinh,chip,ram,dungluong,camera,pinsac,hang,congsac,thongtin } = req.body;
+        const tensp = new LoaiSP.TenSP({ name,manhinh,chip,ram,dungluong,camera,pinsac,hang,congsac,thongtin });
         await tensp.save();
         res.redirect("/main");
     } catch (error) {
@@ -25,17 +25,14 @@ router.post('/postloaisp', async (req, res) => {
 
 router.post('/putloaisp/:id', async (req, res) => {
     try {
-        const id=req.params.id;
-        const { name } = req.body;
-        const tensp = await LoaiSP.TenSP.findById(id);
-        tensp.name=name;
-        await tensp.save();
+        const id = req.params.id;
+        const { name, manhinh, chip, ram, dungluong, camera, pinsac, hang,congsac,thongtin } = req.body;
+        await LoaiSP.TenSP.findByIdAndUpdate(id, { name, manhinh, chip, ram, dungluong, camera, pinsac, hang, congsac,thongtin });
         res.redirect("/main");
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
-    
 });
 
 router.get('/editloaisp/:id', async (req, res) => {
@@ -151,26 +148,6 @@ router.post('/postchitietsp/:id', upload.single('image'), async (req, res) => {
     }
 })
 
-router.get('/getmausacsp/:id', async (req, res) => {
-    try {
-        const id = req.params.id;
-        const chitietsp = await Sp.ChitietSp.findById(id);
-        if (!chitietsp) {
-            return res.status(404).json({ message: 'Không tìm thấy chi tiết sản phẩm' });
-        }
-        const chitietspJson = chitietsp.mausac.map(async (chitiet) => {
-            return {
-                image: chitiet.image,
-                color: chitiet.color,
-                price: chitiet.price
-            }
-        })
-        res.render('chitietsp', chitietspJson)
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
-    }
-})
 
 router.get('/getchitietsp/:idloaisp', async (req, res) => {
     try {
@@ -215,25 +192,40 @@ router.get('/getspchitiet/:idloaisp', async (req, res) => {
                 price:chitietsp.price
             }
         }))
-        res.render('home/shop.ejs', {chitiet})
+        res.render('home/shop.ejs', {chitiet,idloaisp})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.get('/getchitiet/:idsp', async (req, res) => {
+router.get('/getchitiet/:idsp/:idloai', async (req, res) => {
     try {
         const idsp = req.params.idsp;
+        const idloai=req.params.idloai;
         const sp = await Sp.ChitietSp.findById(idsp);
         if (!sp) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
+        const loai = await LoaiSP.TenSP.findById(idloai);
+        if (!loai) {
+            return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
+        }
+
         const spjson={
             image:sp.image,
             name:sp.name,
             price:sp.price,
-            content:sp.content
+            content:sp.content,
+            manhinh:loai.manhinh,
+            chip:loai.chip,
+            ram:loai.ram,
+            dungluong:loai.dungluong,
+            camera:loai.camera,
+            pinsac:loai.pinsac,
+            congsac:loai.congsac,
+            hang:loai.hang,
+            thongtin:loai.manhinh,
         }
         const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
             return {
