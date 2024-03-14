@@ -12,8 +12,8 @@
                     <button class="btn btn-light" type="submit">Search</button>
                 </form>
                 <div class="col-sm-4 col-md-2">
-                    <a type="button" class="btn btn-danger" href="/addsp/<%= idloaisp %>">
-                        ➕ Thêm sản phẩm
+                    <a type="button" class="btn btn-danger" href="/getaddloaichitiet/<%= idsp %>">
+                        ➕ Thêm loại chi tiết
                     </a>
                 </div>
 
@@ -30,44 +30,31 @@
             <table class="table table-bordered table-striped" style="text-align: center;">
                 <tr>
                     <th>ID</th>
-                    <th>Ảnh đại diện</th>
-                    <th>Tên sản phẩm</th>
+                    <th>Tên</th>
                     <th>Giá bán</th>
-                    <th>Tình trạng</th>
-
                     <th></th>
                 </tr>
 
-                <% chitiet.forEach( ( row )=>{ %>
+                <% mangloai.forEach( ( row )=>{ %>
 
                     <tr>
                         <td>
                             <%= row._id%>
                         </td>
-                        <td style="text-align: center;">
-                            <img src="data:image/jpeg;base64, <%= row.image %>" alt="" style="width: 80px; height: 80px;">
-                        </td>
-
                         <td>
-                            <a href="/chitiet/<%= row._id %>">
+                            <a href="">
                                 <%= row.name %>
                             </a>
                         </td>
                         <td>
                             <%= row.price %>
                         </td>
-                        <td>
-                            <%= row.content %>
-                        </td>
-
-                        <td> <a href="/editsp/<%= row._id %>">
+                    
+                        <td> <a href="">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
-                            <a href="/getloaichitiet/<%= row._id %>">
-                                <button type="button" class="btn btn-light">loại chi tiết</button>
-                            </a>
 
-                            <form action="/deletechitietsp/<%= row._id %>" method="post" id="deleteForm">
+                            <form action="/deleteloaichitiet/<%= idsp %>/<%= row._id%>" method="post" id="deleteForm">
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal<%= row._id %>">
                                     Xóa

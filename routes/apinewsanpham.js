@@ -196,6 +196,7 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
 router.get('/getspchitiet/:idloaisp', async (req, res) => {
     try {
         const idloaisp = req.params.idloaisp;
@@ -220,6 +221,7 @@ router.get('/getspchitiet/:idloaisp', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
 router.get('/getchitiet/:idsp', async (req, res) => {
     try {
         const idsp = req.params.idsp;
@@ -260,7 +262,23 @@ router.post('/postloaichitiet/:chitietspid', async (req, res) => {
         const chitietsp = await Sp.ChitietSp.findById(chitietspid);
         chitietsp.chitiet.push({ name, price});
         await chitietsp.save();
-        res.status(200).json({ message: 'thêm thành công' })
+        res.redirect(`/getloaichitiet/${chitietspid}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+router.post('/deleteloaichitiet/:chitietspid/:id', async (req, res) => {
+    try {
+        const chitietspid = req.params.chitietspid;
+        const id=req.params.id
+        const chitietsp = await Sp.ChitietSp.findById(chitietspid);
+        const updatedChitiet = chitietsp.chitiet.filter(item => item._id != id);
+
+        chitietsp.chitiet = updatedChitiet;
+    
+        await chitietsp.save();
+        res.redirect(`/getloaichitiet/${chitietspid}`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -276,6 +294,30 @@ router.get('/getaddloaichitiet/:chitietspid', async(req,res)=>{
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
+router.get('/getloaichitiet/:idsp', async (req, res) => {
+    try {
+        const idsp = req.params.idsp;
+        const sp = await Sp.ChitietSp.findById(idsp);
+        if (!sp) {
+            return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
+        }
+        const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
+            return {
+                _id:mang._id,
+                name: mang.name,
+                price: mang.price
+            };
+        }));
+
+        // res.json(mangjson)
+        res.render('home/loaichitietsp.ejs', {mangloai,idsp})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
 
 router.post('/deletechitietsp/:id', async (req, res) => {
     try {
