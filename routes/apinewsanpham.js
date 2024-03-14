@@ -225,7 +225,7 @@ router.get('/getchitiet/:idsp/:idloai', async (req, res) => {
             pinsac:loai.pinsac,
             congsac:loai.congsac,
             hang:loai.hang,
-            thongtin:loai.manhinh,
+            thongtin:loai.thongtin,
         }
         const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
             return {
