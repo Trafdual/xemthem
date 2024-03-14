@@ -301,7 +301,7 @@
       #selling-product {
         padding-left: 5%;
         padding-right: 5%;
-        padding-top: 30%;
+        padding-top: 10%;
         padding-bottom: 2%;
         background-color: rgb(251, 254, 255);
         width: 100%;
@@ -708,7 +708,6 @@
       #selling-product {
         padding-left: 10%;
         padding-right: 10%;
-        padding-top: 10%;
         padding-bottom: 2%;
         background-color: rgb(251, 254, 255);
         width: 90%;
@@ -938,7 +937,7 @@
 
   <header id="header"
     class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
-    <nav id="header-nav" class="navbar navbar-expand-lg px-2 mb-3">
+    <nav id="header-nav" class="navbar navbar-expand-lg px-2">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/images/main-logo.png" class="logo">
@@ -1052,7 +1051,7 @@
               <%= mangjson.spjson.content %>
             </p>
 
-            <div class="cart-wrap padding-small">
+            <div class="cart-wrap">
               <div class="product-quantity">
 
                 <div class="d-flex loai">
@@ -1071,38 +1070,7 @@
                     </div>
                     <% }); %>
                 </div>
-                <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel"
-                aria-labelledby="nav-home-tab">
-                <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
-                </h4>
-                <div>
-                  <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
-                  </p>
-                  <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
-                  </p>
-                  <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
-                  </p>
-                  <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
-                  </p>
-                  <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
-                  </p>
-                  <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
-                  </p>
-                  <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
-                  </p>
-                  <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
-                  </p>
-                  <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
-                  </p>
-                  <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
-    
-                  <div id="myModal" class="modal">
-                      <span class="close">&times;</span>
-                      <p id="modalContent"></p>
-                  </div>
-    
-                </div>
-              </div>
+                
                 <div class="khuyenmai">
                   <div class="d-flex topkhuyenmai">
                     <i class="fa fa-gift" style="color: #b40202;"></i>
@@ -1209,10 +1177,46 @@
                     <h5 style="color: aliceblue; font-weight: bold;">MUA NGAY</h5>
                     <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Giao hàng tận nơi hoặc lấy tại của
                       hàng</p>
+                    <p style="color: aliceblue;  font-size: 10px;">(Nhắn tin trực tiếp)</p>
                   </div>
                   <div onclick="makeCall()" class="muatragop">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA TRẢ GÓP 0%</h5>
                     <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Thủ tục đơn giản</p>
+                    <p style="color: aliceblue;  font-size: 10px;">(Gọi điện trực tiếp)</p>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home"
+                  role="tabpanel" aria-labelledby="nav-home-tab">
+                  <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG
+                    SỐ
+                  </h4>
+                  <div>
+                    <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
+                    </p>
+                    <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
+                    </p>
+                    <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
+                    </p>
+                    <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
+                    </p>
+                    <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
+                    </p>
+                    <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
+                    </p>
+                    <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
+                    </p>
+                    <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
+                    </p>
+                    <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
+                    </p>
+                    <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
+
+                    <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <p id="modalContent"></p>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -1498,10 +1502,10 @@
     </div>
   </div>
   <script>
-   function goToFanpage() {
-    // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
-    window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
-}
+    function goToFanpage() {
+      // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+      window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+    }
   </script>
   <script>
     function makeCall() {
