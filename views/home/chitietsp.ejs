@@ -63,6 +63,10 @@
                         <td> <a href="/editsp/<%= row._id %>">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
+                            <a href="/getaddloaichitiet/<%= row._id %>">
+                                <button type="button" class="btn btn-light">thêm loại chi tiết</button>
+                            </a>
+
                             <form action="/deletechitietsp/<%= row._id %>" method="post" id="deleteForm">
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal<%= row._id %>">

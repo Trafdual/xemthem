@@ -48,6 +48,7 @@
       .message-button:hover {
         animation: shake 0.5s;
       }
+
       .facezalo {
         position: fixed;
         right: 5%;
@@ -191,6 +192,36 @@
         border: 1px solid #ffb6b6;
       }
 
+      .loai {
+        max-width: 100%;
+        margin-bottom: 3%;
+        flex-wrap: wrap;
+      }
+
+      .divloai {
+        border: 1px solid #f86e6e;
+        border-radius: 10px;
+        width: 35%;
+        padding: 3%;
+        margin-right: 5%;
+        flex-wrap: wrap;
+        margin-top: 2%;
+      }
+
+      .divconloai {
+        margin-left: 5%;
+        flex: 1;
+      }
+
+      .strongloai {
+        font-size: 100%;
+      }
+
+      .strongloai2 {
+        font-size: 100%;
+        color: #f70e0e;
+      }
+
       .topkhuyenmai {
         padding: 2%;
         background-color: #ffb6b6;
@@ -249,7 +280,8 @@
         background-color: #f70e0e;
         text-align: center;
       }
-      .muatragop{
+
+      .muatragop {
         border-radius: 5px;
         width: 50%;
         height: auto;
@@ -257,7 +289,8 @@
         background-color: #f48907;
         text-align: center;
       }
-      .section{
+
+      .section {
         padding: 2%;
         background-color: rgb(251, 254, 255);
         width: 100%;
@@ -440,6 +473,7 @@
         animation: expand 2s infinite;
         display: inline-block;
       }
+
       body {
 
         background-color: aliceblue;
@@ -492,6 +526,36 @@
         width: auto;
         height: auto;
         border: 1px solid #ffb6b6;
+      }
+
+      .loai {
+        max-width: 100%;
+        margin-bottom: 3%;
+        flex-wrap: wrap;
+      }
+
+      .divloai {
+        border: 1px solid #f86e6e;
+        border-radius: 10px;
+        width: 40%;
+        padding: 3%;
+        margin-right: 5%;
+        flex-wrap: wrap;
+        margin-top: 2%;
+      }
+
+      .divconloai {
+        margin-left: 5%;
+        flex: 1;
+      }
+
+      .strongloai {
+        font-size: 140%;
+      }
+
+      .strongloai2 {
+        font-size: 140%;
+        color: #f70e0e;
       }
 
       .topkhuyenmai {
@@ -552,7 +616,8 @@
         background-color: #f70e0e;
         text-align: center;
       }
-      .muatragop{
+
+      .muatragop {
         border-radius: 5px;
         width: 50%;
         height: auto;
@@ -560,7 +625,8 @@
         background-color: #f48907;
         text-align: center;
       }
-      .section{
+
+      .section {
         padding: 2%;
         background-color: rgb(251, 254, 255);
         width: 90%;
@@ -642,7 +708,7 @@
       <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt=""
         onclick="makeCall()">
     </div>
-    </div>
+  </div>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
       <path fill="currentColor"
@@ -805,14 +871,15 @@
   </header>
   <section id="selling-product" class="single-product padding-xlarge">
     <h3 itemprop="name" class="display-7 text-uppercase nameh3">
-      <%= spjson.name %>
+      <%= mangjson.spjson.name %>
     </h3>
     <hr class="hrname" style="opacity: 0.1;">
     <div class="container">
       <div class="row mt-5">
         <div class="col-lg-6 product-preview">
           <div class="product-preview mb-3">
-            <img src="data:image/jpeg;base64, <%= spjson.image %>" alt="single-product" class="img-fluid sanpham">
+            <img src="data:image/jpeg;base64, <%= mangjson.spjson.image %>" alt="single-product"
+              class="img-fluid sanpham">
           </div>
         </div>
         <div class="col-lg-6">
@@ -829,17 +896,35 @@
             </div>
             <div class="product-price pt-3 pb-3 d-flex align-items-center">
               <strong class="display-6 fw-bold pricestrong">
-                <%= spjson.price %>
+                <%= mangjson.spjson.price %>
               </strong>
               <div class="tragop ms-3">
                 <p class="ptragop">Trả góp 0%</p>
               </div>
             </div>
             <p>
-              <%= spjson.content %>
+              <%= mangjson.spjson.content %>
             </p>
+
             <div class="cart-wrap padding-small">
               <div class="product-quantity">
+
+                <div class="d-flex loai">
+                  <% mangjson.mangloai.forEach((item,index)=> { %>
+                    <div class="d-flex divloai">
+                      <input type="checkbox" id="myCheckbox<%= index %>" name="myCheckbox" class="inputloai"
+                        data-price="<%= item.price %>" data-index="<%= index %>">
+                      <div class="divconloai">
+                        <strong class="strongloai">
+                          <%= item.name %>
+                        </strong>
+                        <strong class="strongloai2" id="price<%= index %>">
+                          <%= item.price %>
+                        </strong>
+                      </div>
+                    </div>
+                    <% }); %>
+                </div>
                 <div class="khuyenmai">
                   <div class="d-flex topkhuyenmai">
                     <i class="fa fa-gift" style="color: #b40202;"></i>
@@ -944,7 +1029,8 @@
                 <div class="btnmua d-flex">
                   <div onclick="makeCall()" class="muangay">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA NGAY</h5>
-                    <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Giao hàng tận nơi hoặc lấy tại của hàng</p>
+                    <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Giao hàng tận nơi hoặc lấy tại của
+                      hàng</p>
                   </div>
                   <div onclick="makeCall()" class="muatragop">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA TRẢ GÓP 0%</h5>
@@ -962,46 +1048,49 @@
   <section class="product-info-tabs section">
     <div class="container">
       <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">ĐÁNH GIÁ</h4>
-        <div class="row">
-            <div class="review-box d-flex flex-wrap">
-                <div class="col-lg-6 d-flex flex-wrap">
-                    <div class="col-md-2">
-                        <div class="image-holder">
-                            <img src="/images/review-item1.jpg" alt="review" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="review-content">
-                            <div class="rating-container">
-                                <div class="review-header d-flex">
-                                    <h4 class="author-name">Nguyễn Sơn Dương</h4>
-                                    <h4 class="review-date">– 23/08/2023</h4>
-                                </div>
-                                <p>Mình từng mua 14 PRO MAX ở đây. Cửa hàng bán điện thoại này thực sự ấn tượng. Họ có một loạt các sản phẩm từ hãng apple, đảm bảo rằng bạn sẽ tìm thấy một chiếc điện thoại phù hợp với nhu cầu và ngân sách của mình.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 d-flex flex-wrap">
-                    <div class="col-md-2">
-                        <div class="image-holder">
-                            <img src="/images/review-item2.jpg" alt="review" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="review-content">
-                            <div class="review-header d-flex">
-                                <h4 class="author-name">Nguyễn Thùy Dung</h4>
-                                <h4 class="review-date">– 08/07/2023</h4>
-                            </div>
-                            <p>Máy rất đẹp và bán đúng như giá quảng cáo. Điều tuyệt vời là nhân viên của cửa hàng luôn sẵn sàng tư vấn và giải đáp mọi câu hỏi của bạn, giúp bạn chọn lựa một cách thông minh. Vote 4.5 sao nha!!!</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="review-box d-flex flex-wrap">
+          <div class="col-lg-6 d-flex flex-wrap">
+            <div class="col-md-2">
+              <div class="image-holder">
+                <img src="/images/review-item1.jpg" alt="review" class="img-fluid">
+              </div>
             </div>
+            <div class="col-md-8">
+              <div class="review-content">
+                <div class="rating-container">
+                  <div class="review-header d-flex">
+                    <h4 class="author-name">Nguyễn Sơn Dương</h4>
+                    <h4 class="review-date">– 23/08/2023</h4>
+                  </div>
+                  <p>Mình từng mua 14 PRO MAX ở đây. Cửa hàng bán điện thoại này thực sự ấn tượng. Họ có một loạt các
+                    sản phẩm từ hãng apple, đảm bảo rằng bạn sẽ tìm thấy một chiếc điện thoại phù hợp với nhu cầu và
+                    ngân sách của mình.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex flex-wrap">
+            <div class="col-md-2">
+              <div class="image-holder">
+                <img src="/images/review-item2.jpg" alt="review" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="review-content">
+                <div class="review-header d-flex">
+                  <h4 class="author-name">Nguyễn Thùy Dung</h4>
+                  <h4 class="review-date">– 08/07/2023</h4>
+                </div>
+                <p>Máy rất đẹp và bán đúng như giá quảng cáo. Điều tuyệt vời là nhân viên của cửa hàng luôn sẵn sàng tư
+                  vấn và giải đáp mọi câu hỏi của bạn, giúp bạn chọn lựa một cách thông minh. Vote 4.5 sao nha!!!</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
   <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
     <div class="container">
@@ -1285,6 +1374,34 @@
       }
     }
   </script>
+<script>
+    // Lưu giá trị ban đầu của pricestrong
+    const pricestrongInitialValue = document.querySelector('.pricestrong').textContent.trim();
+
+    document.querySelectorAll('.inputloai').forEach(item => {
+        item.addEventListener('click', function () {
+            // Loại bỏ chọn các checkbox khác
+            document.querySelectorAll('.inputloai').forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+
+            const price = parseFloat(this.getAttribute('data-price'));
+            const index = this.getAttribute('data-index');
+            const pricestrong = document.querySelector('.pricestrong');
+            const priceElement = document.querySelector(`#price${index}`);
+            const priceValue = priceElement.textContent.trim();
+
+            if (this.checked) {
+                pricestrong.textContent = priceValue;
+            } else {
+                // Khôi phục giá trị ban đầu của pricestrong
+                pricestrong.textContent = pricestrongInitialValue;
+            }
+        });
+    });
+</script>
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>

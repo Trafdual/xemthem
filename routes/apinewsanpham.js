@@ -233,8 +233,19 @@ router.get('/getchitiet/:idsp', async (req, res) => {
             price:sp.price,
             content:sp.content
         }
-// res.json(spjson)
-        res.render('home/single-product.ejs', {spjson})
+        const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
+            return {
+                name: mang.name,
+                price: mang.price
+            };
+        }));
+
+        const mangjson = {
+            spjson: spjson,
+            mangloai: mangloai
+        };
+        // res.json(mangjson)
+        res.render('home/single-product.ejs', {mangjson})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -242,15 +253,24 @@ router.get('/getchitiet/:idsp', async (req, res) => {
 })
 
 
-router.post('/postmausac/:chitietspid', upload.single('image'), async (req, res) => {
+router.post('/postloaichitiet/:chitietspid', async (req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
-        const { color, price } = req.body;
+        const { name, price } = req.body;
         const chitietsp = await Sp.ChitietSp.findById(chitietspid);
-        const image = req.file.buffer.toString('base64');
-        chitietsp.mausac.push({ color, price, image });
+        chitietsp.chitiet.push({ name, price});
         await chitietsp.save();
-        res.status(200).json({ message: 'thêm màu thành công' })
+        res.status(200).json({ message: 'thêm thành công' })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/getaddloaichitiet/:chitietspid', async(req,res)=>{
+    try {
+        const chitietspid = req.params.chitietspid;
+        res.render('home/addloaichitiet.ejs',{chitietspid})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -311,5 +331,7 @@ router.get('/editsp/:id', async (req, res) => {
     }
     
 });
+
+
 
 module.exports = router;
