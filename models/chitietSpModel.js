@@ -6,9 +6,8 @@ const chitietspSchema = new db.mongoose.Schema({
     content: { type: String },
     price: { type: String },
     loaisp: { type: String },
-    mausac: [{
-        image: { type: String },
-        color: { type: String },
+    chitiet: [{
+        name:{type:String},
         price:{type:String}
     }],
     idloaisp: { type: db.mongoose.Schema.Types.ObjectId, ref: 'loaisp' }
