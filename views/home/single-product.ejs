@@ -942,7 +942,7 @@
                   </div>
                 </div>
                 <div class="btnmua d-flex">
-                  <div onclick="makeCall()" class="muangay">
+                  <div onclick="goToFanpage()" class="muangay">
                     <h5 style="color: aliceblue; font-weight: bold;">MUA NGAY</h5>
                     <p style="color: aliceblue; font-weight: bold; font-size: 12px;">Giao hàng tận nơi hoặc lấy tại của hàng</p>
                   </div>
@@ -1230,36 +1230,10 @@
     </div>
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const fanpageButton = document.getElementById("fanpageButton");
-      var leftImage = document.getElementById("left");
-      var rightImage = document.getElementById("right");
-      var footer = document.getElementById("footer");
-
-      fanpageButton.addEventListener("click", function () {
-        // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
-        window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
-      });
-
-      leftImage.style.transition = "bottom 0.3s ease-in-out";
-      rightImage.style.transition = "bottom 0.3s ease-in-out";
-
-      window.addEventListener("scroll", function () {
-        var footerPosition = footer.getBoundingClientRect();
-        var imagePosition = leftImage.getBoundingClientRect();
-
-        // Kiểm tra nếu hình ảnh gần phần footer
-        if (imagePosition.bottom >= footerPosition.top) {
-
-          leftImage.style.bottom = "60%";
-          rightImage.style.bottom = "60%";
-        } else {
-          // Nếu không, đặt lại vị trí của hình ảnh
-          leftImage.style.bottom = "35%";
-          rightImage.style.bottom = "35%";
-        }
-      });
-    });
+   function goToFanpage() {
+    // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+    window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+}
   </script>
   <script>
     function makeCall() {
