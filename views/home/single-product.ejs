@@ -340,10 +340,6 @@
 
       }
 
-      .pthongso3.show-more {
-        max-height: none;
-        /* Hiển thị toàn bộ nội dung */
-      }
 
       #toggle-button {
         width: 100%;
@@ -352,6 +348,40 @@
         color: #3498db;
         background-color: #fff9f9;
       }
+
+      .modal {
+        display: none;
+        /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 1;
+        top: 10%;
+        width: 100%;
+        height: 100%;
+        background-color: #fefefe;
+        overflow-y: auto;
+        margin: 0 auto;
+        padding: 10%;
+      }
+
+      #modalContent {
+        color: black;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 50px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
 
       @keyframes shake {
         0% {
@@ -523,8 +553,8 @@
       }
 
       .sanpham {
-        width: 300px;
-        height: 370px;
+        width: 400px;
+        height: 470px;
 
       }
 
@@ -728,6 +758,39 @@
         border: #3498db 1px solid;
         color: #3498db;
         background-color: #fff9f9;
+      }
+
+      .modal {
+        display: none;
+        /* Ẩn modal mặc định */
+        position: fixed;
+        z-index: 5;
+        left: 10%;
+        top: 10%;
+        width: 80%;
+        height: 100%;
+        background-color: #fefefe;
+        overflow-y: auto;
+        margin: 0 auto;
+        padding: 2%;
+      }
+
+      #modalContent {
+        color: black;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
       }
 
       @keyframes shake {
@@ -963,32 +1026,7 @@
             <img src="data:image/jpeg;base64, <%= mangjson.spjson.image %>" alt="single-product"
               class="img-fluid sanpham">
           </div>
-          <div class="tab-pane fade show active border-top border-bottom padding-small " id="nav-home" role="tabpanel"
-            aria-labelledby="nav-home-tab">
-            <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
-            </h4>
-            <div>
-              <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
-              </p>
-              <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
-              </p>
-              <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
-              </p>
-              <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
-              </p>
-              <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
-              </p>
-              <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
-              </p>
-              <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
-              </p>
-              <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
-              </p>
-              <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
-              </p>
-              <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
-            </div>
-          </div>
+
         </div>
         <div class="col-lg-6">
           <div class="product-info">
@@ -1033,6 +1071,38 @@
                     </div>
                     <% }); %>
                 </div>
+                <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel"
+                aria-labelledby="nav-home-tab">
+                <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
+                </h4>
+                <div>
+                  <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
+                  </p>
+                  <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
+                  </p>
+                  <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
+                  </p>
+                  <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
+                  </p>
+                  <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
+                  </p>
+                  <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
+                  </p>
+                  <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
+                  </p>
+                  <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
+                  </p>
+                  <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
+                  </p>
+                  <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
+    
+                  <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <p id="modalContent"></p>
+                  </div>
+    
+                </div>
+              </div>
                 <div class="khuyenmai">
                   <div class="d-flex topkhuyenmai">
                     <i class="fa fa-gift" style="color: #b40202;"></i>
@@ -1458,19 +1528,35 @@
     }
   </script>
   <script>
-    function toggleProductInfo() {
-      var productInfo = document.getElementById("product-info");
-      var toggleButton = document.getElementById("toggle-button");
+    // Lấy modal
+    var modal = document.getElementById("myModal");
 
-      if (productInfo.classList.contains("show-more")) {
-        productInfo.classList.remove("show-more");
-        toggleButton.textContent = "Xem thêm";
-      } else {
-        productInfo.classList.add("show-more");
-        toggleButton.textContent = "Ẩn đi";
+    // Lấy nút đóng modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Lấy nút "Xem thêm"
+    var readMoreBtn = document.getElementById("toggle-button");
+
+    // Lấy phần nội dung của modal
+    var modalContent = document.getElementById("modalContent");
+
+    // Bấm vào nút "Xem thêm"
+    readMoreBtn.onclick = function () {
+      modal.style.display = "block"; // Hiển thị modal
+      modalContent.innerHTML = document.getElementById("product-info").textContent; // Gán nội dung của thẻ p vào modal
+    }
+
+    // Bấm vào nút đóng modal
+    span.onclick = function () {
+      modal.style.display = "none"; // Ẩn modal
+    }
+
+    // Bấm ra ngoài modal để đóng nó
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none"; // Ẩn modal
       }
     }
-    // Lưu giá trị ban đầu của pricestrong
     const pricestrongInitialValue = document.querySelector('.pricestrong').textContent.trim();
 
     document.querySelectorAll('.inputloai').forEach(item => {

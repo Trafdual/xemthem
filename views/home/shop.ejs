@@ -61,6 +61,7 @@
         transform-origin: center;
         /* Đặt điểm xoay tại trung tâm của ảnh */
       }
+
       @keyframes shake {
         0% {
           transform: rotate(-10deg);
@@ -128,6 +129,7 @@
         animation: expand 2s infinite;
         display: inline-block;
       }
+
       body {
 
         background-color: aliceblue;
@@ -145,26 +147,37 @@
         max-width: 100%;
         justify-items: center;
       }
-      .btnsp2{
+      .btnsp2 {
+        font-size: 5px;
         margin-right: 2%;
       }
-      
-
 
       .thanhphan {
-        width: 100%;
+        font-size: 11px;
+        max-width: 90%;
       }
-      .divimgsale {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-    }
 
-    .imgsale {
-      max-width: 100%;
-      max-height: auto;
-    }
+      .divbtn {
+        margin-left: 2%;
+        padding: 30%;
+      }
+
+      .btmua {
+        max-height: 65%;
+      }
+
+      .divimgsale {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+      }
+
+      .imgsale {
+        max-width: 100%;
+        max-height: auto;
+      }
+
       .name {
         font-size: 110%;
       }
@@ -261,6 +274,7 @@
         transform-origin: center;
         /* Đặt điểm xoay tại trung tâm của ảnh */
       }
+
       @keyframes shake {
         0% {
           transform: rotate(-10deg);
@@ -329,20 +343,23 @@
         animation: expand 2s infinite;
         display: inline-block;
       }
+
       .name {
         font-size: 150%;
       }
-      .divimgsale {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-    }
 
-    .imgsale {
-      max-width: 100%;
-      max-height: auto;
-    }
+      .divimgsale {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+      }
+
+      .imgsale {
+        max-width: 100%;
+        max-height: auto;
+      }
+
       .price {
         color: #3498db;
         font-size: 150%;
@@ -360,16 +377,31 @@
         height: 310px;
       }
 
+
+
       .btnsp {
 
         max-width: 85%;
         justify-items: center;
       }
-      .btnsp2{
-        margin-right: 60%;
+
+      .btnsp2 {
+        font-size: 10px;
+        margin-right: 2%;
       }
+
       .thanhphan {
-        max-width: 55%;
+        max-width: 90%;
+      }
+
+      .divbtn {
+        margin-left: 5%;
+        padding: 30%;
+      }
+
+      .btmua {
+        font-size: 10px;
+        max-height: 70%;
       }
 
       @keyframes shake {
@@ -435,7 +467,7 @@
       <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt=""
         onclick="makeCall()">
     </div>
-    </div>
+  </div>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
       <path fill="currentColor"
@@ -649,23 +681,22 @@
           </div>
           <div class="product-content product-store d-flex justify-content-between flex-wrap overflow-hidden">
             <% chitiet.forEach( ( row )=>{ %>
-              <div style="width: 50%;" class="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div style="width: 30%;" class="col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="product-card position-relative ">
                   <div class="image-holder">
                     <img src="data:image/jpeg;base64, <%= row.image %>" alt="product-item" class="img-fluid anh">
                   </div>
-                  <div style="padding: 20%;" class="cart-concern position-absolute btnsp overflow-hidden">
+                  <div class=" divbtn cart-concern position-absolute btnsp">
                     <div class="cart-button d-flex btnsp2">
-                      <a style="font-size: 10px; max-height: 75%;" href="/getchitiet/<%= row._id %>"
-                        class="btn btn-medium btn-danger">Chi tiết</a>
-                      <p onclick="makeCall()" style="font-size: 10px; height: 75%;" class="btn btn-medium btn-danger">
+                      <a href="/getchitiet/<%= row._id %>/<%= idloaisp %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
+                      <p onclick="makeCall()" class="btn btn-medium btn-danger btmua">
                         Mua
                         ngay</p>
                     </div>
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan ">
                     <h6 class="name">
-                      <a href="/getchitiet/<%= row._id %>">
+                      <a  href="">
                         <%= row.name %>
                       </a>
                     </h6>
