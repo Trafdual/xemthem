@@ -553,8 +553,8 @@
       }
 
       .sanpham {
-        width: 300px;
-        height: 370px;
+        width: 400px;
+        height: 470px;
 
       }
 
@@ -1026,38 +1026,7 @@
             <img src="data:image/jpeg;base64, <%= mangjson.spjson.image %>" alt="single-product"
               class="img-fluid sanpham">
           </div>
-          <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel"
-            aria-labelledby="nav-home-tab">
-            <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
-            </h4>
-            <div>
-              <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
-              </p>
-              <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
-              </p>
-              <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
-              </p>
-              <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
-              </p>
-              <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
-              </p>
-              <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
-              </p>
-              <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
-              </p>
-              <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
-              </p>
-              <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
-              </p>
-              <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
 
-              <div id="myModal" class="modal">
-                  <span class="close">&times;</span>
-                  <p id="modalContent"></p>
-              </div>
-
-            </div>
-          </div>
         </div>
         <div class="col-lg-6">
           <div class="product-info">
@@ -1102,6 +1071,38 @@
                     </div>
                     <% }); %>
                 </div>
+                <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel"
+                aria-labelledby="nav-home-tab">
+                <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
+                </h4>
+                <div>
+                  <p class="pthongso">Màn hình: <%= mangjson.spjson.manhinh %>
+                  </p>
+                  <p class="pthongso2">Chip: <%= mangjson.spjson.chip %>
+                  </p>
+                  <p class="pthongso">Ram: <%= mangjson.spjson.ram %>
+                  </p>
+                  <p class="pthongso2">Dung lượng: <%= mangjson.spjson.dungluong %>
+                  </p>
+                  <p class="pthongso">Camera sau: <%= mangjson.spjson.camera %>
+                  </p>
+                  <p class="pthongso2">Pin: <%= mangjson.spjson.pinsac %>
+                  </p>
+                  <p class="pthongso">Cổng sạc: <%= mangjson.spjson.congsac %>
+                  </p>
+                  <p class="pthongso2">Hãng: <%= mangjson.spjson.hang %>
+                  </p>
+                  <p class="pthongso3" id="product-info">Thông tin sản phẩm: <%= mangjson.spjson.thongtin %>
+                  </p>
+                  <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
+    
+                  <div id="myModal" class="modal">
+                      <span class="close">&times;</span>
+                      <p id="modalContent"></p>
+                  </div>
+    
+                </div>
+              </div>
                 <div class="khuyenmai">
                   <div class="d-flex topkhuyenmai">
                     <i class="fa fa-gift" style="color: #b40202;"></i>
