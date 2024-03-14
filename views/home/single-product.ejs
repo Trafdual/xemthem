@@ -48,6 +48,94 @@
       .message-button:hover {
         animation: shake 0.5s;
       }
+      .facezalo {
+        position: fixed;
+        right: 5%;
+        bottom: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 3;
+
+      }
+
+      .anhfacezalo {
+        width: 50%;
+        height: 50%;
+        margin-top: 20%;
+        animation: shake 1s infinite alternate;
+        /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
+        transform-origin: center;
+        /* Đặt điểm xoay tại trung tâm của ảnh */
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(-10deg);
+          /* Góc xoay ban đầu */
+        }
+
+        50% {
+          transform: rotate(10deg);
+          /* Góc xoay giữa chừng */
+        }
+
+        100% {
+          transform: rotate(-10deg);
+          /* Góc xoay kết thúc */
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          transform: scale(1);
+          /* Kích thước ban đầu */
+          opacity: 1;
+          /* Độ mờ ban đầu */
+        }
+
+        50% {
+          transform: scale(1.1);
+          /* Kích thước tăng lên */
+          opacity: 0.75;
+          /* Giảm độ mờ */
+        }
+
+        100% {
+          transform: scale(1);
+          /* Kích thước tăng lên */
+          opacity: 1;
+          /* Ẩn đi */
+        }
+      }
+
+      .anhfz {
+        position: relative;
+        text-align: center;
+        margin-top: 20%;
+        background-color: rgb(9, 80, 247);
+        width: 60px;
+        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+        height: 60px;
+        border-radius: 50%;
+        /* Biến hình thành hình tròn */
+        animation: expand 2s infinite;
+        display: inline-block;
+      }
+
+      .anhdt {
+        position: relative;
+        text-align: center;
+        margin-top: 20%;
+        background-color: rgb(9, 247, 13);
+        width: 60px;
+        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+        height: 60px;
+        border-radius: 50%;
+        /* Biến hình thành hình tròn */
+        animation: expand 2s infinite;
+        display: inline-block;
+      }
 
       body {
 
@@ -263,6 +351,95 @@
         animation: shake 0.5s;
       }
 
+      .facezalo {
+        position: fixed;
+        bottom: 10%;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 3;
+
+      }
+
+      .anhfacezalo {
+        width: 56%;
+        height: 56%;
+        margin-top: 20%;
+        animation: shake 1s infinite alternate;
+        /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
+        transform-origin: center;
+        /* Đặt điểm xoay tại trung tâm của ảnh */
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(-10deg);
+          /* Góc xoay ban đầu */
+        }
+
+        50% {
+          transform: rotate(10deg);
+          /* Góc xoay giữa chừng */
+        }
+
+        100% {
+          transform: rotate(-10deg);
+          /* Góc xoay kết thúc */
+        }
+      }
+
+      @keyframes expand {
+        0% {
+          transform: scale(1);
+          /* Kích thước ban đầu */
+          opacity: 1;
+          /* Độ mờ ban đầu */
+        }
+
+        50% {
+          transform: scale(1.1);
+          /* Kích thước tăng lên */
+          opacity: 0.75;
+          /* Giảm độ mờ */
+        }
+
+        100% {
+          transform: scale(1);
+          /* Kích thước tăng lên */
+          opacity: 1;
+          /* Ẩn đi */
+        }
+      }
+
+
+      .anhfz {
+        position: relative;
+        text-align: center;
+        margin-top: 20%;
+        background-color: rgb(9, 80, 247);
+        width: 70px;
+        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+        height: 70px;
+        border-radius: 50%;
+        /* Biến hình thành hình tròn */
+        animation: expand 2s infinite;
+        display: inline-block;
+      }
+
+      .anhdt {
+        position: relative;
+        text-align: center;
+        margin-top: 20%;
+        background-color: rgb(9, 247, 13);
+        width: 70px;
+        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+        height: 70px;
+        border-radius: 50%;
+        /* Biến hình thành hình tròn */
+        animation: expand 2s infinite;
+        display: inline-block;
+      }
       body {
 
         background-color: aliceblue;
@@ -456,6 +633,16 @@
 </head>
 
 <body>
+  <div class="facezalo">
+    <div class="anhfz">
+      <img class="anhfacezalo" id="fanpageButton" src="https://cdn-icons-png.flaticon.com/512/1617/1617222.png" alt="">
+    </div>
+
+    <div class="anhdt">
+      <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt=""
+        onclick="makeCall()">
+    </div>
+    </div>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
       <path fill="currentColor"
@@ -1035,7 +1222,7 @@
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="copyright">
-            <p>© Copyright 2023 9Mobile. Design by Nguyễn Đức Bình<a href="https://templatesjungle.com/"></a>
+            <p>© Copyright 2023 Bảo Minh Store.<a href="https://templatesjungle.com/"></a>
             </p>
           </div>
         </div>
@@ -1043,9 +1230,36 @@
     </div>
   </div>
   <script>
-    function openMessenger() {
-      window.location.href = "https://www.messenger.com/t/105703318958498";
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const fanpageButton = document.getElementById("fanpageButton");
+      var leftImage = document.getElementById("left");
+      var rightImage = document.getElementById("right");
+      var footer = document.getElementById("footer");
+
+      fanpageButton.addEventListener("click", function () {
+        // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+        window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
+      });
+
+      leftImage.style.transition = "bottom 0.3s ease-in-out";
+      rightImage.style.transition = "bottom 0.3s ease-in-out";
+
+      window.addEventListener("scroll", function () {
+        var footerPosition = footer.getBoundingClientRect();
+        var imagePosition = leftImage.getBoundingClientRect();
+
+        // Kiểm tra nếu hình ảnh gần phần footer
+        if (imagePosition.bottom >= footerPosition.top) {
+
+          leftImage.style.bottom = "60%";
+          rightImage.style.bottom = "60%";
+        } else {
+          // Nếu không, đặt lại vị trí của hình ảnh
+          leftImage.style.bottom = "35%";
+          rightImage.style.bottom = "35%";
+        }
+      });
+    });
   </script>
   <script>
     function makeCall() {
