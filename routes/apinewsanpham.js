@@ -5,6 +5,8 @@ const LoaiSP = require("../models/tenSpModel");
 const multer = require('multer')
 var myMDBlog = require("../models/blog.model");
 const checkAuth=require('../controllers/checkAuth')
+const slugify = require('slugify');
+
 
 const storage = multer.memoryStorage();
 
@@ -199,19 +201,19 @@ router.get('/getspchitiet/:idloaisp', async (req, res) => {
     }
 })
 
-router.get('/getchitiet/:idsp/:idloai', async (req, res) => {
+
+router.get('/getchitiet/:namesp/:nameloai', async (req, res) => {
     try {
-        const idsp = req.params.idsp;
-        const idloai=req.params.idloai;
-        const sp = await Sp.ChitietSp.findById(idsp);
+        const namesp = req.params.namesp.replace(/-/g, ' ');
+        const nameloai=req.params.nameloai.replace(/-/g, ' ');
+        const sp = await Sp.ChitietSp.findOne({name:namesp});
         if (!sp) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
-        const loai = await LoaiSP.TenSP.findById(idloai);
+        const loai = await LoaiSP.TenSP.findOne({name:nameloai});
         if (!loai) {
             return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
         }
-
         const spjson={
             image:sp.image,
             name:sp.name,
