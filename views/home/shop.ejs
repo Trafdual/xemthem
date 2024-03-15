@@ -688,7 +688,7 @@
                   </div>
                   <div class=" divbtn cart-concern position-absolute btnsp">
                     <div class="cart-button d-flex btnsp2">
-                      <a href="/getchitiet/<%= row._id %>/<%= idloaisp %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
+                      <a href="/getchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>/<%= encodeURIComponent(nameloaisp).replace(/%20/g, "-") %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
                       <p onclick="makeCall()" class="btn btn-medium btn-danger btmua">
                         Mua
                         ngay</p>

@@ -176,10 +176,10 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
     }
 })
 
-router.get('/getspchitiet/:idloaisp', async (req, res) => {
+router.get('/getspchitiet/:nameloaisp', async (req, res) => {
     try {
-        const idloaisp = req.params.idloaisp;
-        const loaisp = await LoaiSP.TenSP.findById(idloaisp);
+        const nameloaisp = req.params.nameloaisp.replace(/-/g, ' ');
+        const loaisp = await LoaiSP.TenSP.findOne({name:nameloaisp});
         if (!loaisp) {
             return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
         }
@@ -194,7 +194,7 @@ router.get('/getspchitiet/:idloaisp', async (req, res) => {
                 price:chitietsp.price
             }
         }))
-        res.render('home/shop.ejs', {chitiet,idloaisp})
+        res.render('home/shop.ejs', {chitiet,nameloaisp})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
