@@ -22,6 +22,16 @@
     rel="stylesheet">
   <!-- link icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16496281260">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16496281260');
+  </script>
   <style>
     @media only screen and (max-width: 700px) {
       .message-button {
@@ -147,6 +157,7 @@
         max-width: 100%;
         justify-items: center;
       }
+
       .btnsp2 {
         font-size: 5px;
         margin-right: 2%;
@@ -688,7 +699,9 @@
                   </div>
                   <div class=" divbtn cart-concern position-absolute btnsp">
                     <div class="cart-button d-flex btnsp2">
-                      <a href="/getchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>/<%= encodeURIComponent(nameloaisp).replace(/%20/g, "-") %>" class="btn btn-medium btn-danger btmua">Chi tiết</a>
+                      <a href="/getchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " -") %>/<%=
+                          encodeURIComponent(nameloaisp).replace(/%20/g, "-" ) %>" class="btn btn-medium btn-danger
+                          btmua">Chi tiết</a>
                       <p onclick="makeCall()" class="btn btn-medium btn-danger btmua">
                         Mua
                         ngay</p>
@@ -696,7 +709,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan ">
                     <h6 class="name">
-                      <a  href="">
+                      <a href="">
                         <%= row.name %>
                       </a>
                     </h6>
