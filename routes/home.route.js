@@ -29,10 +29,4 @@ router.get('/shop/', homeController.shop);
 router.get('/contact/', homeController.contact);
 router.get('/thanhtoan/', homeController.thanhtoan);
 
-
-
-router.get('/chitiet/:idsp', homeController.chitiet);
-router.post('/chitiet/:idsp', homeController.chitiet);
-
-
 module.exports = router;
