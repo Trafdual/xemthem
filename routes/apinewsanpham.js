@@ -11,7 +11,9 @@ const slugify = require('slugify');
 const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
-
+router.get('/mess',async(req,res)=>{
+res.render('home/test.ejs')
+})
 router.post('/postloaisp', async (req, res) => {
     try {
         const { name,manhinh,chip,ram,dungluong,camera,pinsac,hang,congsac,thongtin } = req.body;
@@ -175,6 +177,8 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
+
 
 router.get('/getspchitiet/:nameloaisp', async (req, res) => {
     try {
