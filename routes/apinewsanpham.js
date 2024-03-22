@@ -7,6 +7,9 @@ var myMDBlog = require("../models/blog.model");
 const checkAuth = require('../controllers/checkAuth')
 const slugify = require('slugify');
 const LinkKien = require("../models/LinkKienModel")
+const LoaiLinkKien=require("../models/LoaiLinhKien");
+const Notify=require("../models/NotifyModel");
+const { linkSync } = require('fs');
 
 
 const storage = multer.memoryStorage();
@@ -267,6 +270,48 @@ router.post('/postloaichitiet/:chitietspid', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
+router.post('/editloaichitiet/:chitietspid/:id', async (req, res) => {
+    try {
+        const chitietspid = req.params.chitietspid;
+        const { name, price } = req.body;
+        const chitietsp = await Sp.ChitietSp.findById(chitietspid);
+        const id = req.params.id
+        const index = chitietsp.chitiet.findIndex(item => item._id.toString() === id);
+        if (index !== -1) {
+            chitietsp.chitiet[index].name = name;
+            chitietsp.chitiet[index].price = price;
+        } else {
+            return res.status(404).json({ message: "Không tìm thấy id trong danh sách chitiet" });
+        }
+
+        await chitietsp.save();
+
+        res.redirect(`/getloaichitiet/${chitietspid}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/geteditloaichitiet/:chitietspid/:id', async (req, res) => {
+    try {
+        const chitietspid = req.params.chitietspid;
+        const id=req.params.id
+        const chitietsp = await Sp.ChitietSp.findById(chitietspid);
+        const index = chitietsp.chitiet.findIndex(item => item._id.toString() === id);
+        const json={
+           name: chitietsp.chitiet[index].name,
+           price: chitietsp.chitiet[index].price 
+        }
+
+        res.render('home/editloaichitiet.ejs', { chitietspid,id,json })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
 router.post('/deleteloaichitiet/:chitietspid/:id', async (req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
@@ -316,7 +361,6 @@ router.get('/getloaichitiet/:idsp', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
-
 
 router.post('/deletechitietsp/:id', async (req, res) => {
     try {
@@ -375,10 +419,100 @@ router.get('/editsp/:id', async (req, res) => {
 
 router.get('/linhkien', async (req, res) => {
     try {
-        const linkkien = await LinkKien.linkkien.find();
-        res.render('home/linkkien.ejs', linkkien)
+        const loailinhkien= await LoaiLinkKien.loailinkkien.find().populate('linhkien');
+        const loailinhkienjson = await Promise.all(loailinhkien.map(async (loai) => {
+            const linkkienJson = await Promise.all(loai.linhkien.map(async (lk) => {
+                return {
+                    id: lk._id,
+                    name: lk.name,
+                    price: lk.price,
+                    image:lk.image
+                }
+            }));
+            return {
+                id: loai._id,
+                name: loai.name,
+                linkkienJson:linkkienJson
+            };
+        }));
+        // res.json(loailinhkienjson)
+        res.render('home/linkkien.ejs', {loailinhkienjson})
     } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
 
+router.post('/postlinkkien/:idloailinkkien',upload.single('image'),async(req,res)=>{
+    try {
+        const{name,price}=req.body
+        const idloailinkkien=req.params.idloailinkkien;
+        const loailinhkien=await LoaiLinkKien.loailinkkien.findById(idloailinkkien);
+        const image = req.file.buffer.toString('base64');
+        const linkkien=new LinkKien.linkkien({name,price,image});
+        linkkien.loailinhkien=loailinhkien._id;
+        linkkien.loai=loailinhkien.name;
+        loailinhkien.linhkien.push(linkkien._id);
+        await linkkien.save();
+        await loailinhkien.save();
+        res.json(linkkien);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/postloailinkien',async(req,res)=>{
+    try {
+        const{name,thuonghieu}=req.body;
+        const loailinkkien=new LoaiLinkKien.loailinkkien({name,thuonghieu});
+        await loailinkkien.save();
+        res.json(loailinkkien);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/muangay/:idsp',async(req,res)=>{
+    try {
+        const idsp=req.params.idsp;
+        const sp=await Sp.ChitietSp.findById(idsp);
+        const spjson={
+            name:sp.name,
+            price:sp.price
+        }
+        res.render('home/formmua.ejs',{spjson});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/postnotify',async(req,res)=>{
+    try {
+        const{tenkhach,phone,email,tensp,price}=req.body;
+        const notify=new Notify.notify({tenkhach,phone,email,tensp,price});
+        const sp=await Sp.ChitietSp.findOne({name:tensp});
+        notify.idsp=sp._id;
+        await notify.save();
+        res.redirect("/");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/duyet/:idnotify',async(req,res)=>{
+    try {
+        const idnotify=req.params.idnotify;
+        const notify=await Notify.notify.findById(idnotify);
+        notify.isRead=true;
+        await notify.save();
+        res.redirect("/notify");
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
