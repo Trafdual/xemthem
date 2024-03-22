@@ -10,6 +10,8 @@ const LinkKien = require("../models/LinkKienModel")
 const LoaiLinkKien=require("../models/LoaiLinhKien");
 const Notify=require("../models/NotifyModel");
 const { linkSync } = require('fs');
+const moment = require('moment');
+const momenttimezone = require('moment-timezone');
 
 
 const storage = multer.memoryStorage();
@@ -491,10 +493,12 @@ router.get('/muangay/:idsp',async(req,res)=>{
 
 router.post('/postnotify',async(req,res)=>{
     try {
-        const{tenkhach,phone,email,tensp,price}=req.body;
-        const notify=new Notify.notify({tenkhach,phone,email,tensp,price});
+        const{tenkhach,phone,email,tensp,price,address}=req.body;
+        const vietnamTime = momenttimezone().add(7, 'hours').toDate();
+        const notify=new Notify.notify({tenkhach,phone,email,tensp,price,address});
         const sp=await Sp.ChitietSp.findOne({name:tensp});
         notify.idsp=sp._id;
+        notify.date=vietnamTime;
         await notify.save();
         res.redirect("/");
     } catch (error) {
@@ -509,11 +513,52 @@ router.post('/duyet/:idnotify',async(req,res)=>{
         const notify=await Notify.notify.findById(idnotify);
         notify.isRead=true;
         await notify.save();
-        res.redirect("/notify");
+        res.redirect("/donhang");
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
+})
+
+router.get('/donhang', async (req, res) => {
+    try {
+        const donhang = await Notify.notify.find();
+        
+        const donHangIsReadTrue = donhang.filter(d => d.isRead === true)
+            .map(d => ({
+                _id:d._id,
+                tenkhach: d.tenkhach,
+                phone:d.phone,
+                email:d.email,
+                address:d.address,
+                tensp:d.tensp,
+                price:d.price,
+                date:moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+            }));
+
+        const donHangIsReadFalse = donhang.filter(d => d.isRead === false)
+            .map(d => ({
+                _id:d._id,
+                tenkhach: d.tenkhach,
+                phone:d.phone,
+                email:d.email,
+                address:d.address,
+                tensp:d.tensp,
+                price:d.price,
+                date:moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+            }));
+
+        res.render('home/donhang.ejs', {
+            donHangIsReadTrue,
+            donHangIsReadFalse
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+router.get('/danhgia',(req,res)=>{
+    res.render('home/danhgia.ejs');
 })
 
 

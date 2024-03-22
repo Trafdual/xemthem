@@ -1,0 +1,139 @@
+<%- include('../include/header.ejs') %>
+
+    <div class="container">
+        <h2><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/13/13398.png"></a> Đơn hàng</h2>
+    </div>
+    <div class="tab">
+      <button class="tablinks active bt" onclick="openTab(event, 'Tab1')">Đơn chờ duyệt</button>
+      <button class="tablinks" onclick="openTab(event, 'Tab2')">Đơn đã được duyệt</button>
+    </div>
+  <!-- Nội dung của tab -->
+  <div id="Tab1" class="tabcontent show">
+    <div class="col-1 col-sm-4 col-md-12">
+
+      <table class="table table-bordered table-striped" style="text-align: center;">
+        <tr>
+          <th>Tên khách hàng</th>
+          <th>số điện thoại</th>
+          <th> địa chỉ</th>
+          <th>email</th>
+          <th>tên sản phẩm</th>
+          <th>giá</th>
+          <th>Ngày</th>
+          <th>Chức năng</th>
+        </tr>
+
+        <% donHangIsReadFalse.forEach( ( row )=>{ %>
+
+          <tr>
+            <td>
+              <%= row.tenkhach%>
+            </td>
+            <td>
+              <a href="">
+                <%= row.phone %>
+              </a>
+            </td>
+            <td>
+              <%= row.email%>
+            </td>
+            <td>
+              <%= row.address%>
+            </td>
+            <td>
+              <%= row.tensp%>
+            </td>
+
+            <td>
+              <%= row.price %>
+            </td>
+            <td>
+              <%= row.date%>
+            </td>
+
+            <td> 
+
+              <form action="/duyet/<%= row._id %>" method="post" id="deleteForm">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                  data-bs-target="#deleteModal<%= row._id %>">
+                  Duyệt
+                </button>
+
+                <div class="modal fade" id="deleteModal<%= row._id %>" data-bs-keyboard="false"
+                  aria-labelledby="staticBackdropLabel">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Chắc chắn muốn
+                          Duyệt?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                        <button type="submit" class="btn btn-primary">Có</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </td>
+
+          </tr>
+          <% } ) %>
+
+      </table>
+
+    </div>
+  </div>
+
+  <div id="Tab2" class="tabcontent">
+    <div class="col-1 col-sm-4 col-md-12">
+
+      <table class="table table-bordered table-striped" style="text-align: center;">
+        <tr>
+          <th>Tên khách hàng</th>
+          <th>số điện thoại</th>
+          <th> địa chỉ</th>
+          <th>email</th>
+          <th>tên sản phẩm</th>
+          <th>giá</th>
+          <th>Ngày</th>
+        </tr>
+
+        <% donHangIsReadTrue.forEach( ( row )=>{ %>
+
+          <tr>
+            <td>
+              <%= row.tenkhach%>
+            </td>
+            <td>
+              <a href="">
+                <%= row.phone %>
+              </a>
+            </td>
+            <td>
+              <%= row.email%>
+            </td>
+            <td>
+              <%= row.address%>
+            </td>
+            <td>
+              <%= row.tensp%>
+            </td>
+
+            <td>
+              <%= row.price %>
+            </td>
+            <td>
+              <%= row.date%>
+            </td>
+
+          </tr>
+          <% } ) %>
+
+      </table>
+
+    </div>
+  </div>
+
+    <%- include('../include/footer.ejs') %>

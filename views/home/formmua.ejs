@@ -307,28 +307,30 @@
             </div>
         </div>
     </section>
-    <div class="contact-us padding-large">
+    <div class="contact-us padding-small">
         <div class="container">
             <div class="align-items-center">
                 <div class="inquiry-item">
                     <h2 class="display-7 text-uppercase text-dark">Thông Tin Liên Hệ Khách Hàng</h2>
                     <p>Sử dụng bảng ở dưới để gửi yêu cầu mua hàng</p>
                     <form id="form" class="form-group flex-wrap" method="post" action="/postnotify">
-                        <div class="form-input col-lg-12 d-flex mb-3">
-                            <input type="text" name="tenkhach" placeholder="Nhập tên của bạn"
-                                class="form-control ps-3 me-3 mb-3">
-                            <input type="text" name="email" placeholder="Nhập email của bạn"
-                                class="form-control ps-3 mb-3">
-                        </div>
                         <div class="form-input col-lg-12 mb-3 d-flex">
-                            <input type="text" name="phone" placeholder="Số điện thoại"
-                                class="form-control ps-3 mb-3 me-3">
-                            <div class="form-control ps-3 mb-3">
-                                <p class="text-black">Thông tin sản phẩm</p>
+                            <div class="form-control ps-3 mb-3 border-0 no-padding-left">
+                                    <input type="text" name="tenkhach" placeholder="Nhập tên của bạn"
+                                    class="form-control ps-3 me-3 mb-4" required>
+                                <input type="text" name="email" placeholder="Nhập email của bạn"
+                                    class="form-control ps-3 mb-4" required>
+                                    <input type="text" name="phone" placeholder="Số điện thoại"
+                                    class="form-control ps-3 mb-4 me-3" required>
+                                    <input type="text" name="address" placeholder="Địa chỉ"
+                                    class="form-control ps-3" required>
+                                </div>
+                            <div class="form-control ps-3 mb-3 pb-0">
+                                <p class="text-black mt-4 mb-3">Thông tin sản phẩm</p>
                                 <input type="text" name="tensp" placeholder="Tên sản phẩm" value="<%= spjson.name %>"
-                                    class="form-control ps-3 me-3 mb-3">
+                                    class="form-control ps-3 me-3 mb-4 " readonly>
                                 <input type="text" name="price" placeholder="giá" value="<%= spjson.price %>"
-                                    class="form-control ps-3 mb-3">
+                                    class="form-control ps-3 " readonly>
                             </div>
 
                         </div>

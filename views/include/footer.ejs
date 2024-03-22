@@ -6,7 +6,30 @@
 </footer>
 
 </div>    
+<script>
+// JavaScript để điều khiển sự kiện khi click vào tab
+function openTab(evt, tabName) {
+    // Lấy tất cả các tab buttons
+    var tabButtons = document.getElementsByClassName("tablinks");
 
+    // Xóa lớp active từ tất cả các tab buttons
+    for (var i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+    }
+
+    // Thêm lớp active cho tab button được chọn
+    evt.currentTarget.classList.add("active");
+
+    // Ẩn tất cả các tab content
+    var tabContents = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+    }
+
+    // Hiển thị tab content tương ứng với tab button được chọn
+    document.getElementById(tabName).style.display = "block";
+}
+</script>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
