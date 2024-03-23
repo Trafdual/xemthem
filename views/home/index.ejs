@@ -388,6 +388,7 @@
 
 
       }
+
       .dialog-button {
         width: 27.15%;
         position: fixed;
@@ -401,7 +402,8 @@
         z-index: 1;
         /* Đảm bảo nút hiển thị trên thanh trượt */
       }
-      .btndong{
+
+      .btndong {
         background-color: #fb2104;
         color: rgb(251, 252, 253);
       }
@@ -1136,9 +1138,10 @@
           <span class="star" data-value="5">&#9733;</span>
         </div>
         <input type="hidden" name="rating" id="ratingInput">
+        <p id="sendingMessage" style="display: none; font-size: 20px;">Đang gửi đánh giá, vui lòng đợi giây lát...</p>
         <div class="dialog-buttons">
           <button onclick="hideDialog()" class="btn btn-secondary">Không</button>
-          <button type="submit" class="btn btn-primary">Có</button>
+          <button type="submit" onclick="showSendingMessage()" class="btn btn-primary">Có</button>
         </div>
       </div>
     </div>
@@ -1701,6 +1704,9 @@
       event.preventDefault();
       var dialog = document.getElementById('dialogxemthem');
       dialog.style.display = 'none';
+    }
+    function showSendingMessage() {
+      document.getElementById("sendingMessage").style.display = "block"; // Hiển thị dòng văn bản "Đang gửi đánh giá, vui lòng đợi giây lát..."
     }
 
   </script>
