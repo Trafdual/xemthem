@@ -159,6 +159,11 @@
         margin: 0 auto;
       }
 
+      .product-swiper {
+        height: 400px;
+        /* Thiết lập chiều cao cố định cho swiper */
+      }
+
       .section1 {
         padding-left: 4%;
         padding-right: 3%;
@@ -364,6 +369,42 @@
         /* Màu của các sao đã chọn */
       }
 
+      .dialog-xemthem {
+        margin-top: 10%;
+        margin-left: 3%;
+        /* Đặt margin-left thành auto để canh giữa */
+        margin-right: 3%;
+        /* Đặt margin-right thành auto để canh giữa */
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 350px;
+        text-align: center;
+        max-height: 400px;
+        /* Đặt độ cao tối đa của dialog */
+        overflow-y: auto;
+        /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
+        position: relative;
+
+
+      }
+      .dialog-button {
+        width: 27.15%;
+        position: fixed;
+        /* Đặt vị trí tuyệt đối để cố định nút */
+        bottom: 200px;
+        /* Đặt vị trí bottom để cố định nút dưới cùng */
+        left: 50%;
+        /* Đặt vị trí left ở giữa */
+        transform: translateX(-50%);
+        /* Dịch chuyển nút sang trái để căn giữa */
+        z-index: 1;
+        /* Đảm bảo nút hiển thị trên thanh trượt */
+      }
+      .btndong{
+        background-color: #fb2104;
+        color: rgb(251, 252, 253);
+      }
     }
 
     @media only screen and (min-width: 701px) {
@@ -493,14 +534,19 @@
       .section {
         padding-left: 2%;
         padding-right: 2%;
-        padding-bottom: 3%;
         padding-top: 2%;
+        padding-bottom: 2%;
         height: 23%;
         background-color: rgb(251, 251, 252);
         margin-top: 0.5%;
         margin-left: 10%;
         margin-right: 10%;
         border-radius: 10px;
+      }
+
+      .product-swiper {
+        height: 450px;
+        /* Thiết lập chiều cao cố định cho swiper */
       }
 
       .section1 {
@@ -692,6 +738,7 @@
         text-transform: uppercase;
       }
 
+
       @keyframes tilt {
         0% {
           transform: rotate(-5deg);
@@ -793,6 +840,41 @@
         color: gold;
         /* Màu của các sao đã chọn */
       }
+
+      .dialog-xemthem {
+        margin-top: 10%;
+        margin-left: auto;
+        /* Đặt margin-left thành auto để canh giữa */
+        margin-right: auto;
+        /* Đặt margin-right thành auto để canh giữa */
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        text-align: center;
+        max-height: 400px;
+        /* Đặt độ cao tối đa của dialog */
+        overflow-y: auto;
+        /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
+        position: relative;
+
+      }
+
+      .dialog-button {
+        width: 27.15%;
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        /* Đặt vị trí tuyệt đối để cố định nút */
+        bottom: 130px;
+        /* Đặt vị trí bottom để cố định nút dưới cùng */
+        left: 50%;
+        /* Đặt vị trí left ở giữa */
+        transform: translateX(-50%);
+        /* Dịch chuyển nút sang trái để căn giữa */
+        z-index: 1;
+        /* Đảm bảo nút hiển thị trên thanh trượt */
+      }
+
     }
   </style>
 
@@ -801,13 +883,13 @@
     ================================================== -->
   <!-- Google tag (gtag.js) -->
   <script>(function (w, d, s, l, i) {
-    w[l] = w[l] || []; w[l].push({
-      'gtm.start':
-        new Date().getTime(), event: 'gtm.js'
-    }); var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');</script>
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -1002,9 +1084,6 @@
               <li class="nav-item">
                 <a class="nav-link me-4" href="/contact">Liên hệ</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" onclick="showSuccessDialog()">Đánh giá</a>
-              </li>
 
               <li class="nav-item">
                 <div class="user-items ps-5">
@@ -1110,7 +1189,7 @@
                   <%= row.name %>
                 </h2>
                 <div class="btn-right">
-                  <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>" class="btn
+                  <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " -") %>" class="btn
                     btn-medium btn-normal text-uppercase">Xem Thêm</a>
                 </div>
               </div>
@@ -1118,7 +1197,7 @@
                 <img class="imgsale" src="/images/banner3.png" alt="">
               </div>
               <div class="swiper product-swiper swiper-container">
-                <div class="swiper-wrapper list">
+                <div class="swiper-wrapper">
                   <% row.chitietsp.slice(0, 7).forEach((item, index)=> { %>
                     <% var rowname=row.name; %>
                       <div class="swiper-slide">
@@ -1130,7 +1209,7 @@
                           <div style="padding: 5%;" class="cart-concern position-absolute ">
                             <div class="cart-button d-flex">
                               <a style="font-size: 10px; max-height: 85%;"
-                                href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
+                                href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " -") %>/<%=
                                   encodeURIComponent(rowname).replace(/%20/g, "-" ) %>"
                                   class="btn btn-medium btn-danger">Chi tiết</a>
                               <a href="/muangay/<%= item.id %>" style="font-size: 10px; height: 85%;"
@@ -1139,7 +1218,7 @@
                           </div>
                           <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
                             <h6>
-                              <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
+                              <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " -") %>/<%=
                                   encodeURIComponent(rowname).replace(/%20/g, "-" ) %>" class="name">
                                   <%= item.name %>
                               </a>
@@ -1152,7 +1231,7 @@
                       </div>
                       <% }) %>
                 </div>
-                <div class="swiper-pagination position-absolute text-center"></div>
+                <div class="swiper-pagination position-absolute text-center" style="top: 90%;"></div>
               </div>
             </div>
           </div>
@@ -1238,7 +1317,7 @@
                 <div class="display-header d-flex justify-content-between pb-3">
                   <h2 class="display-7 text-dark text-uppercase">Bài đăng và tiện ích</h2>
                   <div class="btn-right">
-                    <a href="latest-blog" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
+                    <a href="#" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
                   </div>
                 </div>
                 <div class="post-grid d-flex flex-wrap justify-content-between">
@@ -1278,6 +1357,14 @@
           <section id="testimonials" class="position-relative section">
             <div class="container">
               <div class="row">
+                <div class="display-header d-flex justify-content-between pb-3">
+                  <h3 class="display-7 text-dark text-uppercase">Đánh giá</h3>
+                  <div class="btn-right">
+                    <a onclick="showSuccessDialog()" class="btn btn-medium btn-normal text-uppercase">Đánh giá</a>
+                    <a onclick="showSuccessDialogxemthem()" class="btn btn-medium btn-normal text-uppercase">ĐỌC
+                      THÊM</a>
+                  </div>
+                </div>
                 <div class="review-content position-relative">
                   <div class="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center">
                     <svg class="chevron-left">
@@ -1287,7 +1374,7 @@
                   <div class="swiper testimonial-swiper">
 
                     <div class="swiper-wrapper">
-                      <% danhgiaIsReadTrue.forEach((row, index)=> { %>
+                      <% danhgiaIsReadTrue.slice(0, 3).forEach((row, index)=> { %>
                         <div class="swiper-slide text-center d-flex justify-content-center">
                           <div class="review-item col-md-10">
                             <i class="icon icon-review"></i>
@@ -1320,6 +1407,34 @@
             </div>
             <div class="swiper-pagination"></div>
           </section>
+
+          <div id="dialogxemthem" class="dialog-overlay">
+            <div class="dialog-xemthem">
+              <h2>Đánh Giá</h2>
+              <% danhgiaIsReadTrue.forEach((row, index)=> { %>
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <h6 class="me-3">
+                      <%= row.tenkhach %>
+                    </h6>
+                    <div class="rating">
+                      <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
+                      <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
+                      <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
+                      <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
+                      <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
+                    </div>
+                  </div>
+                  <p>“<%= row.content %>”</p>
+                  <hr>
+                </div>
+                <% }) %>
+                  <div class="dialog-button">
+                    <button onclick="hideDialogxemthem()" class="btn btn-secondary btndong">Đóng</button>
+                  </div>
+            </div>
+          </div>
+
           <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden section">
             <div class="container">
               <div class="row">
@@ -1574,6 +1689,20 @@
       var dialog = document.getElementById('successDialog');
       dialog.style.display = 'none';
     }
+    function showSuccessDialogxemthem() {
+      event.preventDefault();
+      // Hiển thị dialog thành công
+      var dialog = document.getElementById('dialogxemthem');
+      dialog.style.display = 'block';
+    }
+
+    function hideDialogxemthem() {
+      // Ẩn dialog
+      event.preventDefault();
+      var dialog = document.getElementById('dialogxemthem');
+      dialog.style.display = 'none';
+    }
+
   </script>
   <script>
     let selectedRating = 0;
