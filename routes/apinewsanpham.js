@@ -7,8 +7,9 @@ var myMDBlog = require("../models/blog.model");
 const checkAuth = require('../controllers/checkAuth')
 const slugify = require('slugify');
 const LinkKien = require("../models/LinkKienModel")
-const LoaiLinkKien=require("../models/LoaiLinhKien");
-const Notify=require("../models/NotifyModel");
+const LoaiLinkKien = require("../models/LoaiLinhKien");
+const Notify = require("../models/NotifyModel");
+const DanhGia = require('../models/DanhGiaModel');
 const { linkSync } = require('fs');
 const moment = require('moment');
 const momenttimezone = require('moment-timezone');
@@ -93,6 +94,7 @@ router.get('/', async (req, res) => {
     try {
         const allsp = await LoaiSP.TenSP.find().populate('chitietsp');
         const listBl = await myMDBlog.blogModel.find();
+        const danhgia= await DanhGia.danhgia.find()
         const tenspjson = await Promise.all(allsp.map(async (tensp) => {
             const chitietspJson = await Promise.all(tensp.chitietsp.map(async (chitietsp) => {
                 return {
@@ -109,8 +111,15 @@ router.get('/', async (req, res) => {
                 chitietsp: chitietspJson
             };
         }));
-        res.render('home/index.ejs', { tenspjson, listBl });
-        // res.json(tenspjson);
+
+        const danhgiaIsReadTrue = danhgia.filter(d => d.isRead === true)
+            .map(d => ({
+                _id: d._id,
+                tenkhach: d.tenkhach,
+                content:d.content,
+                rating:d.rating,
+            }));
+        res.render('home/index.ejs', { tenspjson, listBl, danhgiaIsReadTrue });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -299,15 +308,15 @@ router.post('/editloaichitiet/:chitietspid/:id', async (req, res) => {
 router.get('/geteditloaichitiet/:chitietspid/:id', async (req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
-        const id=req.params.id
+        const id = req.params.id
         const chitietsp = await Sp.ChitietSp.findById(chitietspid);
         const index = chitietsp.chitiet.findIndex(item => item._id.toString() === id);
-        const json={
-           name: chitietsp.chitiet[index].name,
-           price: chitietsp.chitiet[index].price 
+        const json = {
+            name: chitietsp.chitiet[index].name,
+            price: chitietsp.chitiet[index].price
         }
 
-        res.render('home/editloaichitiet.ejs', { chitietspid,id,json })
+        res.render('home/editloaichitiet.ejs', { chitietspid, id, json })
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -421,39 +430,39 @@ router.get('/editsp/:id', async (req, res) => {
 
 router.get('/linhkien', async (req, res) => {
     try {
-        const loailinhkien= await LoaiLinkKien.loailinkkien.find().populate('linhkien');
+        const loailinhkien = await LoaiLinkKien.loailinkkien.find().populate('linhkien');
         const loailinhkienjson = await Promise.all(loailinhkien.map(async (loai) => {
             const linkkienJson = await Promise.all(loai.linhkien.map(async (lk) => {
                 return {
                     id: lk._id,
                     name: lk.name,
                     price: lk.price,
-                    image:lk.image
+                    image: lk.image
                 }
             }));
             return {
                 id: loai._id,
                 name: loai.name,
-                linkkienJson:linkkienJson
+                linkkienJson: linkkienJson
             };
         }));
         // res.json(loailinhkienjson)
-        res.render('home/linkkien.ejs', {loailinhkienjson})
+        res.render('home/linkkien.ejs', { loailinhkienjson })
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.post('/postlinkkien/:idloailinkkien',upload.single('image'),async(req,res)=>{
+router.post('/postlinkkien/:idloailinkkien', upload.single('image'), async (req, res) => {
     try {
-        const{name,price}=req.body
-        const idloailinkkien=req.params.idloailinkkien;
-        const loailinhkien=await LoaiLinkKien.loailinkkien.findById(idloailinkkien);
+        const { name, price } = req.body
+        const idloailinkkien = req.params.idloailinkkien;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(idloailinkkien);
         const image = req.file.buffer.toString('base64');
-        const linkkien=new LinkKien.linkkien({name,price,image});
-        linkkien.loailinhkien=loailinhkien._id;
-        linkkien.loai=loailinhkien.name;
+        const linkkien = new LinkKien.linkkien({ name, price, image });
+        linkkien.loailinhkien = loailinhkien._id;
+        linkkien.loai = loailinhkien.name;
         loailinhkien.linhkien.push(linkkien._id);
         await linkkien.save();
         await loailinhkien.save();
@@ -464,10 +473,10 @@ router.post('/postlinkkien/:idloailinkkien',upload.single('image'),async(req,res
     }
 })
 
-router.post('/postloailinkien',async(req,res)=>{
+router.post('/postloailinkien', async (req, res) => {
     try {
-        const{name,thuonghieu}=req.body;
-        const loailinkkien=new LoaiLinkKien.loailinkkien({name,thuonghieu});
+        const { name, thuonghieu } = req.body;
+        const loailinkkien = new LoaiLinkKien.loailinkkien({ name, thuonghieu });
         await loailinkkien.save();
         res.json(loailinkkien);
     } catch (error) {
@@ -476,29 +485,29 @@ router.post('/postloailinkien',async(req,res)=>{
     }
 })
 
-router.get('/muangay/:idsp',async(req,res)=>{
+router.get('/muangay/:idsp', async (req, res) => {
     try {
-        const idsp=req.params.idsp;
-        const sp=await Sp.ChitietSp.findById(idsp);
-        const spjson={
-            name:sp.name,
-            price:sp.price
+        const idsp = req.params.idsp;
+        const sp = await Sp.ChitietSp.findById(idsp);
+        const spjson = {
+            name: sp.name,
+            price: sp.price
         }
-        res.render('home/formmua.ejs',{spjson});
+        res.render('home/formmua.ejs', { spjson });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.post('/postnotify',async(req,res)=>{
+router.post('/postnotify', async (req, res) => {
     try {
-        const{tenkhach,phone,email,tensp,price,address}=req.body;
+        const { tenkhach, phone, email, tensp, price, address } = req.body;
         const vietnamTime = momenttimezone().add(7, 'hours').toDate();
-        const notify=new Notify.notify({tenkhach,phone,email,tensp,price,address});
-        const sp=await Sp.ChitietSp.findOne({name:tensp});
-        notify.idsp=sp._id;
-        notify.date=vietnamTime;
+        const notify = new Notify.notify({ tenkhach, phone, email, tensp, price, address });
+        const sp = await Sp.ChitietSp.findOne({ name: tensp });
+        notify.idsp = sp._id;
+        notify.date = vietnamTime;
         await notify.save();
         res.redirect("/");
     } catch (error) {
@@ -507,11 +516,11 @@ router.post('/postnotify',async(req,res)=>{
     }
 })
 
-router.post('/duyet/:idnotify',async(req,res)=>{
+router.post('/duyet/:idnotify', async (req, res) => {
     try {
-        const idnotify=req.params.idnotify;
-        const notify=await Notify.notify.findById(idnotify);
-        notify.isRead=true;
+        const idnotify = req.params.idnotify;
+        const notify = await Notify.notify.findById(idnotify);
+        notify.isRead = true;
         await notify.save();
         res.redirect("/donhang");
     } catch (error) {
@@ -523,29 +532,29 @@ router.post('/duyet/:idnotify',async(req,res)=>{
 router.get('/donhang', async (req, res) => {
     try {
         const donhang = await Notify.notify.find();
-        
+
         const donHangIsReadTrue = donhang.filter(d => d.isRead === true)
             .map(d => ({
-                _id:d._id,
+                _id: d._id,
                 tenkhach: d.tenkhach,
-                phone:d.phone,
-                email:d.email,
-                address:d.address,
-                tensp:d.tensp,
-                price:d.price,
-                date:moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+                phone: d.phone,
+                email: d.email,
+                address: d.address,
+                tensp: d.tensp,
+                price: d.price,
+                date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
             }));
 
         const donHangIsReadFalse = donhang.filter(d => d.isRead === false)
             .map(d => ({
-                _id:d._id,
+                _id: d._id,
                 tenkhach: d.tenkhach,
-                phone:d.phone,
-                email:d.email,
-                address:d.address,
-                tensp:d.tensp,
-                price:d.price,
-                date:moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+                phone: d.phone,
+                email: d.email,
+                address: d.address,
+                tensp: d.tensp,
+                price: d.price,
+                date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
             }));
 
         res.render('home/donhang.ejs', {
@@ -557,8 +566,65 @@ router.get('/donhang', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
-router.get('/danhgia',(req,res)=>{
-    res.render('home/danhgia.ejs');
+
+router.post('/danhgia', async (req, res) => {
+    try {
+        const { tenkhach, content, rating } = req.body;
+        const vietnamTime = momenttimezone().add(7, 'hours').toDate();
+        const danhgia = new DanhGia.danhgia({
+            tenkhach, content, rating, date: vietnamTime
+        })
+        await danhgia.save();
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/getdanhgia', async (req, res) => {
+    try {
+        const danhgia = await DanhGia.danhgia.find();
+
+        const danhgiaIsReadTrue = danhgia.filter(d => d.isRead === true)
+            .map(d => ({
+                _id: d._id,
+                tenkhach: d.tenkhach,
+                content:d.content,
+                rating:d.rating,
+                date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+            }));
+
+        const danhgiaIsReadFalse = danhgia.filter(d => d.isRead === false)
+            .map(d => ({
+                _id: d._id,
+                tenkhach: d.tenkhach,
+                content:d.content,
+                rating:d.rating,
+                date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
+            }));
+
+        res.render('home/danhgia.ejs', {
+            danhgiaIsReadTrue,
+            danhgiaIsReadFalse
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/duyetdanhgia/:iddanhgia',async(req,res)=>{
+    try {
+        const iddanhgia=req.params.iddanhgia;
+        const danhgia=await DanhGia.danhgia.findById(iddanhgia);
+        danhgia.isRead=true;
+        await danhgia.save();
+        res.redirect('/getdanhgia');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
 })
 
 

@@ -365,6 +365,16 @@
         margin-top: 20px;
       }
 
+      .rating .star {
+        color: #ccc;
+        /* Màu mặc định cho tất cả các sao */
+      }
+
+      .rating .star.selected {
+        color: gold;
+        /* Màu của các sao đã chọn */
+      }
+
     }
 
     @media only screen and (min-width: 701px) {
@@ -784,6 +794,16 @@
       .dialog-buttons {
         margin-top: 20px;
       }
+
+      .rating .star {
+        color: #ccc;
+        /* Màu mặc định cho tất cả các sao */
+      }
+
+      .rating .star.selected {
+        color: gold;
+        /* Màu của các sao đã chọn */
+      }
     }
   </style>
 
@@ -1022,31 +1042,32 @@
       </div>
     </nav>
   </header>
-<form action="" method="">
+  <form action="/danhgia" method="post">
 
-  <div id="successDialog" class="dialog-overlay">
-    <div class="dialog-content">
-      <h2>Đánh Giá</h2>
-      <div class="d-flex flex-column">
-        <input style="width: 100%;font-size: 20px;" class="text-black " placeholder="họ và tên" name="tenkhach">
-        <textarea style="width: 100%; margin-top: 5%; font-size: 20px;" class="text-black" name="content" placeholder="nội dung"></textarea>
-      </div>
-      <div class="rating" style="font-size: 30px;">
-        <span class="star" data-value="1">&#9733;</span>
-        <span class="star" data-value="2">&#9733;</span>
-        <span class="star" data-value="3">&#9733;</span>
-        <span class="star" data-value="4">&#9733;</span>
-        <span class="star" data-value="5">&#9733;</span>
-      </div>
-      <input type="hidden" name="rating" id="ratingInput">
-      <div class="dialog-buttons">
-        <button onclick="hideDialog()" class="btn btn-secondary">Không</button>
-        <button type="submit" class="btn btn-primary">Có</button>
+    <div id="successDialog" class="dialog-overlay">
+      <div class="dialog-content">
+        <h2>Đánh Giá</h2>
+        <div class="d-flex flex-column">
+          <input style="width: 100%;font-size: 20px;" class="text-black " placeholder="họ và tên" name="tenkhach">
+          <textarea style="width: 100%; margin-top: 5%; font-size: 20px;" class="text-black" name="content"
+            placeholder="nội dung"></textarea>
+        </div>
+        <div class="rating" style="font-size: 30px;">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <input type="hidden" name="rating" id="ratingInput">
+        <div class="dialog-buttons">
+          <button onclick="hideDialog()" class="btn btn-secondary">Không</button>
+          <button type="submit" class="btn btn-primary">Có</button>
+        </div>
       </div>
     </div>
-  </div>
-    
-</form>
+
+  </form>
 
   <div class="container" style="height: 100px;"></div>
   <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale46">
@@ -1269,75 +1290,27 @@
                   <div class="swiper testimonial-swiper">
 
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide text-center d-flex justify-content-center">
-                        <div class="review-item col-md-10">
-                          <i class="icon icon-review"></i>
-                          <h6>“Chất Lượng Điều Khiển Thương Hiệu, Thương Hiệu Điều Khiển Cuộc Đời. Điều đó không chỉ
-                            là
-                            lời
-                            nói,
-                            mà còn là tâm huyết và cam kết của chúng tôi với mọi sản phẩm. Chúng tôi không chỉ tạo ra
-                            sản
-                            phẩm,
-                            chúng tôi tạo ra niềm tin, tạo ra sự hài lòng và tạo nên những kỷ niệm đáng nhớ.”
-                            </blockquote>
-                            <div class="rating">
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-half">
-                                <use xlink:href="#star-half"></use>
-                              </svg>
-                              <svg class="star star-empty">
-                                <use xlink:href="#star-empty"></use>
-                              </svg>
-                            </div>
-                            <div class="author-detail">
-                              <div class="name text-dark text-uppercase pt-2">Emma Chamberlin</div>
-                            </div>
+                      <% danhgiaIsReadTrue.forEach((row, index)=> { %>
+                        <div class="swiper-slide text-center d-flex justify-content-center">
+                          <div class="review-item col-md-10">
+                            <i class="icon icon-review"></i>
+                            <h6>“<%= row.content %>”
+                                </blockquote>
+                                <div class="rating">
+                                  <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
+                                  <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
+                                  <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
+                                  <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
+                                  <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
+                                </div>
+                                <div class="author-detail">
+                                  <div class="name text-dark text-uppercase pt-2">
+                                    <%= row.tenkhach %>
+                                  </div>
+                                </div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="swiper-slide text-center d-flex justify-content-center">
-                        <div class="review-item col-md-10">
-                          <i class="icon icon-review"></i>
-                          <h6>“Sản Phẩm Đi Cùng Cuộc Sống - Thương Hiệu Đi Cùng Niềm Tin. Với hơn một thập kỷ kinh
-                            nghiệm,
-                            chúng
-                            tôi đã xây dựng một thương hiệu được khách hàng tin dùng và yêu thích. Chúng tôi không
-                            ngừng
-                            nâng
-                            cao chất lượng để đồng hành cùng bạn trong mọi khía cạnh cuộc sống, từ công việc đến giải
-                            trí,
-                            từ
-                            gia đình đến khám phá thế giới.”</blockquote>
-                            <div class="rating">
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-fill">
-                                <use xlink:href="#star-fill"></use>
-                              </svg>
-                              <svg class="star star-half">
-                                <use xlink:href="#star-half"></use>
-                              </svg>
-                              <svg class="star star-empty">
-                                <use xlink:href="#star-empty"></use>
-                              </svg>
-                            </div>
-                            <div class="author-detail">
-                              <div class="name text-dark text-uppercase pt-2">Jennie Rose</div>
-                            </div>
-                        </div>
-                      </div>
+                        <% }) %>
                     </div>
                   </div>
                   <div class="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center">
@@ -1606,30 +1579,30 @@
     }
   </script>
   <script>
-   let selectedRating = 0;
+    let selectedRating = 0;
 
-document.querySelectorAll('.star').forEach(star => {
-  star.addEventListener('click', () => {
-    const value = parseInt(star.getAttribute('data-value'));
-    if (value === selectedRating + 1) {
-      selectedRating = value;
-    } else {
-      selectedRating = value - 1; // Xóa chọn sao nếu nhấp vào sao đã chọn trước đó
-    }
-    updateRating();
-  });
-});
+    document.querySelectorAll('.star').forEach(star => {
+      star.addEventListener('click', () => {
+        const value = parseInt(star.getAttribute('data-value'));
+        if (value === selectedRating + 1) {
+          selectedRating = value;
+        } else {
+          selectedRating = value - 1; // Xóa chọn sao nếu nhấp vào sao đã chọn trước đó
+        }
+        updateRating();
+      });
+    });
 
-function updateRating() {
-  document.querySelectorAll('.star').forEach((star, index) => {
-    if (index < selectedRating) {
-      star.style.color = '#ff0'; // Yellow color for selected stars
-    } else {
-      star.style.color = '#ccc'; // Gray color for unselected stars
+    function updateRating() {
+      document.querySelectorAll('.star').forEach((star, index) => {
+        if (index < selectedRating) {
+          star.style.color = '#ff0'; // Yellow color for selected stars
+        } else {
+          star.style.color = '#ccc'; // Gray color for unselected stars
+        }
+      });
+      document.getElementById('ratingInput').value = selectedRating; // Update hidden input value
     }
-  });
-  document.getElementById('ratingInput').value = selectedRating; // Update hidden input value
-}
   </script>
   <script src="/js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
