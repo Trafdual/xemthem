@@ -21,17 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
     rel="stylesheet">
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');</script>
-  <!-- End Google Tag Manager -->
-  <!-- link icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     @media only screen and (max-width: 700px) {
@@ -811,6 +800,14 @@
   <!-- script
     ================================================== -->
   <!-- Google tag (gtag.js) -->
+  <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -1113,7 +1110,7 @@
                   <%= row.name %>
                 </h2>
                 <div class="btn-right">
-                  <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " -") %>" class="btn
+                  <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>" class="btn
                     btn-medium btn-normal text-uppercase">Xem Thêm</a>
                 </div>
               </div>
@@ -1133,7 +1130,7 @@
                           <div style="padding: 5%;" class="cart-concern position-absolute ">
                             <div class="cart-button d-flex">
                               <a style="font-size: 10px; max-height: 85%;"
-                                href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " -") %>/<%=
+                                href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
                                   encodeURIComponent(rowname).replace(/%20/g, "-" ) %>"
                                   class="btn btn-medium btn-danger">Chi tiết</a>
                               <a href="/muangay/<%= item.id %>" style="font-size: 10px; height: 85%;"
@@ -1142,7 +1139,7 @@
                           </div>
                           <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
                             <h6>
-                              <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " -") %>/<%=
+                              <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
                                   encodeURIComponent(rowname).replace(/%20/g, "-" ) %>" class="name">
                                   <%= item.name %>
                               </a>

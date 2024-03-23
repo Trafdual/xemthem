@@ -503,13 +503,15 @@ router.get('/muangay/:idsp', async (req, res) => {
 router.post('/postnotify', async (req, res) => {
     try {
         const { tenkhach, phone, email, tensp, price, address } = req.body;
-        const vietnamTime = momenttimezone().add(7, 'hours').toDate();
+        const vietnamTime = momenttimezone().toDate();
         const notify = new Notify.notify({ tenkhach, phone, email, tensp, price, address });
         const sp = await Sp.ChitietSp.findOne({ name: tensp });
         notify.idsp = sp._id;
         notify.date = vietnamTime;
         await notify.save();
-        res.redirect("/");
+        setTimeout(() => {
+            res.redirect('/');
+        }, 3000);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
@@ -570,7 +572,7 @@ router.get('/donhang', async (req, res) => {
 router.post('/danhgia', async (req, res) => {
     try {
         const { tenkhach, content, rating } = req.body;
-        const vietnamTime = momenttimezone().add(7, 'hours').toDate();
+        const vietnamTime = momenttimezone().toDate();
         const danhgia = new DanhGia.danhgia({
             tenkhach, content, rating, date: vietnamTime
         })
