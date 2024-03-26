@@ -1,0 +1,25 @@
+<%- include('../include/header.ejs') %>
+    <div class="container">
+        <h2><a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Thêm
+            sản phẩm</h2>
+
+        <form action="/postlinkkien/<%= id%>" method="post" enctype="multipart/form-data">
+            <form class="px-4 py-3">
+
+                <br>
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Ảnh linh kiện</label>
+                    <input class="form-control" type="file" name="image" id="formFileMultiple" multiple>
+                </div>
+                <label class="form-label">Tên linh kiện</label>
+                <input type="text" name="name" class="form-control" ><br>
+
+                <label class="form-label">Giá</label>
+                <input type="text" name="price" class="form-control" ><br>
+
+
+                <button class="btn btn-danger" type="submit">Lưu</button>
+            </form>
+        </form>
+
+    </div>

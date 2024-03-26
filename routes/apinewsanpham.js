@@ -84,7 +84,8 @@ router.get('/main', checkAuth, async (req, res) => {
     try {
         let listloai = await LoaiSP.TenSP.find()
         let listblog = await myMDBlog.blogModel.find()
-        res.render("home/home.ejs", { listloai, listblog });
+        const loailinhkien = await LoaiLinkKien.loailinkkien.find()
+        res.render("home/home.ejs", { listloai, listblog, loailinhkien });
     } catch (error) {
         console.log(`lỗi: ${error}`)
     }
@@ -94,7 +95,8 @@ router.get('/', async (req, res) => {
     try {
         const allsp = await LoaiSP.TenSP.find().populate('chitietsp');
         const listBl = await myMDBlog.blogModel.find();
-        const danhgia= await DanhGia.danhgia.find()
+        const danhgia = await DanhGia.danhgia.find()
+
         const tenspjson = await Promise.all(allsp.map(async (tensp) => {
             const chitietspJson = await Promise.all(tensp.chitietsp.map(async (chitietsp) => {
                 return {
@@ -116,8 +118,8 @@ router.get('/', async (req, res) => {
             .map(d => ({
                 _id: d._id,
                 tenkhach: d.tenkhach,
-                content:d.content,
-                rating:d.rating,
+                content: d.content,
+                rating: d.rating,
             }));
         res.render('home/index.ejs', { tenspjson, listBl, danhgiaIsReadTrue });
     } catch (error) {
@@ -466,24 +468,148 @@ router.post('/postlinkkien/:idloailinkkien', upload.single('image'), async (req,
         loailinhkien.linhkien.push(linkkien._id);
         await linkkien.save();
         await loailinhkien.save();
-        res.json(linkkien);
+        res.redirect(`/linhkien/${idloailinkkien}`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.post('/postloailinkien', async (req, res) => {
+router.get('/addlinhkien/:id', async (req, res) => {
     try {
-        const { name, thuonghieu } = req.body;
-        const loailinkkien = new LoaiLinkKien.loailinkkien({ name, thuonghieu });
-        await loailinkkien.save();
-        res.json(loailinkkien);
+        const id = req.params.id;
+        res.render('home/addlinhkien.ejs', { id })
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+
+router.get('/editlinhkien/:id',async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const linhkien=await LinkKien.linkkien.findById(id);
+        res.render('home/editlinhkien.ejs',{linhkien,id});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/putlinhkien/:id',async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const{name,price}=req.body;
+        const linhkien=await LinkKien.linkkien.findById(id);
+        linhkien.name=name;
+        linhkien.price=price;
+        await linhkien.save();
+        res.redirect(`/linhkien/${linhkien.loailinhkien}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+
+router.post('/deletelk/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const linhkien=await LinkKien.linkkien.findById(id);
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(linhkien.loailinhkien);
+        loailinhkien.linhkien = loailinhkien.linhkien.filter(chitiet => chitiet.toString() !== id);
+        await loailinhkien.save();
+
+        await LinkKien.linkkien.deleteOne({ _id: id });
+
+        res.redirect(`/linhkien/${linhkien.loailinhkien}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+});
+router.post('/postloailinkien', async (req, res) => {
+    try {
+        const { name } = req.body;
+        const loailinkkien = new LoaiLinkKien.loailinkkien({ name });
+        await loailinkkien.save();
+        res.redirect('/main');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/putloailk/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { name } = req.body;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
+        loailinhkien.name = name;
+        await loailinhkien.save();
+        res.redirect('/main');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/deleteloailk/:id',async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
+        Promise.all(loailinhkien.linhkien.map(async(linhkien)=>{
+            await LinkKien.linkkien.findByIdAndDelete(linhkien._id);
+        }))
+        await LoaiLinkKien.loailinkkien.deleteOne({_id:id});
+        res.redirect('/main');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/addloailk',async(req,res)=>{
+    try {
+        res.render('home/addloailinhkien.ejs');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/editloailk/:id',async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
+        res.render('home/editloailinhkien.ejs',{id,loailinhkien});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/linhkien/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
+        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async (lk) => {
+            const linhkien = await LinkKien.linkkien.findById(lk._id)
+            return {
+                _id:linhkien.id,
+                name: linhkien.name,
+                price: linhkien.price,
+                image: linhkien.image,
+                loai: linhkien.loai
+            }
+        }))
+        res.render('home/linhkienmain.ejs', { linhkienjson, id })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
 
 router.get('/muangay/:idsp', async (req, res) => {
     try {
@@ -592,8 +718,8 @@ router.get('/getdanhgia', async (req, res) => {
             .map(d => ({
                 _id: d._id,
                 tenkhach: d.tenkhach,
-                content:d.content,
-                rating:d.rating,
+                content: d.content,
+                rating: d.rating,
                 date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
             }));
 
@@ -601,8 +727,8 @@ router.get('/getdanhgia', async (req, res) => {
             .map(d => ({
                 _id: d._id,
                 tenkhach: d.tenkhach,
-                content:d.content,
-                rating:d.rating,
+                content: d.content,
+                rating: d.rating,
                 date: moment(d.date).format('DD/MM/YYYY HH:mm:ss')
             }));
 
@@ -616,11 +742,11 @@ router.get('/getdanhgia', async (req, res) => {
     }
 })
 
-router.post('/duyetdanhgia/:iddanhgia',async(req,res)=>{
+router.post('/duyetdanhgia/:iddanhgia', async (req, res) => {
     try {
-        const iddanhgia=req.params.iddanhgia;
-        const danhgia=await DanhGia.danhgia.findById(iddanhgia);
-        danhgia.isRead=true;
+        const iddanhgia = req.params.iddanhgia;
+        const danhgia = await DanhGia.danhgia.findById(iddanhgia);
+        danhgia.isRead = true;
         await danhgia.save();
         res.redirect('/getdanhgia');
     } catch (error) {

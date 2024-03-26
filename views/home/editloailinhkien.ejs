@@ -1,0 +1,17 @@
+<%- include('../include/header.ejs') %>
+    <div class="container">
+        <h2><a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Thêm
+            loại linh kiện</h2>
+
+        <form action="/putloailk/<%= id%>" method="post">
+            <form class="px-4 py-3">
+
+                <br>
+                <label class="form-label">Loại linh kiện</label>
+                <input type="text" name="name" class="form-control" value="<%= loailinhkien.name%>"><br>
+
+                <button class="btn btn-danger" type="submit">Lưu</button>
+            </form>
+        </form>
+
+    </div>
