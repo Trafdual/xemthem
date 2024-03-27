@@ -268,11 +268,10 @@
             }
 
             .btnmua {
-                margin-top: 2%;
-                border-radius: 10px;
-                width: auto;
-                height: auto;
+                font-size: 15px;
+                margin-bottom: 3%;
             }
+
 
             .muangay {
                 border-radius: 5px;
@@ -297,8 +296,15 @@
                 background-color: rgb(251, 254, 255);
                 width: 100%;
                 margin: 0 auto;
-                margin-top: 2%;
+                margin-top: 3%;
             }
+            .product-swiper{
+                height: 400px;
+            }
+            .sp{
+                margin-top: 10%;
+            }
+
 
             #selling-product {
                 padding-left: 5%;
@@ -431,6 +437,9 @@
                 }
 
             }
+            #header{
+                height: 9%;
+            }
 
         }
 
@@ -478,9 +487,12 @@
                 /* Đặt điểm xoay tại trung tâm của ảnh */
             }
 
-            .cart-button{
+            .cart-button {
                 padding-left: 5%;
                 padding-right: 20%;
+            }
+            .product-swiper{
+                height: 450px;
             }
 
             @keyframes shake {
@@ -680,10 +692,8 @@
             }
 
             .btnmua {
-                margin-top: 2%;
-                border-radius: 10px;
-                width: auto;
-                height: auto;
+                margin-left: 13%;
+                width: 100%;
             }
 
             .muangay {
@@ -709,12 +719,15 @@
                 background-color: rgb(251, 254, 255);
                 width: 90%;
                 margin: 0 auto;
-                margin-top: 2%;
+                margin-top: 3%;
             }
-            .sp{
+
+
+            .sp {
                 margin-top: 5%;
             }
-            .divimgsale{
+
+            .divimgsale {
                 margin-bottom: 2%;
             }
 
@@ -803,7 +816,8 @@
                 text-decoration: none;
                 cursor: pointer;
             }
-            .thanhphan{
+
+            .thanhphan {
                 max-width: 90%;
             }
 
@@ -853,29 +867,23 @@
                 }
 
             }
-      .list {
-        width: 100%;
-        background-color: rgb(251, 251, 252);
-      }
 
-      .sp {
-        margin-top: 1%;
-        margin-left: 2%;
-        margin-right: 2%;
-        margin-bottom: 2%;
-      }
+            .list {
+                width: 100%;
+                background-color: rgb(251, 251, 252);
+            }
 
-      #header {
-        width: 100%;
+            .sp {
+                margin-top: 1%;
+                margin-left: 2%;
+                margin-right: 2%;
+                margin-bottom: 2%;
+            }
 
-      }
+            #header {
+                width: 100%;
 
-
-      .divimgsale {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
+            }
 
         }
     </style>
@@ -1068,9 +1076,9 @@
         </nav>
     </header>
     <% loailinhkienjson.forEach((row, index)=> { %>
-        <section id="mobile-products" class="product-store position-relative section">
+        <section id="mobile-products" class="product-store position-relative section no-padding-bottom no-padding-top">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="display-header d-flex justify-content-between pb-3 sp ">
                         <h2 class="display-7 text-dark text-uppercase">
                             <%= row.name %>
@@ -1078,9 +1086,6 @@
                         <div class="btn-right">
                             <a href="" class="btn btn-medium btn-normal text-uppercase">Xem Thêm</a>
                         </div>
-                    </div>
-                    <div class="divimgsale">
-                        <img class="imgsale" src="/images/banner3.png" alt="">
                     </div>
                     <div class="swiper product-swiper swiper-container">
                         <div class="swiper-wrapper list">
@@ -1092,10 +1097,10 @@
                                                 <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item"
                                                     class="img-fluid anh">
                                             </div>
-                                            <div  class=" divbtn cart-concern position-absolute ">
-                                                <div class="cart-button d-flex">
-                                                    <p onclick="makeCall()" style="font-size: 15px; height: 75%;"
-                                                        class="btn btn-medium btn-danger">Mua ngay</p>
+                                            <div class="divbtn cart-concern position-absolute" >
+                                                <div class="cart-button d-flex btnmua">
+                                                    <p onclick="mess()" style="font-size: 12px; height: 75%; width: 100%;"
+                                                        class="btn btn-medium btn-danger ">Liên hệ</p>
                                                 </div>
                                             </div>
                                             <div
@@ -1113,7 +1118,7 @@
                                     </div>
                                     <% }) %>
                         </div>
-                        <div class="swiper-pagination position-absolute text-center"></div>
+                        <div class="swiper-pagination position-absolute text-center top-80"></div>
                     </div>
                 </div>
             </div>
@@ -1382,6 +1387,11 @@
                         // Mở giao diện gọi điện của trình duyệt
                         window.location.href = "tel:" + phoneNumber;
                     }
+                }
+
+                function mess(){
+
+                    window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
                 }
             </script>
             <script>
