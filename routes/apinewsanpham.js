@@ -430,7 +430,7 @@ router.get('/editsp/:id', async (req, res) => {
 
 });
 
-router.get('/linhkien', async (req, res) => {
+router.get('/suachua', async (req, res) => {
     try {
         const loailinhkien = await LoaiLinkKien.loailinkkien.find().populate('linhkien');
         const loailinhkienjson = await Promise.all(loailinhkien.map(async (loai) => {
