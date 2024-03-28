@@ -610,6 +610,27 @@ router.get('/linhkien/:id', async (req, res) => {
     }
 })
 
+router.get('/xemlinhkien/:id',async(req,res)=>{
+    try {
+        const id = req.params.id;
+        const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
+        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async (lk) => {
+            const linhkien = await LinkKien.linkkien.findById(lk._id)
+            return {
+                _id:linhkien.id,
+                name: linhkien.name,
+                price: linhkien.price,
+                image: linhkien.image,
+                loai: linhkien.loai
+            }
+        }))
+        res.render('home/xemlinhkien.ejs', { linhkienjson, id })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
 
 router.get('/muangay/:idsp', async (req, res) => {
     try {
