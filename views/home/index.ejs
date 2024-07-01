@@ -340,6 +340,9 @@
                 background-color: #fb2104;
                 color: rgb(251, 252, 253);
             }
+            #img-fluid {
+                height: 200px;
+            }
         }
         
         @media only screen and (min-width: 701px) {
@@ -734,6 +737,9 @@
             .btndong {
                 background-color: #fb2104;
                 color: rgb(251, 252, 253);
+            }
+            #img-fluid {
+                height: 200px;
             }
         }
     </style>
@@ -1259,8 +1265,8 @@
                                     <% listBl.forEach((item)=> { %>
                                         <div class="col-lg-4 col-sm-12">
                                             <div class="card border-none me-3">
-                                                <div class="card-image">
-                                                    <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
+                                                <div class="card-image text-center overflow-hidden">
+                                                    <img src="<%= item.img_blog %>" alt="product-item" id="img-fluid">
                                                 </div>
                                             </div>
                                             <div class="card-body text-uppercase" style="word-wrap: break-word">

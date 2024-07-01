@@ -69,6 +69,9 @@
                 background-color: aliceblue;
                 color: black;
             }
+            .img-fluid {
+                height: 200px;
+            }
         }
         
         @media only screen and (min-width: 701px) {
@@ -116,6 +119,9 @@
             #footer-bottom {
                 background-color: aliceblue;
                 color: black;
+            }
+            .img-fluid {
+                height: 200px;
             }
         }
     </style>
@@ -279,18 +285,18 @@
         </nav>
     </header>
     <section id="selling-product" class="section" style="word-wrap: break-word">
-        <h3 itemprop="name" class="display-7 text-uppercase">
+        <h3 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
             <%= tieude %>
         </h3>
         <div class="container mb-4 pb-4">
             <div>
                 <% content.forEach((item) => { %>
                     <div class="mb-4">
-                        <h6 itemprop="name" class="display-7 text-uppercase">
+                        <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
                             <%= item.tieude %>
                         </h6>
-                        <p>
-                            <%= item.content %>
+                        <p style="color: black">
+                            <%- item.content.replace(/\\n/g, "<br>") %>
                         </p>
                         <% if (item.img) { %>
                             <div class="product-preview mb-3 d-flex justify-content-center">
@@ -316,13 +322,13 @@
                     <% listBl.forEach((item)=> { %>
                         <div class="col-lg-4 col-sm-12">
                             <div class="card border-none me-3">
-                                <div class="card-image">
-                                    <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
+                                <div class="card-image justify-content-center align-items-center text-center">
+                                    <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid justify-content-center align-items-center">
                                 </div>
                             </div>
                             <div class="card-body text-uppercase" style="word-wrap: break-word">
                                 <h3 class="card-title">
-                                    <a href="/chitietblog/<%= encodeURIComponent(item.tieude_blog).replace(/%20/g, '-')%>">
+                                    <a href="/contentBlog/<%= encodeURIComponent(item.tieude_blog).replace(/%20/g, '-')%>">
                                         <%= item.tieude_blog %>
                                     </a>
                                 </h3>
