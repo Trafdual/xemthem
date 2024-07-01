@@ -1047,6 +1047,7 @@
                                 <div class="btn-right">
                                     <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " - ") %>" class="btn
                     btn-medium btn-normal text-uppercase">Xem Thêm</a>
+
                                 </div>
                             </div>
                             <div class="divimgsale">
@@ -1263,7 +1264,7 @@
                                                     <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
                                                 </div>
                                             </div>
-                                            <div class="card-body text-uppercase">
+                                            <div class="card-body text-uppercase" style="word-wrap: break-word">
                                                 <h3 class="card-title">
                                                     <a href="/contentBlog/<%= item._id %>">
                                                         <%= item.tieude_blog %>
