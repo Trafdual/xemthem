@@ -1045,7 +1045,7 @@
                                     <%= row.name %>
                                 </h2>
                                 <div class="btn-right">
-                                    <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " - ") %>" class="btn
+                                    <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>" class="btn
                     btn-medium btn-normal text-uppercase">Xem Thêm</a>
                                 </div>
                             </div>
@@ -1064,14 +1064,14 @@
                                                     <div style="padding: 5%;" class="cart-concern position-absolute ">
                                                         <div class="cart-button d-flex">
                                                             <a style="font-size: 10px; max-height: 85%;" href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " - ") %>/<%=
-                                  encodeURIComponent(rowname).replace(/%20/g, "- " ) %>" class="btn btn-medium btn-danger">Chi tiết</a>
+                                  encodeURIComponent(rowname).replace(/%20/g, "-" ) %>" class="btn btn-medium btn-danger">Chi tiết</a>
                                                             <a href="/muangay/<%= item.id %>" style="font-size: 10px; height: 85%;" class="btn btn-medium btn-danger">Mua ngay</a>
                                                         </div>
                                                     </div>
                                                     <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
                                                         <h6>
-                                                            <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " - ") %>/<%=
-                                  encodeURIComponent(rowname).replace(/%20/g, "- " ) %>" class="name">
+                                                            <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
+                                  encodeURIComponent(rowname).replace(/%20/g, "-" ) %>" class="name">
                                                                 <%= item.name %>
                                                             </a>
                                                         </h6>
