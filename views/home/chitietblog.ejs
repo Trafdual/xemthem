@@ -4,7 +4,8 @@
 <head>
     <title>BẢO MINH STORE</title>
     <meta charset="utf-8">
-    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,190 +18,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
     <style>
-        @media only screen and (max-width: 391px) {
-            .message-button {
-                background-color: #3498db;
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 80px;
-                height: 80px;
-                font-size: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                position: fixed;
-                bottom: 70px;
-                right: 70px;
-            }
-
-            /* Thiết lập hiệu ứng lắc lắc rung rung */
-            .message-button:hover {
-                animation: shake 0.5s;
-            }
-
-            body {
-
-                background-color: aliceblue;
-                background-image: none;
-
-            }
-
-            .sanpham {
-                width: 400px;
-                height: 400px;
-
-            }
-
-            .anh {
-                width: 290px;
-                height: auto;
-            }
-
-            @keyframes shake {
-                0% {
-                    transform: translate(0, 0);
-                }
-
-                10% {
-                    transform: translate(-5px, 0);
-                }
-
-                20% {
-                    transform: translate(5px, 0);
-                }
-
-                30% {
-                    transform: translate(-5px, 0);
-                }
-
-                40% {
-                    transform: translate(5px, 0);
-                }
-
-                50% {
-                    transform: translate(-5px, 0);
-                }
-
-                60% {
-                    transform: translate(5px, 0);
-                }
-
-                70% {
-                    transform: translate(-5px, 0);
-                }
-
-                80% {
-                    transform: translate(5px, 0);
-                }
-
-                90% {
-                    transform: translate(-5px, 0);
-                }
-
-                100% {
-                    transform: translate(0, 0);
-                }
-
-            }
-
+        .section {
+            width: 90%;
+            padding-top: 7%;
+            padding-left: 1%;
+            padding-right: 1%;
+            background-color: rgb(245, 247, 249);
+            border-radius: 10%;
+            margin-right: 5%;
+            margin-left: 6%;
         }
-
-        @media only screen and (min-width: 392px) {
-            .message-button {
-                background-color: #3498db;
-                color: white;
-                border: none;
-                border-radius: 50%;
-                width: 80px;
-                height: 80px;
-                font-size: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                position: fixed;
-                bottom: 70px;
-                right: 70px;
-            }
-
-            /* Thiết lập hiệu ứng lắc lắc rung rung */
-            .message-button:hover {
-                animation: shake 0.5s;
-            }
-
-            body {
-
-                background-color: aliceblue;
-                background-image: none;
-
-            }
-
-            .sanpham {
-                width: 500px;
-                height: 570px;
-
-            }
-
-            .anh {
-                width: 270px;
-                height: 310px;
-            }
-
-            @keyframes shake {
-                0% {
-                    transform: translate(0, 0);
-                }
-
-                10% {
-                    transform: translate(-5px, 0);
-                }
-
-                20% {
-                    transform: translate(5px, 0);
-                }
-
-                30% {
-                    transform: translate(-5px, 0);
-                }
-
-                40% {
-                    transform: translate(5px, 0);
-                }
-
-                50% {
-                    transform: translate(-5px, 0);
-                }
-
-                60% {
-                    transform: translate(5px, 0);
-                }
-
-                70% {
-                    transform: translate(-5px, 0);
-                }
-
-                80% {
-                    transform: translate(5px, 0);
-                }
-
-                90% {
-                    transform: translate(-5px, 0);
-                }
-
-                100% {
-                    transform: translate(0, 0);
-                }
-
-            }
+        
+        body {
+            background-color: rgb(11, 10, 10)
+        }
+        
+        .product-preview {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sanpham {
+            width: 30%;
+            height: 30%;
         }
     </style>
 </head>
@@ -260,8 +105,7 @@
         <div class="search-popup-container">
 
             <form role="search" method="get" class="search-form" action="">
-                <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value=""
-                    name="s" />
+                <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value="" name="s" />
                 <button type="submit" class="search-submit"><svg class="search">
                         <use xlink:href="#search"></use>
                     </svg></button>
@@ -288,32 +132,26 @@
         </div>
     </div>
 
-    <header id="header"
-        class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
         <nav id="header-nav" class="navbar navbar-expand-lg px-2 mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="/images/main-logo.png" class="logo">
                 </a>
-                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <svg class="navbar-icon">
                         <use xlink:href="#navbar-icon"></use>
                     </svg>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
-                    aria-labelledby="bdNavbarOffcanvasLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
                     <div class="offcanvas-header px-4 pb-0">
                         <a class="navbar-brand" href="/">
                             <img src="/images/main-logo.png" class="logo">
                         </a>
-                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
-                            aria-label="Close" data-bs-target="#bdNavbar"></button>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul id="navbar"
-                            class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
                             <li class="nav-item">
                                 <a class="nav-link me-4 active" href="/#billboard">Trang Chủ</a>
                             </li>
@@ -369,46 +207,30 @@
             </div>
         </nav>
     </header>
-
-    <section id="selling-product" class="single-product padding-xlarge">
+    <section id="selling-product" class="section" style="word-wrap: break-word">
+        <h3 itemprop="name" class="display-7 text-uppercase">
+            <%= tieude %>
+        </h3>
         <div class="container">
-            <div class="row mt-5">
-                <div class="col-lg-6">
-                    <div class="product-preview mb-3">
-                        <img src="data:image/jpeg;base64, <%= objSP.img_blog %>" alt="single-product"
-                            class="img-fluid sanpham">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="product-info">
-                        <div class="element-header">
-                            <h3 itemprop="name" class="display-7 text-uppercase">
-                                <%= objSP.tieude_blog %>
-                            </h3>
-                            <div class="rating-container d-flex align-items-center">
-                                <div class="rating" data-rating="1" onclick=rate(1)>
-                                    <svg class="star star-fill">
-                                        <use xlink:href="#star-fill"></use>
-                                    </svg>
-                                    <span class="rating-count ps-2">5.2</span>
-                                </div>
-                            </div>
+            <div>
+                <% content.forEach((item) => { %>
+                    <div class="mb-4">
+                        <h6 itemprop="name" class="display-7 text-uppercase">
+                            <%= item.tieude %>
+                        </h6>
+                        <p>
+                            <%= item.content %>
+                        </p>
+                        <div class="product-preview mb-3 d-flex text-center">
+                            <img src="<%= item.img %>" alt="single-product" class="sanpham">
                         </div>
-                        <div class="product-price pt-3 pb-3">
-                            <strong class="text-primary display-6 fw-bold">
-                                <%= objSP.noidung_blog %>
-                            </strong>
-                        </div>
-
-
-
                     </div>
-                </div>
+                    <% }); %>
             </div>
         </div>
     </section>
 
-    <section id="latest-blog" class="padding-large section">
+    <section id="latest-blog" class=" section">
         <div class="container">
             <div class="row">
                 <div class="display-header d-flex justify-content-between pb-3">
@@ -418,26 +240,14 @@
                     </div>
                 </div>
                 <div class="post-grid d-flex flex-wrap justify-content-between">
-                    <% listBL.forEach((item)=> { %>
+                    <% listBl.forEach((item)=> { %>
                         <div class="col-lg-4 col-sm-12">
                             <div class="card border-none me-3">
                                 <div class="card-image">
-                                    <img src="data:img_blog/jpeg;base64, <%= item.img_blog %>" alt="product-item"
-                                        class="img-fluid">
+                                    <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="card-body text-uppercase">
-                                <div class="card-meta text-muted">
-                                    <span class="meta-date">
-                                        <% const limitedContent=item.noidung_blog.length> 30 ?
-                                            item.noidung_blog.slice(0, 30) + '...'
-                                            : item.noidung_blog;
-                                            %>
-                                            <%= limitedContent %>
-
-                                    </span>
-
-                                </div>
+                            <div class="card-body text-uppercase" style="word-wrap: break-word">
                                 <h3 class="card-title">
                                     <a href="/chitietblog/<%= item._id %>">
                                         <%= item.tieude_blog %>
@@ -450,11 +260,10 @@
             </div>
         </div>
     </section>
-    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+    <section id="subscribe" class="container-grid position-relative overflow-hidden">
         <div class="container">
             <div class="row">
-                <div
-                    class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+                <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
                     <div class="col-md-6 col-sm-12">
                         <div class="display-header pe-3">
                             <h2 class="display-7 text-uppercase text-light">Đăng ký cho chúng tôi ngay</h2>
@@ -466,10 +275,8 @@
                     <div class="col-md-5 col-sm-12">
                         <form class="subscription-form validate">
                             <div class="input-group flex-wrap">
-                                <input class="form-control btn-rounded-none" type="email" name="EMAIL"
-                                    placeholder="Địa chỉ email của bạn ở đây" required="">
-                                <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit"
-                                    name="subscribe">Đăng ký</button>
+                                <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Địa chỉ email của bạn ở đây" required="">
+                                <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Đăng ký</button>
                             </div>
                         </form>
                     </div>
@@ -486,11 +293,8 @@
                         <div class="col-lg-3 col-sm-6 pb-3">
                             <div class="footer-menu">
                                 <img src="/images/main-logo.png" class="logo">
-                                <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó
-                                    vào tay. Hãy đến
-                                    cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế
-                                    giới công nghệ mới
-                                    mẻ!</p>
+                                <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới mẻ!
+                                </p>
                                 <div class="social-links">
                                     <ul class="d-flex list-unstyled">
                                         <li>
@@ -576,8 +380,7 @@
                         <div class="col-lg-3 col-sm-6 pb-3">
                             <div class="footer-menu contact-item">
                                 <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
-                                <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a
-                                        href="mailto:">baominhstore354@gmail.com</a>
+                                <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">baominhstore354@gmail.com</a>
                                 </p>
                                 <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0816 354 354</a>
                                 </p>
@@ -613,8 +416,8 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="copyright">
-                        <p>© Copyright 2023 Bảo Minh Store<a
-                                href="https://templatesjungle.com/"></a>
+                        <p>© Copyright 2023 Bảo Minh Store
+                            <a href="https://templatesjungle.com/"></a>
 
                         </p>
                     </div>

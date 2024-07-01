@@ -18,10 +18,10 @@ const momenttimezone = require('moment-timezone');
 const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
-router.get('/mess', async (req, res) => {
+router.get('/mess', async(req, res) => {
     res.render('home/test.ejs')
 })
-router.post('/postloaisp', async (req, res) => {
+router.post('/postloaisp', async(req, res) => {
     try {
         const { name, manhinh, chip, ram, dungluong, camera, pinsac, hang, congsac, thongtin } = req.body;
         const tensp = new LoaiSP.TenSP({ name, manhinh, chip, ram, dungluong, camera, pinsac, hang, congsac, thongtin });
@@ -34,7 +34,7 @@ router.post('/postloaisp', async (req, res) => {
 
 });
 
-router.post('/putloaisp/:id', async (req, res) => {
+router.post('/putloaisp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const { name, manhinh, chip, ram, dungluong, camera, pinsac, hang, congsac, thongtin } = req.body;
@@ -46,7 +46,7 @@ router.post('/putloaisp/:id', async (req, res) => {
     }
 });
 
-router.get('/editloaisp/:id', async (req, res) => {
+router.get('/editloaisp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const tensp = await LoaiSP.TenSP.findById(id);
@@ -58,7 +58,7 @@ router.get('/editloaisp/:id', async (req, res) => {
 
 });
 
-router.get('/addloaisp', async (req, res) => {
+router.get('/addloaisp', async(req, res) => {
     try {
         res.render("home/addloaisp.ejs");
     } catch (error) {
@@ -68,7 +68,7 @@ router.get('/addloaisp', async (req, res) => {
 
 });
 
-router.get('/addsp/:idloaisp', async (req, res) => {
+router.get('/addsp/:idloaisp', async(req, res) => {
     try {
         const idloaisp = req.params.idloaisp;
         res.render("home/add.ejs", { idloaisp });
@@ -80,7 +80,7 @@ router.get('/addsp/:idloaisp', async (req, res) => {
 });
 
 
-router.get('/main', checkAuth, async (req, res) => {
+router.get('/main', checkAuth, async(req, res) => {
     try {
         let listloai = await LoaiSP.TenSP.find()
         let listblog = await myMDBlog.blogModel.find()
@@ -91,14 +91,14 @@ router.get('/main', checkAuth, async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
     try {
         const allsp = await LoaiSP.TenSP.find().populate('chitietsp');
         const listBl = await myMDBlog.blogModel.find();
         const danhgia = await DanhGia.danhgia.find()
 
-        const tenspjson = await Promise.all(allsp.map(async (tensp) => {
-            const chitietspJson = await Promise.all(tensp.chitietsp.map(async (chitietsp) => {
+        const tenspjson = await Promise.all(allsp.map(async(tensp) => {
+            const chitietspJson = await Promise.all(tensp.chitietsp.map(async(chitietsp) => {
                 return {
                     id: chitietsp._id,
                     name: chitietsp.name,
@@ -129,14 +129,14 @@ router.get('/', async (req, res) => {
 })
 
 
-router.post('/deleteloaisp/:id', async (req, res) => {
+router.post('/deleteloaisp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const xam = await LoaiSP.TenSP.findById(id);
         if (!xam) {
             res.status(403).json({ message: 'khong tim thay sp' })
         }
-        await Promise.all(xam.chitietsp.map(async (chitietsp) => {
+        await Promise.all(xam.chitietsp.map(async(chitietsp) => {
             await Sp.ChitietSp.findByIdAndDelete(chitietsp._id);
         }));
         await LoaiSP.TenSP.deleteOne({ _id: id });
@@ -147,7 +147,7 @@ router.post('/deleteloaisp/:id', async (req, res) => {
     }
 })
 
-router.post('/postchitietsp/:id', upload.single('image'), async (req, res) => {
+router.post('/postchitietsp/:id', upload.single('image'), async(req, res) => {
     try {
         const id = req.params.id;
         const { name, content, price } = req.body;
@@ -170,7 +170,7 @@ router.post('/postchitietsp/:id', upload.single('image'), async (req, res) => {
 })
 
 
-router.get('/getchitietsp/:idloaisp', async (req, res) => {
+router.get('/getchitietsp/:idloaisp', async(req, res) => {
     try {
         const idloaisp = req.params.idloaisp;
         const loaisp = await LoaiSP.TenSP.findById(idloaisp);
@@ -178,7 +178,7 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
             return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
         }
 
-        const chitiet = await Promise.all(loaisp.chitietsp.map(async (ct) => {
+        const chitiet = await Promise.all(loaisp.chitietsp.map(async(ct) => {
             const chitietsp = await Sp.ChitietSp.findById(ct._id);
             return {
                 _id: chitietsp._id,
@@ -197,7 +197,7 @@ router.get('/getchitietsp/:idloaisp', async (req, res) => {
 
 
 
-router.get('/getspchitiet/:nameloaisp', async (req, res) => {
+router.get('/getspchitiet/:nameloaisp', async(req, res) => {
     try {
         const nameloaisp = req.params.nameloaisp.replace(/-/g, ' ');
         const loaisp = await LoaiSP.TenSP.findOne({ name: nameloaisp });
@@ -205,7 +205,7 @@ router.get('/getspchitiet/:nameloaisp', async (req, res) => {
             return res.status(404).json({ message: 'Không tìm thấy loại sản phẩm' });
         }
 
-        const chitiet = await Promise.all(loaisp.chitietsp.map(async (ct) => {
+        const chitiet = await Promise.all(loaisp.chitietsp.map(async(ct) => {
             const chitietsp = await Sp.ChitietSp.findById(ct._id);
             return {
                 _id: chitietsp._id,
@@ -223,7 +223,7 @@ router.get('/getspchitiet/:nameloaisp', async (req, res) => {
 })
 
 
-router.get('/getchitiet/:namesp/:nameloai', async (req, res) => {
+router.get('/getchitiet/:namesp/:nameloai', async(req, res) => {
     try {
         const namesp = req.params.namesp.replace(/-/g, ' ');
         const nameloai = req.params.nameloai.replace(/-/g, ' ');
@@ -250,7 +250,7 @@ router.get('/getchitiet/:namesp/:nameloai', async (req, res) => {
             hang: loai.hang,
             thongtin: loai.thongtin,
         }
-        const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
+        const mangloai = await Promise.all(sp.chitiet.map(async(mang) => {
             return {
                 name: mang.name,
                 price: mang.price
@@ -270,7 +270,7 @@ router.get('/getchitiet/:namesp/:nameloai', async (req, res) => {
 })
 
 
-router.post('/postloaichitiet/:chitietspid', async (req, res) => {
+router.post('/postloaichitiet/:chitietspid', async(req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
         const { name, price } = req.body;
@@ -284,7 +284,7 @@ router.post('/postloaichitiet/:chitietspid', async (req, res) => {
     }
 })
 
-router.post('/editloaichitiet/:chitietspid/:id', async (req, res) => {
+router.post('/editloaichitiet/:chitietspid/:id', async(req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
         const { name, price } = req.body;
@@ -307,7 +307,7 @@ router.post('/editloaichitiet/:chitietspid/:id', async (req, res) => {
     }
 })
 
-router.get('/geteditloaichitiet/:chitietspid/:id', async (req, res) => {
+router.get('/geteditloaichitiet/:chitietspid/:id', async(req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
         const id = req.params.id
@@ -325,7 +325,7 @@ router.get('/geteditloaichitiet/:chitietspid/:id', async (req, res) => {
     }
 })
 
-router.post('/deleteloaichitiet/:chitietspid/:id', async (req, res) => {
+router.post('/deleteloaichitiet/:chitietspid/:id', async(req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
         const id = req.params.id
@@ -342,7 +342,7 @@ router.post('/deleteloaichitiet/:chitietspid/:id', async (req, res) => {
     }
 })
 
-router.get('/getaddloaichitiet/:chitietspid', async (req, res) => {
+router.get('/getaddloaichitiet/:chitietspid', async(req, res) => {
     try {
         const chitietspid = req.params.chitietspid;
         res.render('home/addloaichitiet.ejs', { chitietspid })
@@ -352,14 +352,14 @@ router.get('/getaddloaichitiet/:chitietspid', async (req, res) => {
     }
 })
 
-router.get('/getloaichitiet/:idsp', async (req, res) => {
+router.get('/getloaichitiet/:idsp', async(req, res) => {
     try {
         const idsp = req.params.idsp;
         const sp = await Sp.ChitietSp.findById(idsp);
         if (!sp) {
             return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
         }
-        const mangloai = await Promise.all(sp.chitiet.map(async (mang) => {
+        const mangloai = await Promise.all(sp.chitiet.map(async(mang) => {
             return {
                 _id: mang._id,
                 name: mang.name,
@@ -375,7 +375,7 @@ router.get('/getloaichitiet/:idsp', async (req, res) => {
     }
 })
 
-router.post('/deletechitietsp/:id', async (req, res) => {
+router.post('/deletechitietsp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const chitietsp = await Sp.ChitietSp.findById(id);
@@ -395,7 +395,7 @@ router.post('/deletechitietsp/:id', async (req, res) => {
     }
 });
 
-router.post('/updatechitietsp/:id', async (req, res) => {
+router.post('/updatechitietsp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const { name, content, price } = req.body;
@@ -418,7 +418,7 @@ router.post('/updatechitietsp/:id', async (req, res) => {
     }
 });
 
-router.get('/editsp/:id', async (req, res) => {
+router.get('/editsp/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const sp = await Sp.ChitietSp.findById(id);
@@ -430,11 +430,11 @@ router.get('/editsp/:id', async (req, res) => {
 
 });
 
-router.get('/suachua', async (req, res) => {
+router.get('/suachua', async(req, res) => {
     try {
         const loailinhkien = await LoaiLinkKien.loailinkkien.find().populate('linhkien');
-        const loailinhkienjson = await Promise.all(loailinhkien.map(async (loai) => {
-            const linkkienJson = await Promise.all(loai.linhkien.map(async (lk) => {
+        const loailinhkienjson = await Promise.all(loailinhkien.map(async(loai) => {
+            const linkkienJson = await Promise.all(loai.linhkien.map(async(lk) => {
                 return {
                     id: lk._id,
                     name: lk.name,
@@ -456,7 +456,7 @@ router.get('/suachua', async (req, res) => {
     }
 })
 
-router.post('/postlinkkien/:idloailinkkien', upload.single('image'), async (req, res) => {
+router.post('/postlinkkien/:idloailinkkien', upload.single('image'), async(req, res) => {
     try {
         const { name, price } = req.body
         const idloailinkkien = req.params.idloailinkkien;
@@ -475,7 +475,7 @@ router.post('/postlinkkien/:idloailinkkien', upload.single('image'), async (req,
     }
 })
 
-router.get('/addlinhkien/:id', async (req, res) => {
+router.get('/addlinhkien/:id', async(req, res) => {
     try {
         const id = req.params.id;
         res.render('home/addlinhkien.ejs', { id })
@@ -485,24 +485,24 @@ router.get('/addlinhkien/:id', async (req, res) => {
     }
 })
 
-router.get('/editlinhkien/:id',async(req,res)=>{
+router.get('/editlinhkien/:id', async(req, res) => {
     try {
         const id = req.params.id;
-        const linhkien=await LinkKien.linkkien.findById(id);
-        res.render('home/editlinhkien.ejs',{linhkien,id});
+        const linhkien = await LinkKien.linkkien.findById(id);
+        res.render('home/editlinhkien.ejs', { linhkien, id });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.post('/putlinhkien/:id',async(req,res)=>{
+router.post('/putlinhkien/:id', async(req, res) => {
     try {
         const id = req.params.id;
-        const{name,price}=req.body;
-        const linhkien=await LinkKien.linkkien.findById(id);
-        linhkien.name=name;
-        linhkien.price=price;
+        const { name, price } = req.body;
+        const linhkien = await LinkKien.linkkien.findById(id);
+        linhkien.name = name;
+        linhkien.price = price;
         await linhkien.save();
         res.redirect(`/linhkien/${linhkien.loailinhkien}`);
     } catch (error) {
@@ -512,10 +512,10 @@ router.post('/putlinhkien/:id',async(req,res)=>{
 })
 
 
-router.post('/deletelk/:id', async (req, res) => {
+router.post('/deletelk/:id', async(req, res) => {
     try {
         const id = req.params.id;
-        const linhkien=await LinkKien.linkkien.findById(id);
+        const linhkien = await LinkKien.linkkien.findById(id);
         const loailinhkien = await LoaiLinkKien.loailinkkien.findById(linhkien.loailinhkien);
         loailinhkien.linhkien = loailinhkien.linhkien.filter(chitiet => chitiet.toString() !== id);
         await loailinhkien.save();
@@ -528,7 +528,7 @@ router.post('/deletelk/:id', async (req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 });
-router.post('/postloailinkien', async (req, res) => {
+router.post('/postloailinkien', async(req, res) => {
     try {
         const { name } = req.body;
         const loailinkkien = new LoaiLinkKien.loailinkkien({ name });
@@ -540,7 +540,7 @@ router.post('/postloailinkien', async (req, res) => {
     }
 })
 
-router.post('/putloailk/:id', async (req, res) => {
+router.post('/putloailk/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const { name } = req.body;
@@ -554,14 +554,14 @@ router.post('/putloailk/:id', async (req, res) => {
     }
 })
 
-router.post('/deleteloailk/:id',async(req,res)=>{
+router.post('/deleteloailk/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
-        Promise.all(loailinhkien.linhkien.map(async(linhkien)=>{
+        Promise.all(loailinhkien.linhkien.map(async(linhkien) => {
             await LinkKien.linkkien.findByIdAndDelete(linhkien._id);
         }))
-        await LoaiLinkKien.loailinkkien.deleteOne({_id:id});
+        await LoaiLinkKien.loailinkkien.deleteOne({ _id: id });
         res.redirect('/main');
     } catch (error) {
         console.error(error);
@@ -569,7 +569,7 @@ router.post('/deleteloailk/:id',async(req,res)=>{
     }
 })
 
-router.get('/addloailk',async(req,res)=>{
+router.get('/addloailk', async(req, res) => {
     try {
         res.render('home/addloailinhkien.ejs');
     } catch (error) {
@@ -578,25 +578,25 @@ router.get('/addloailk',async(req,res)=>{
     }
 })
 
-router.get('/editloailk/:id',async(req,res)=>{
+router.get('/editloailk/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
-        res.render('home/editloailinhkien.ejs',{id,loailinhkien});
+        res.render('home/editloailinhkien.ejs', { id, loailinhkien });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
 
-router.get('/linhkien/:id', async (req, res) => {
+router.get('/linhkien/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
-        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async (lk) => {
+        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async(lk) => {
             const linhkien = await LinkKien.linkkien.findById(lk._id)
             return {
-                _id:linhkien.id,
+                _id: linhkien.id,
                 name: linhkien.name,
                 price: linhkien.price,
                 image: linhkien.image,
@@ -610,14 +610,14 @@ router.get('/linhkien/:id', async (req, res) => {
     }
 })
 
-router.get('/xemlinhkien/:id',async(req,res)=>{
+router.get('/xemlinhkien/:id', async(req, res) => {
     try {
         const id = req.params.id;
         const loailinhkien = await LoaiLinkKien.loailinkkien.findById(id);
-        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async (lk) => {
+        const linhkienjson = await Promise.all(loailinhkien.linhkien.map(async(lk) => {
             const linhkien = await LinkKien.linkkien.findById(lk._id)
             return {
-                _id:linhkien.id,
+                _id: linhkien.id,
                 name: linhkien.name,
                 price: linhkien.price,
                 image: linhkien.image,
@@ -632,7 +632,7 @@ router.get('/xemlinhkien/:id',async(req,res)=>{
 })
 
 
-router.get('/muangay/:idsp', async (req, res) => {
+router.get('/muangay/:idsp', async(req, res) => {
     try {
         const idsp = req.params.idsp;
         const sp = await Sp.ChitietSp.findById(idsp);
@@ -647,7 +647,7 @@ router.get('/muangay/:idsp', async (req, res) => {
     }
 })
 
-router.post('/postnotify', async (req, res) => {
+router.post('/postnotify', async(req, res) => {
     try {
         const { tenkhach, phone, email, tensp, price, address } = req.body;
         const vietnamTime = momenttimezone().toDate();
@@ -665,7 +665,7 @@ router.post('/postnotify', async (req, res) => {
     }
 })
 
-router.post('/duyet/:idnotify', async (req, res) => {
+router.post('/duyet/:idnotify', async(req, res) => {
     try {
         const idnotify = req.params.idnotify;
         const notify = await Notify.notify.findById(idnotify);
@@ -678,7 +678,7 @@ router.post('/duyet/:idnotify', async (req, res) => {
     }
 })
 
-router.get('/donhang', async (req, res) => {
+router.get('/donhang', async(req, res) => {
     try {
         const donhang = await Notify.notify.find();
 
@@ -716,12 +716,15 @@ router.get('/donhang', async (req, res) => {
     }
 })
 
-router.post('/danhgia', async (req, res) => {
+router.post('/danhgia', async(req, res) => {
     try {
         const { tenkhach, content, rating } = req.body;
         const vietnamTime = momenttimezone().toDate();
         const danhgia = new DanhGia.danhgia({
-            tenkhach, content, rating, date: vietnamTime
+            tenkhach,
+            content,
+            rating,
+            date: vietnamTime
         })
         await danhgia.save();
         res.redirect('/');
@@ -731,7 +734,7 @@ router.post('/danhgia', async (req, res) => {
     }
 })
 
-router.get('/getdanhgia', async (req, res) => {
+router.get('/getdanhgia', async(req, res) => {
     try {
         const danhgia = await DanhGia.danhgia.find();
 
@@ -763,7 +766,7 @@ router.get('/getdanhgia', async (req, res) => {
     }
 })
 
-router.post('/duyetdanhgia/:iddanhgia', async (req, res) => {
+router.post('/duyetdanhgia/:iddanhgia', async(req, res) => {
     try {
         const iddanhgia = req.params.iddanhgia;
         const danhgia = await DanhGia.danhgia.findById(iddanhgia);
@@ -776,6 +779,46 @@ router.post('/duyetdanhgia/:iddanhgia', async (req, res) => {
     }
 })
 
+router.get('/contentBlog/:id', async(req, res) => {
+    try {
+        const id = req.params.id;
+        const blog = await myMDBlog.blogModel.findById(id);
+        const listBl = await myMDBlog.blogModel.find();
 
+        const content = blog.noidung.map(noidung => {
+            return {
+                tieude: noidung.tieude,
+                content: noidung.content,
+                img: noidung.img
+            }
+        })
+        res.render('home/chitietblog.ejs', { content, tieude: blog.tieude_blog, listBl })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
 
+router.post('/postblog', async(req, res) => {
+    try {
+        const { tieude_blog, img, content, tieude, img_blog } = req.body;
+        const blog = new myMDBlog.blogModel({ tieude_blog, img_blog });
+        if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
+            for (let i = 0; i < content.length; i++) {
+                blog.noidung.push({ content: content[i], img: img[i], tieude: tieude[i] });
+            }
+        } else {
+            blog.noidung.push({ content, img, tieude });
+        }
+        await blog.save();
+        res.redirect('/main');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.get('/getaddblog', async(req, res) => {
+    res.render('home/addblog.ejs');
+})
 module.exports = router;

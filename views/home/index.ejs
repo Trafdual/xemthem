@@ -2,927 +2,792 @@
 <html>
 
 <head>
-  <title>BẢO MINH STORE - CHUYÊN IPHONE CÁC LOẠI</title>
-  <meta charset="utf-8">
-  <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <link rel="shortcut icon" type="x-icon" href="/images/banner-image1.png">
-  <meta property="og:image" content="/images/banner-image1.png">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    @media only screen and (max-width: 700px) {
-      .message-button {
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: fixed;
-        bottom: 70px;
-        right: 70px;
-      }
-
-
-      .message-button:hover {
-        animation: shake 0.5s;
-      }
-
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 10px;
-        font-weight: 500;
-        line-height: 1.6;
-        margin: 0;
-        background-color: aliceblue;
-        background-image: none;
-
-      }
-
-      .facezalo {
-        position: fixed;
-        right: 5%;
-        bottom: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        z-index: 3;
-
-      }
-
-      .anhfacezalo {
-        width: 50%;
-        height: 50%;
-        margin-top: 20%;
-        animation: shake 1s infinite alternate;
-        /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
-        transform-origin: center;
-        /* Đặt điểm xoay tại trung tâm của ảnh */
-      }
-
-      @keyframes shake {
-        0% {
-          transform: rotate(-10deg);
-          /* Góc xoay ban đầu */
+    <title>BẢO MINH STORE - CHUYÊN IPHONE CÁC LOẠI</title>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" type="x-icon" href="/images/banner-image1.png">
+    <meta property="og:image" content="/images/banner-image1.png">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @media only screen and (max-width: 700px) {
+            .message-button {
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: fixed;
+                bottom: 70px;
+                right: 70px;
+            }
+            .message-button:hover {
+                animation: shake 0.5s;
+            }
+            body {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1.6;
+                margin: 0;
+                background-color: aliceblue;
+                background-image: none;
+            }
+            .facezalo {
+                position: fixed;
+                right: 5%;
+                bottom: 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                z-index: 3;
+            }
+            .anhfacezalo {
+                width: 50%;
+                height: 50%;
+                margin-top: 20%;
+                animation: shake 1s infinite alternate;
+                /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
+                transform-origin: center;
+                /* Đặt điểm xoay tại trung tâm của ảnh */
+            }
+            @keyframes shake {
+                0% {
+                    transform: rotate(-10deg);
+                    /* Góc xoay ban đầu */
+                }
+                50% {
+                    transform: rotate(10deg);
+                    /* Góc xoay giữa chừng */
+                }
+                100% {
+                    transform: rotate(-10deg);
+                    /* Góc xoay kết thúc */
+                }
+            }
+            @keyframes expand {
+                0% {
+                    transform: scale(1);
+                    /* Kích thước ban đầu */
+                    opacity: 1;
+                    /* Độ mờ ban đầu */
+                }
+                50% {
+                    transform: scale(1.1);
+                    /* Kích thước tăng lên */
+                    opacity: 0.75;
+                    /* Giảm độ mờ */
+                }
+                100% {
+                    transform: scale(1);
+                    /* Kích thước tăng lên */
+                    opacity: 1;
+                    /* Ẩn đi */
+                }
+            }
+            .anhfz {
+                position: relative;
+                text-align: center;
+                margin-top: 20%;
+                background-color: rgb(9, 80, 247);
+                width: 60px;
+                /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+                height: 60px;
+                border-radius: 50%;
+                /* Biến hình thành hình tròn */
+                animation: expand 2s infinite;
+                display: inline-block;
+            }
+            .anhdt {
+                position: relative;
+                text-align: center;
+                margin-top: 20%;
+                background-color: rgb(9, 247, 13);
+                width: 60px;
+                /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+                height: 60px;
+                border-radius: 50%;
+                /* Biến hình thành hình tròn */
+                animation: expand 2s infinite;
+                display: inline-block;
+            }
+            .section {
+                padding-left: 4%;
+                padding-right: 3%;
+                padding-bottom: 3%;
+                padding-top: 2%;
+                width: 100%;
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+            }
+            .product-swiper {
+                height: 400px;
+                /* Thiết lập chiều cao cố định cho swiper */
+            }
+            .section1 {
+                padding-left: 4%;
+                padding-right: 3%;
+                padding-bottom: 3%;
+                padding-top: 2%;
+                width: 100%;
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+            }
+            .sc {
+                margin-top: 15%;
+                background-color: rgb(251, 251, 252);
+                margin-bottom: 1%;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            .sp {
+                margin-top: 1%;
+                margin-left: 2%;
+                margin-right: 2%;
+                margin-bottom: 2%;
+            }
+            .sale45 {
+                padding-left: 2%;
+                padding-right: 5%;
+                padding-bottom: 3%;
+                padding-top: 2%;
+                width: 100%;
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+            }
+            .sale46 {
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+            .imgbanner {
+                width: 100%;
+            }
+            .divsale45 {
+                width: 70%;
+                margin-bottom: 10%;
+                margin-left: 43.3333%;
+            }
+            .h3sale {
+                width: 80%;
+            }
+            .list {
+                width: 100%;
+                background-color: rgb(251, 251, 252);
+            }
+            .thanhphan {
+                width: 100%;
+            }
+            .name {
+                margin-right: 1px;
+            }
+            #left,
+            #right {
+                display: none;
+            }
+            #hi {
+                top: 10%;
+                bottom: 7%;
+                position: relative;
+            }
+            #billboard {
+                display: none;
+            }
+            header {
+                top: 0;
+            }
+            .anh {
+                width: 290px;
+                height: auto;
+            }
+            .divimgsale {
+                width: 100%;
+                height: 40%;
+                margin: 0 auto;
+            }
+            .imgsale {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 3%;
+            }
+            @keyframes shake {
+                0% {
+                    transform: translate(0, 0);
+                }
+                10% {
+                    transform: translate(-5px, 0);
+                }
+                20% {
+                    transform: translate(5px, 0);
+                }
+                30% {
+                    transform: translate(-5px, 0);
+                }
+                40% {
+                    transform: translate(5px, 0);
+                }
+                50% {
+                    transform: translate(-5px, 0);
+                }
+                60% {
+                    transform: translate(5px, 0);
+                }
+                70% {
+                    transform: translate(-5px, 0);
+                }
+                80% {
+                    transform: translate(5px, 0);
+                }
+                90% {
+                    transform: translate(-5px, 0);
+                }
+                100% {
+                    transform: translate(0, 0);
+                }
+            }
+            .dialog-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 150%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 20;
+            }
+            .dialog-content {
+                margin-top: 10%;
+                margin-left: 5%;
+                /* Đặt margin-left thành auto để canh giữa */
+                margin-right: 3%;
+                /* Đặt margin-right thành auto để canh giữa */
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                max-width: 57%;
+                text-align: center;
+            }
+            .dialog-buttons {
+                margin-top: 20px;
+            }
+            .rating .star {
+                color: #ccc;
+                /* Màu mặc định cho tất cả các sao */
+            }
+            .rating .star.selected {
+                color: gold;
+                /* Màu của các sao đã chọn */
+            }
+            .dialog-xemthem {
+                margin-top: 10%;
+                margin-left: 5%;
+                /* Đặt margin-left thành auto để canh giữa */
+                margin-right: 3%;
+                /* Đặt margin-right thành auto để canh giữa */
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                max-width: 57%;
+                text-align: center;
+                max-height: 400px;
+                /* Đặt độ cao tối đa của dialog */
+                overflow-y: auto;
+                /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
+                position: relative;
+            }
+            .dialog-button {
+                width: 27.15%;
+                position: fixed;
+                /* Đặt vị trí tuyệt đối để cố định nút */
+                bottom: 30%;
+                /* Đặt vị trí bottom để cố định nút dưới cùng */
+                left: 50%;
+                /* Đặt vị trí left ở giữa */
+                transform: translateX(-50%);
+                /* Dịch chuyển nút sang trái để căn giữa */
+                z-index: 1;
+                /* Đảm bảo nút hiển thị trên thanh trượt */
+            }
+            .btndong {
+                background-color: #fb2104;
+                color: rgb(251, 252, 253);
+            }
         }
-
-        50% {
-          transform: rotate(10deg);
-          /* Góc xoay giữa chừng */
+        
+        @media only screen and (min-width: 701px) {
+            .message-button {
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: fixed;
+                bottom: 70px;
+                right: 70px;
+            }
+            .facezalo {
+                position: fixed;
+                bottom: 10%;
+                right: 2%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                z-index: 3;
+            }
+            .anhfacezalo {
+                width: 56%;
+                height: 56%;
+                margin-top: 20%;
+                animation: shake 1s infinite alternate;
+                /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
+                transform-origin: center;
+                /* Đặt điểm xoay tại trung tâm của ảnh */
+            }
+            @keyframes shake {
+                0% {
+                    transform: rotate(-10deg);
+                    /* Góc xoay ban đầu */
+                }
+                50% {
+                    transform: rotate(10deg);
+                    /* Góc xoay giữa chừng */
+                }
+                100% {
+                    transform: rotate(-10deg);
+                    /* Góc xoay kết thúc */
+                }
+            }
+            @keyframes expand {
+                0% {
+                    transform: scale(1);
+                    /* Kích thước ban đầu */
+                    opacity: 1;
+                    /* Độ mờ ban đầu */
+                }
+                50% {
+                    transform: scale(1.1);
+                    /* Kích thước tăng lên */
+                    opacity: 0.75;
+                    /* Giảm độ mờ */
+                }
+                100% {
+                    transform: scale(1);
+                    /* Kích thước tăng lên */
+                    opacity: 1;
+                    /* Ẩn đi */
+                }
+            }
+            .anhfz {
+                position: relative;
+                text-align: center;
+                margin-top: 20%;
+                background-color: rgb(9, 80, 247);
+                width: 70px;
+                /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+                height: 70px;
+                border-radius: 50%;
+                /* Biến hình thành hình tròn */
+                animation: expand 2s infinite;
+                display: inline-block;
+            }
+            .anhdt {
+                position: relative;
+                text-align: center;
+                margin-top: 20%;
+                background-color: rgb(9, 247, 13);
+                width: 70px;
+                /* Đảm bảo chiều rộng và chiều cao bằng nhau */
+                height: 70px;
+                border-radius: 50%;
+                /* Biến hình thành hình tròn */
+                animation: expand 2s infinite;
+                display: inline-block;
+            }
+            body {
+                background-image: url('https://images.fpt.shop/unsafe/fit-in/filters:quality(95):fill(transparent)/fptshop.com.vn/Uploads/Originals/2023/12/22/638388517162378445_desk-header-bg.png');
+                /* Đường dẫn đến hình ảnh nền */
+                background-size: 100% auto;
+                /* Hiển thị hình ảnh nền theo tỷ lệ khung hình của trình duyệt */
+                background-position: top;
+                /* Đặt hình ảnh nền ở giữa trang */
+                background-repeat: no-repeat;
+                /* Không lặp lại hình ảnh nền */
+                background-color: #fb2104;
+            }
+            .section {
+                padding-left: 2%;
+                padding-right: 2%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                height: 23%;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin-left: 10%;
+                margin-right: 10%;
+                border-radius: 10px;
+            }
+            .product-swiper {
+                height: 450px;
+                /* Thiết lập chiều cao cố định cho swiper */
+            }
+            .section1 {
+                padding-left: 2%;
+                padding-right: 5%;
+                padding-bottom: 3%;
+                padding-top: 2%;
+                height: 23%;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin-left: 10%;
+                margin-right: 10%;
+                border-radius: 10px;
+            }
+            .sc {
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin-bottom: 1%;
+                margin-left: 10%;
+                margin-right: 10%;
+                border-radius: 10px;
+            }
+            .ft {
+                z-index: 9;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin-left: 0;
+                margin-right: 0;
+                padding-top: 10px;
+            }
+            .list {
+                width: 100%;
+                background-color: rgb(251, 251, 252);
+            }
+            .sale45 {
+                padding-left: 2%;
+                padding-right: 5%;
+                padding-bottom: 3%;
+                padding-top: 2%;
+                height: 23%;
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+                margin-left: 10%;
+                margin-right: 10%;
+                border-radius: 10px;
+            }
+            .sale46 {
+                overflow: hidden;
+                background-color: rgb(251, 251, 252);
+                margin-top: 0.5%;
+                margin: 0 auto;
+                margin-left: 13%;
+                margin-right: 12%;
+                border-radius: 10px;
+                max-width: 74%;
+                max-height: 10%;
+            }
+            .imgbanner {
+                width: 100%;
+            }
+            .divsale45 {
+                width: 70%;
+                margin-bottom: 10%;
+                margin-left: 160%;
+            }
+            .h3sale {
+                width: 150%;
+                font-size: 40px;
+            }
+            .sp {
+                margin-top: 1%;
+                margin-left: 2%;
+                margin-right: 2%;
+                margin-bottom: 2%;
+            }
+            #header {
+                width: 100%;
+            }
+            #left,
+            #right {
+                height: 50%;
+                width: 10%;
+                animation: tilt 2s ease-in-out infinite reverse;
+                position: fixed;
+                z-index: 2;
+                bottom: 35%;
+                will-change: transform;
+            }
+            #left {
+                left: 0;
+            }
+            #right {
+                right: 0;
+            }
+            #thich {
+                box-sizing: border-box;
+                margin-left: 50px;
+                /* Để tránh chồng lấn với hình ảnh bên trái */
+                margin-right: 50px;
+                /* Để tránh chồng lấn với hình ảnh bên phải */
+                z-index: 1;
+            }
+            #hi {
+                bottom: 0;
+                position: relative;
+            }
+            #imagedoi {
+                position: absolute;
+                top: 45%;
+                left: 0;
+                right: 0;
+                z-index: 2;
+            }
+            #billboard {
+                margin-left: 50px;
+                /* Để tránh chồng lấn với hình ảnh bên trái */
+                margin-right: 50px;
+                height: 75%;
+                overflow: hidden;
+                position: relative;
+                z-index: 9;
+                background-image: none;
+            }
+            .anh {
+                width: 270px;
+                height: auto;
+            }
+            #footer-bottom {
+                z-index: 9;
+                background-color: rgb(251, 251, 252);
+            }
+            #billboard .image-holder {
+                margin-left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #anhbanner {
+                margin-top: 150px;
+                margin-left: 50px;
+                margin-bottom: 0;
+                width: 220%;
+                height: auto;
+            }
+            .divimgsale {
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .imgsale {
+                width: 100%;
+                height: auto;
+                margin-bottom: 3%;
+            }
+            h6 {
+                text-transform: uppercase;
+            }
+            @keyframes tilt {
+                0% {
+                    transform: rotate(-5deg);
+                }
+                50% {
+                    transform: rotate(10deg);
+                }
+                100% {
+                    transform: rotate(-5deg);
+                }
+            }
+            @keyframes shake {
+                0% {
+                    transform: translate(0, 0);
+                }
+                10% {
+                    transform: translate(-5px, 0);
+                }
+                20% {
+                    transform: translate(5px, 0);
+                }
+                30% {
+                    transform: translate(-5px, 0);
+                }
+                40% {
+                    transform: translate(5px, 0);
+                }
+                50% {
+                    transform: translate(-5px, 0);
+                }
+                60% {
+                    transform: translate(5px, 0);
+                }
+                70% {
+                    transform: translate(-5px, 0);
+                }
+                80% {
+                    transform: translate(5px, 0);
+                }
+                90% {
+                    transform: translate(-5px, 0);
+                }
+                100% {
+                    transform: translate(0, 0);
+                }
+            }
+            .dialog-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 20;
+            }
+            .dialog-content {
+                margin-top: 10%;
+                margin-left: auto;
+                /* Đặt margin-left thành auto để canh giữa */
+                margin-right: auto;
+                /* Đặt margin-right thành auto để canh giữa */
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                max-width: 400px;
+                text-align: center;
+            }
+            .dialog-buttons {
+                margin-top: 20px;
+            }
+            .rating .star {
+                color: #ccc;
+                /* Màu mặc định cho tất cả các sao */
+            }
+            .rating .star.selected {
+                color: gold;
+                /* Màu của các sao đã chọn */
+            }
+            .dialog-xemthem {
+                margin-top: 10%;
+                margin-left: auto;
+                /* Đặt margin-left thành auto để canh giữa */
+                margin-right: auto;
+                /* Đặt margin-right thành auto để canh giữa */
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                max-width: 400px;
+                text-align: center;
+                max-height: 400px;
+                /* Đặt độ cao tối đa của dialog */
+                overflow-y: auto;
+                /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
+                position: relative;
+            }
+            .dialog-button {
+                width: 27.15%;
+                position: fixed;
+                /* Đặt vị trí tuyệt đối để cố định nút */
+                bottom: 15%;
+                /* Đặt vị trí bottom để cố định nút dưới cùng */
+                left: 50%;
+                /* Đặt vị trí left ở giữa */
+                transform: translateX(-50%);
+                /* Dịch chuyển nút sang trái để căn giữa */
+                z-index: 1;
+                /* Đảm bảo nút hiển thị trên thanh trượt */
+            }
+            .btndong {
+                background-color: #fb2104;
+                color: rgb(251, 252, 253);
+            }
         }
+    </style>
 
-        100% {
-          transform: rotate(-10deg);
-          /* Góc xoay kết thúc */
-        }
-      }
 
-      @keyframes expand {
-        0% {
-          transform: scale(1);
-          /* Kích thước ban đầu */
-          opacity: 1;
-          /* Độ mờ ban đầu */
-        }
-
-        50% {
-          transform: scale(1.1);
-          /* Kích thước tăng lên */
-          opacity: 0.75;
-          /* Giảm độ mờ */
-        }
-
-        100% {
-          transform: scale(1);
-          /* Kích thước tăng lên */
-          opacity: 1;
-          /* Ẩn đi */
-        }
-      }
-
-      .anhfz {
-        position: relative;
-        text-align: center;
-        margin-top: 20%;
-        background-color: rgb(9, 80, 247);
-        width: 60px;
-        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
-        height: 60px;
-        border-radius: 50%;
-        /* Biến hình thành hình tròn */
-        animation: expand 2s infinite;
-        display: inline-block;
-      }
-
-      .anhdt {
-        position: relative;
-        text-align: center;
-        margin-top: 20%;
-        background-color: rgb(9, 247, 13);
-        width: 60px;
-        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
-        height: 60px;
-        border-radius: 50%;
-        /* Biến hình thành hình tròn */
-        animation: expand 2s infinite;
-        display: inline-block;
-      }
-
-
-      .section {
-        padding-left: 4%;
-        padding-right: 3%;
-        padding-bottom: 3%;
-        padding-top: 2%;
-        width: 100%;
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-      }
-
-      .product-swiper {
-        height: 400px;
-        /* Thiết lập chiều cao cố định cho swiper */
-      }
-
-      .section1 {
-        padding-left: 4%;
-        padding-right: 3%;
-        padding-bottom: 3%;
-        padding-top: 2%;
-        width: 100%;
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-      }
-
-      .sc {
-        margin-top: 15%;
-        background-color: rgb(251, 251, 252);
-        margin-bottom: 1%;
-        margin-left: 1%;
-        margin-right: 1%;
-
-      }
-
-      .sp {
-        margin-top: 1%;
-        margin-left: 2%;
-        margin-right: 2%;
-        margin-bottom: 2%;
-      }
-
-      .sale45 {
-        padding-left: 2%;
-        padding-right: 5%;
-        padding-bottom: 3%;
-        padding-top: 2%;
-        width: 100%;
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-
-
-      }
-
-      .sale46 {
-
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-        border-radius: 10px;
-
-      }
-
-      .imgbanner {
-        width: 100%;
-      }
-
-      .divsale45 {
-        width: 70%;
-        margin-bottom: 10%;
-        margin-left: 43.3333%;
-      }
-
-      .h3sale {
-        width: 80%;
-      }
-
-      .list {
-        width: 100%;
-        background-color: rgb(251, 251, 252);
-      }
-
-      .thanhphan {
-        width: 100%;
-      }
-
-      .name {
-        margin-right: 1px;
-      }
-
-
-      #left,
-      #right {
-        display: none;
-      }
-
-      #hi {
-        top: 10%;
-        bottom: 7%;
-        position: relative;
-      }
-
-      #billboard {
-        display: none;
-      }
-
-      header {
-        top: 0;
-      }
-
-      .anh {
-        width: 290px;
-        height: auto;
-      }
-
-      .divimgsale {
-        width: 100%;
-        height: 40%;
-        margin: 0 auto;
-      }
-
-      .imgsale {
-        width: 100%;
-        height: 100%;
-        margin-bottom: 3%;
-
-      }
-
-      @keyframes shake {
-        0% {
-          transform: translate(0, 0);
-        }
-
-        10% {
-          transform: translate(-5px, 0);
-        }
-
-        20% {
-          transform: translate(5px, 0);
-        }
-
-        30% {
-          transform: translate(-5px, 0);
-        }
-
-        40% {
-          transform: translate(5px, 0);
-        }
-
-        50% {
-          transform: translate(-5px, 0);
-        }
-
-        60% {
-          transform: translate(5px, 0);
-        }
-
-        70% {
-          transform: translate(-5px, 0);
-        }
-
-        80% {
-          transform: translate(5px, 0);
-        }
-
-        90% {
-          transform: translate(-5px, 0);
-        }
-
-        100% {
-          transform: translate(0, 0);
-        }
-
-      }
-
-      .dialog-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 150%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 20;
-      }
-
-      .dialog-content {
-        margin-top: 10%;
-        margin-left: 5%;
-        /* Đặt margin-left thành auto để canh giữa */
-        margin-right: 3%;
-        /* Đặt margin-right thành auto để canh giữa */
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 57%;
-        text-align: center;
-
-      }
-
-      .dialog-buttons {
-        margin-top: 20px;
-      }
-
-      .rating .star {
-        color: #ccc;
-        /* Màu mặc định cho tất cả các sao */
-      }
-
-      .rating .star.selected {
-        color: gold;
-        /* Màu của các sao đã chọn */
-      }
-
-      .dialog-xemthem {
-        margin-top: 10%;
-        margin-left: 5%;
-        /* Đặt margin-left thành auto để canh giữa */
-        margin-right: 3%;
-        /* Đặt margin-right thành auto để canh giữa */
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 57%;
-        text-align: center;
-        max-height: 400px;
-        /* Đặt độ cao tối đa của dialog */
-        overflow-y: auto;
-        /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
-        position: relative;
-
-
-      }
-
-      .dialog-button {
-        width: 27.15%;
-        position: fixed;
-        /* Đặt vị trí tuyệt đối để cố định nút */
-        bottom: 30%;
-        /* Đặt vị trí bottom để cố định nút dưới cùng */
-        left: 50%;
-        /* Đặt vị trí left ở giữa */
-        transform: translateX(-50%);
-        /* Dịch chuyển nút sang trái để căn giữa */
-        z-index: 1;
-        /* Đảm bảo nút hiển thị trên thanh trượt */
-      }
-
-      .btndong {
-        background-color: #fb2104;
-        color: rgb(251, 252, 253);
-      }
-    }
-
-    @media only screen and (min-width: 701px) {
-      .message-button {
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: fixed;
-        bottom: 70px;
-        right: 70px;
-      }
-
-
-      .facezalo {
-        position: fixed;
-        bottom: 10%;
-        right: 2%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        z-index: 3;
-
-      }
-
-      .anhfacezalo {
-        width: 56%;
-        height: 56%;
-        margin-top: 20%;
-        animation: shake 1s infinite alternate;
-        /* Sử dụng animation với tên 'shake', thời gian 0.5s, lặp lại vô hạn và chuyển động xen kẽ */
-        transform-origin: center;
-        /* Đặt điểm xoay tại trung tâm của ảnh */
-      }
-
-      @keyframes shake {
-        0% {
-          transform: rotate(-10deg);
-          /* Góc xoay ban đầu */
-        }
-
-        50% {
-          transform: rotate(10deg);
-          /* Góc xoay giữa chừng */
-        }
-
-        100% {
-          transform: rotate(-10deg);
-          /* Góc xoay kết thúc */
-        }
-      }
-
-      @keyframes expand {
-        0% {
-          transform: scale(1);
-          /* Kích thước ban đầu */
-          opacity: 1;
-          /* Độ mờ ban đầu */
-        }
-
-        50% {
-          transform: scale(1.1);
-          /* Kích thước tăng lên */
-          opacity: 0.75;
-          /* Giảm độ mờ */
-        }
-
-        100% {
-          transform: scale(1);
-          /* Kích thước tăng lên */
-          opacity: 1;
-          /* Ẩn đi */
-        }
-      }
-
-
-      .anhfz {
-        position: relative;
-        text-align: center;
-        margin-top: 20%;
-        background-color: rgb(9, 80, 247);
-        width: 70px;
-        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
-        height: 70px;
-        border-radius: 50%;
-        /* Biến hình thành hình tròn */
-        animation: expand 2s infinite;
-        display: inline-block;
-      }
-
-      .anhdt {
-        position: relative;
-        text-align: center;
-        margin-top: 20%;
-        background-color: rgb(9, 247, 13);
-        width: 70px;
-        /* Đảm bảo chiều rộng và chiều cao bằng nhau */
-        height: 70px;
-        border-radius: 50%;
-        /* Biến hình thành hình tròn */
-        animation: expand 2s infinite;
-        display: inline-block;
-      }
-
-      body {
-
-        background-image: url('https://images.fpt.shop/unsafe/fit-in/filters:quality(95):fill(transparent)/fptshop.com.vn/Uploads/Originals/2023/12/22/638388517162378445_desk-header-bg.png');
-        /* Đường dẫn đến hình ảnh nền */
-        background-size: 100% auto;
-        /* Hiển thị hình ảnh nền theo tỷ lệ khung hình của trình duyệt */
-        background-position: top;
-        /* Đặt hình ảnh nền ở giữa trang */
-        background-repeat: no-repeat;
-        /* Không lặp lại hình ảnh nền */
-        background-color: #fb2104;
-
-
-      }
-
-      .section {
-        padding-left: 2%;
-        padding-right: 2%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        height: 23%;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin-left: 10%;
-        margin-right: 10%;
-        border-radius: 10px;
-      }
-
-      .product-swiper {
-        height: 450px;
-        /* Thiết lập chiều cao cố định cho swiper */
-      }
-
-      .section1 {
-        padding-left: 2%;
-        padding-right: 5%;
-        padding-bottom: 3%;
-        padding-top: 2%;
-        height: 23%;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin-left: 10%;
-        margin-right: 10%;
-        border-radius: 10px;
-      }
-
-      .sc {
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin-bottom: 1%;
-        margin-left: 10%;
-        margin-right: 10%;
-        border-radius: 10px;
-
-      }
-
-      .ft {
-        z-index: 9;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin-left: 0;
-        margin-right: 0;
-        padding-top: 10px;
-      }
-
-      .list {
-        width: 100%;
-        background-color: rgb(251, 251, 252);
-      }
-
-      .sale45 {
-        padding-left: 2%;
-        padding-right: 5%;
-        padding-bottom: 3%;
-        padding-top: 2%;
-        height: 23%;
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-        margin-left: 10%;
-        margin-right: 10%;
-        border-radius: 10px;
-
-      }
-
-      .sale46 {
-        overflow: hidden;
-        background-color: rgb(251, 251, 252);
-        margin-top: 0.5%;
-        margin: 0 auto;
-        margin-left: 13%;
-        margin-right: 12%;
-        border-radius: 10px;
-        max-width: 74%;
-        max-height: 10%;
-
-      }
-
-      .imgbanner {
-        width: 100%;
-      }
-
-      .divsale45 {
-        width: 70%;
-        margin-bottom: 10%;
-        margin-left: 160%;
-      }
-
-      .h3sale {
-        width: 150%;
-        font-size: 40px;
-      }
-
-      .sp {
-        margin-top: 1%;
-        margin-left: 2%;
-        margin-right: 2%;
-        margin-bottom: 2%;
-      }
-
-      #header {
-        width: 100%;
-
-      }
-
-      #left,
-      #right {
-        height: 50%;
-        width: 10%;
-        animation: tilt 2s ease-in-out infinite reverse;
-        position: fixed;
-        z-index: 2;
-        bottom: 35%;
-        will-change: transform;
-      }
-
-      #left {
-        left: 0;
-      }
-
-      #right {
-        right: 0;
-      }
-
-      #thich {
-        box-sizing: border-box;
-        margin-left: 50px;
-        /* Để tránh chồng lấn với hình ảnh bên trái */
-        margin-right: 50px;
-        /* Để tránh chồng lấn với hình ảnh bên phải */
-        z-index: 1;
-      }
-
-      #hi {
-
-        bottom: 0;
-        position: relative;
-      }
-
-      #imagedoi {
-        position: absolute;
-        top: 45%;
-        left: 0;
-        right: 0;
-        z-index: 2;
-      }
-
-      #billboard {
-        margin-left: 50px;
-        /* Để tránh chồng lấn với hình ảnh bên trái */
-        margin-right: 50px;
-        height: 75%;
-        overflow: hidden;
-        position: relative;
-        z-index: 9;
-        background-image: none;
-
-      }
-
-      .anh {
-        width: 270px;
-        height: auto;
-      }
-
-      #footer-bottom {
-        z-index: 9;
-        background-color: rgb(251, 251, 252);
-      }
-
-
-      #billboard .image-holder {
-        margin-left: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      #anhbanner {
-        margin-top: 150px;
-        margin-left: 50px;
-        margin-bottom: 0;
-        width: 220%;
-        height: auto;
-      }
-
-      .divimgsale {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-
-      .imgsale {
-        width: 100%;
-        height: auto;
-        margin-bottom: 3%;
-
-      }
-
-      h6 {
-        text-transform: uppercase;
-      }
-
-
-      @keyframes tilt {
-        0% {
-          transform: rotate(-5deg);
-        }
-
-        50% {
-          transform: rotate(10deg);
-        }
-
-        100% {
-          transform: rotate(-5deg);
-        }
-      }
-
-      @keyframes shake {
-        0% {
-          transform: translate(0, 0);
-        }
-
-        10% {
-          transform: translate(-5px, 0);
-        }
-
-        20% {
-          transform: translate(5px, 0);
-        }
-
-        30% {
-          transform: translate(-5px, 0);
-        }
-
-        40% {
-          transform: translate(5px, 0);
-        }
-
-        50% {
-          transform: translate(-5px, 0);
-        }
-
-        60% {
-          transform: translate(5px, 0);
-        }
-
-        70% {
-          transform: translate(-5px, 0);
-        }
-
-        80% {
-          transform: translate(5px, 0);
-        }
-
-        90% {
-          transform: translate(-5px, 0);
-        }
-
-        100% {
-          transform: translate(0, 0);
-        }
-
-      }
-
-      .dialog-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 20;
-      }
-
-      .dialog-content {
-        margin-top: 10%;
-        margin-left: auto;
-        /* Đặt margin-left thành auto để canh giữa */
-        margin-right: auto;
-        /* Đặt margin-right thành auto để canh giữa */
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 400px;
-        text-align: center;
-
-      }
-
-      .dialog-buttons {
-        margin-top: 20px;
-      }
-
-      .rating .star {
-        color: #ccc;
-        /* Màu mặc định cho tất cả các sao */
-      }
-
-      .rating .star.selected {
-        color: gold;
-        /* Màu của các sao đã chọn */
-      }
-
-      .dialog-xemthem {
-        margin-top: 10%;
-        margin-left: auto;
-        /* Đặt margin-left thành auto để canh giữa */
-        margin-right: auto;
-        /* Đặt margin-right thành auto để canh giữa */
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 400px;
-        text-align: center;
-        max-height: 400px;
-        /* Đặt độ cao tối đa của dialog */
-        overflow-y: auto;
-        /* Thêm thanh trượt nếu nội dung vượt quá độ cao tối đa */
-        position: relative;
-
-      }
-
-      .dialog-button {
-        width: 27.15%;
-        position: fixed;
-        /* Đặt vị trí tuyệt đối để cố định nút */
-        bottom: 15%;
-        /* Đặt vị trí bottom để cố định nút dưới cùng */
-        left: 50%;
-        /* Đặt vị trí left ở giữa */
-        transform: translateX(-50%);
-        /* Dịch chuyển nút sang trái để căn giữa */
-        z-index: 1;
-        /* Đảm bảo nút hiển thị trên thanh trượt */
-      }
-      .btndong {
-        background-color: #fb2104;
-        color: rgb(251, 252, 253);
-      }
-    }
-  </style>
-
-
-  <!-- script
+    <!-- script
     ================================================== -->
-  <!-- Google tag (gtag.js) -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'G-6T0NMTNKGR');
-  </script>
-  <script src="js/modernizr.js"></script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6T0NMTNKGR');
+    </script>
+    <script src="js/modernizr.js"></script>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
-  tabindex="0">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KB5DNX5V" height="0" width="0"
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KB5DNX5V" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div class="facezalo">
-    <div class="anhfz">
-      <img class="anhfacezalo" id="fanpageButton" src="https://cdn-icons-png.flaticon.com/512/1617/1617222.png" alt="">
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="facezalo">
+        <div class="anhfz">
+            <img class="anhfacezalo" id="fanpageButton" src="https://cdn-icons-png.flaticon.com/512/1617/1617222.png" alt="">
+        </div>
+
+        <div class="anhdt">
+            <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt="" onclick="makeCall()">
+        </div>
     </div>
 
-    <div class="anhdt">
-      <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt=""
-        onclick="makeCall()">
-    </div>
-  </div>
-
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
       <title>Tìm kiếm</title>
       <path fill="currentColor"
@@ -940,810 +805,780 @@
         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
     </svg>
     <symbol xmlns="http://www.w3.org/2000/svg" id="chevron-right" viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="cart-outline" viewBox="0 0 16 16">
-      <path
-        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="quality" viewBox="0 0 16 16">
-      <path
-        d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
-      <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+        <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z"
+        />
+        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="price-tag" viewBox="0 0 16 16">
-      <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
-      <path
-        d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
+        <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
+        <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="shield-plus" viewBox="0 0 16 16">
-      <path
-        d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-      <path
-        d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
+        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+        />
+        <path d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
-      <path
-        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="star-empty" viewBox="0 0 16 16">
-      <path
-        d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="star-half" viewBox="0 0 16 16">
-      <path
-        d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="quote" viewBox="0 0 24 24">
-      <path fill="currentColor" d="m15 17l2-4h-4V6h7v7l-2 4h-3Zm-9 0l2-4H4V6h7v7l-2 4H6Z" />
+        <path fill="currentColor" d="m15 17l2-4h-4V6h7v7l-2 4h-3Zm-9 0l2-4H4V6h7v7l-2 4H6Z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+        <path fill="currentColor" d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 32 32">
-      <path fill="currentColor"
-        d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z" />
+        <path fill="currentColor" d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 256 256">
-      <path fill="currentColor"
-        d="m245.66 77.66l-29.9 29.9C209.72 177.58 150.67 232 80 232c-14.52 0-26.49-2.3-35.58-6.84c-7.33-3.67-10.33-7.6-11.08-8.72a8 8 0 0 1 3.85-11.93c.26-.1 24.24-9.31 39.47-26.84a110.93 110.93 0 0 1-21.88-24.2c-12.4-18.41-26.28-50.39-22-98.18a8 8 0 0 1 13.65-4.92c.35.35 33.28 33.1 73.54 43.72V88a47.87 47.87 0 0 1 14.36-34.3A46.87 46.87 0 0 1 168.1 40a48.66 48.66 0 0 1 41.47 24H240a8 8 0 0 1 5.66 13.66Z" />
+        <path fill="currentColor" d="m245.66 77.66l-29.9 29.9C209.72 177.58 150.67 232 80 232c-14.52 0-26.49-2.3-35.58-6.84c-7.33-3.67-10.33-7.6-11.08-8.72a8 8 0 0 1 3.85-11.93c.26-.1 24.24-9.31 39.47-26.84a110.93 110.93 0 0 1-21.88-24.2c-12.4-18.41-26.28-50.39-22-98.18a8 8 0 0 1 13.65-4.92c.35.35 33.28 33.1 73.54 43.72V88a47.87 47.87 0 0 1 14.36-34.3A46.87 46.87 0 0 1 168.1 40a48.66 48.66 0 0 1 41.47 24H240a8 8 0 0 1 5.66 13.66Z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
-      <path fill="currentColor"
-        d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z" />
+        <path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"
+        />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="linkedin" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
+        <path fill="currentColor" d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="nav-icon" viewBox="0 0 16 16">
-      <path
-        d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 16 16">
-      <path
-        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
-      <path
-        d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
     </symbol>
-  </svg>
+    </svg>
 
-  <div class="search-popup">
-    <div class="search-popup-container">
+    <div class="search-popup">
+        <div class="search-popup-container">
 
-      <form role="search" method="get" class="search-form" action="">
-        <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value=""
-          name="s" />
-        <button type="submit" class="search-submit"><svg class="search">
+            <form role="search" method="get" class="search-form" action="">
+                <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value="" name="s" />
+                <button type="submit" class="search-submit"><svg class="search">
             <use xlink:href="#search"></use>
           </svg></button>
-      </form>
+            </form>
 
-      <h5 class="cat-list-title">Tìm kiếm sản phẩm</h5>
+            <h5 class="cat-list-title">Tìm kiếm sản phẩm</h5>
 
-      <ul class="cat-list">
-        <li class="cat-list-item">
-          <a href="#" title="Mobile Phones">iPhone bán chạy nhất</a>
-        </li>
-        <li class="cat-list-item ">
-          <a href="#" title="Smart Watches">iPhone mới nhất</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Headphones">Sạc cáp</a>
-        </li>
-        <li class="cat-list-item">
-          <a href="#" title="Accessories">Tai nghe</a>
-        </li>
+            <ul class="cat-list">
+                <li class="cat-list-item">
+                    <a href="#" title="Mobile Phones">iPhone bán chạy nhất</a>
+                </li>
+                <li class="cat-list-item ">
+                    <a href="#" title="Smart Watches">iPhone mới nhất</a>
+                </li>
+                <li class="cat-list-item">
+                    <a href="#" title="Headphones">Sạc cáp</a>
+                </li>
+                <li class="cat-list-item">
+                    <a href="#" title="Accessories">Tai nghe</a>
+                </li>
 
-      </ul>
+            </ul>
 
+        </div>
     </div>
-  </div>
 
-  <header id="header"
-    class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
-    <nav id="header-nav" class="navbar navbar-expand-lg px-2">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-          <img src="/images/main-logo.png" class="logo">
-        </a>
-        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
+        <nav id="header-nav" class="navbar navbar-expand-lg px-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/main-logo.png" class="logo">
+                </a>
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
           <svg class="navbar-icon">
             <use xlink:href="#navbar-icon"></use>
           </svg>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-          <div class="offcanvas-header px-4 pb-0">
-            <a class="navbar-brand" href="/">
-              <img src="/images/main-logo.png" class="logo">
-            </a>
-            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-              data-bs-target="#bdNavbar"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
-              <li class="nav-item">
-                <a class="nav-link me-4 active" href="#billboard">Trang Chủ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="#suachua">Sửa chữa</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="#mobile-products">Sản Phẩm</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="#latest-blog">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="#">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="/thanhtoan">Thanh toán</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="/contact">Liên hệ</a>
-              </li>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <a class="navbar-brand" href="/">
+                            <img src="/images/main-logo.png" class="logo">
+                        </a>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                            <li class="nav-item">
+                                <a class="nav-link me-4 active" href="#billboard">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#suachua">Sửa chữa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#mobile-products">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#latest-blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/thanhtoan">Thanh toán</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/contact">Liên hệ</a>
+                            </li>
 
-              <li class="nav-item">
-                <div class="user-items ps-5">
-                  <ul class="d-flex justify-content-end list-unstyled">
-                    <li class="search-item pe-3">
-                      <a href="#" class="search-button">
-                        <svg class="search">
+                            <li class="nav-item">
+                                <div class="user-items ps-5">
+                                    <ul class="d-flex justify-content-end list-unstyled">
+                                        <li class="search-item pe-3">
+                                            <a href="#" class="search-button">
+                                                <svg class="search">
                           <use xlink:href="#search"></use>
                         </svg>
-                      </a>
-                    </li>
-                    <li class="pe-3">
-                      <a href="/login">
-                        <svg class="user">
+                                            </a>
+                                        </li>
+                                        <li class="pe-3">
+                                            <a href="/login">
+                                                <svg class="user">
                           <use xlink:href="#user"></use>
                         </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/thanhtoan">
-                        <svg class="cart">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/thanhtoan">
+                                                <svg class="cart">
                           <use xlink:href="#cart"></use>
                         </svg>
-                      </a>
-                    </li>
-                  </ul>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <form action="/danhgia" method="post">
+            </div>
+        </nav>
+    </header>
+    <form action="/danhgia" method="post">
 
-    <div id="successDialog" class="dialog-overlay">
-      <div class="dialog-content">
-        <h2>Đánh Giá</h2>
-        <div class="d-flex flex-column">
-          <input style="width: 100%;font-size: 20px;" class="text-black " placeholder="họ và tên" name="tenkhach">
-          <textarea style="width: 100%; margin-top: 5%; font-size: 20px;" class="text-black" name="content"
-            placeholder="nội dung"></textarea>
+        <div id="successDialog" class="dialog-overlay">
+            <div class="dialog-content">
+                <h2>Đánh Giá</h2>
+                <div class="d-flex flex-column">
+                    <input style="width: 100%;font-size: 20px;" class="text-black " placeholder="họ và tên" name="tenkhach">
+                    <textarea style="width: 100%; margin-top: 5%; font-size: 20px;" class="text-black" name="content" placeholder="nội dung"></textarea>
+                </div>
+                <div class="rating" style="font-size: 30px;">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" name="rating" id="ratingInput">
+                <p id="sendingMessage" style="display: none; font-size: 20px;">Đang gửi đánh giá, vui lòng đợi giây lát...</p>
+                <div class="dialog-buttons">
+                    <button onclick="hideDialog()" class="btn btn-secondary">Không</button>
+                    <button type="submit" onclick="showSendingMessage()" class="btn btn-primary">Có</button>
+                </div>
+            </div>
         </div>
-        <div class="rating" style="font-size: 30px;">
-          <span class="star" data-value="1">&#9733;</span>
-          <span class="star" data-value="2">&#9733;</span>
-          <span class="star" data-value="3">&#9733;</span>
-          <span class="star" data-value="4">&#9733;</span>
-          <span class="star" data-value="5">&#9733;</span>
-        </div>
-        <input type="hidden" name="rating" id="ratingInput">
-        <p id="sendingMessage" style="display: none; font-size: 20px;">Đang gửi đánh giá, vui lòng đợi giây lát...</p>
-        <div class="dialog-buttons">
-          <button onclick="hideDialog()" class="btn btn-secondary">Không</button>
-          <button type="submit" onclick="showSendingMessage()" class="btn btn-primary">Có</button>
-        </div>
-      </div>
-    </div>
 
-  </form>
+    </form>
 
-  <div class="container" style="height: 100px;"></div>
-  <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale46">
-    <div class="container ">
-      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <a href="https://www.facebook.com/profile.php?id=100086450281606">
-              <img src="/images/banner2.png" class=" imgbanner" alt="Image 1">
-            </a>
-          </div>
-          <div class="carousel-item">
+    <div class="container" style="height: 100px;"></div>
+    <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale46">
+        <div class="container ">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="https://www.facebook.com/profile.php?id=100086450281606">
+                            <img src="/images/banner2.png" class=" imgbanner" alt="Image 1">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
 
-            <a href="https://www.facebook.com/profile.php?id=100086450281606"> <img src="/images/banner2.jpg"
-                class="imgbanner" alt="Image 1"></a>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <a href="https://www.facebook.com/profile.php?id=100086450281606"> <img src="/images/banner2.jpg" class="imgbanner" alt="Image 1"></a>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
-    </div>
-  </section>
+            </div>
+        </div>
+    </section>
 
-  <div id="hi">
-    <div id="imagedoi">
-      <img id="left" src="https://fptshop.com.vn/Content/images/tet-2024/img-left.png?v=1221" alt="">
-      <img id="right" src="https://fptshop.com.vn/Content/images/tet-2024/img-right.png?v=1221" alt="">
-    </div>
-    <div id="thich">
+    <div id="hi">
+        <div id="imagedoi">
+            <img id="left" src="https://fptshop.com.vn/Content/images/tet-2024/img-left.png?v=1221" alt="">
+            <img id="right" src="https://fptshop.com.vn/Content/images/tet-2024/img-right.png?v=1221" alt="">
+        </div>
+        <div id="thich">
 
-      <% tenspjson.forEach((row, index)=> { %>
-        <section id="mobile-products" class="product-store position-relative no-padding-top section">
-          <div class="container sp">
-            <div class="row">
-              <div class="display-header d-flex justify-content-between pb-3 ">
-                <h2 class="display-7 text-dark text-uppercase">
-                  <%= row.name %>
-                </h2>
-                <div class="btn-right">
-                  <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, "-") %>" class="btn
+            <% tenspjson.forEach((row, index)=> { %>
+                <section id="mobile-products" class="product-store position-relative no-padding-top section">
+                    <div class="container sp">
+                        <div class="row">
+                            <div class="display-header d-flex justify-content-between pb-3 ">
+                                <h2 class="display-7 text-dark text-uppercase">
+                                    <%= row.name %>
+                                </h2>
+                                <div class="btn-right">
+                                    <a href="/getspchitiet/<%= encodeURIComponent(row.name).replace(/%20/g, " - ") %>" class="btn
                     btn-medium btn-normal text-uppercase">Xem Thêm</a>
-                </div>
-              </div>
-              <div class="divimgsale">
-                <img class="imgsale" src="/images/banner3.png" alt="">
-              </div>
-              <div class="swiper product-swiper swiper-container">
-                <div class="swiper-wrapper">
-                  <% row.chitietsp.slice(0, 7).forEach((item, index)=> { %>
-                    <% var rowname=row.name; %>
-                      <div class="swiper-slide">
-                        <div class="product-card position-relative">
-                          <div class="image-holder">
-                            <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item"
-                              class="img-fluid anh">
-                          </div>
-                          <div style="padding: 5%;" class="cart-concern position-absolute ">
-                            <div class="cart-button d-flex">
-                              <a style="font-size: 10px; max-height: 85%;"
-                                href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
-                                  encodeURIComponent(rowname).replace(/%20/g, "-" ) %>"
-                                  class="btn btn-medium btn-danger">Chi tiết</a>
-                              <a href="/muangay/<%= item.id %>" style="font-size: 10px; height: 85%;"
-                                class="btn btn-medium btn-danger">Mua ngay</a>
+                                </div>
                             </div>
-                          </div>
-                          <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
-                            <h6>
-                              <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, "-") %>/<%=
-                                  encodeURIComponent(rowname).replace(/%20/g, "-" ) %>" class="name">
-                                  <%= item.name %>
-                              </a>
-                            </h6>
-                            <span class="item-price text-primary price text-wrap">
+                            <div class="divimgsale">
+                                <img class="imgsale" src="/images/banner3.png" alt="">
+                            </div>
+                            <div class="swiper product-swiper swiper-container">
+                                <div class="swiper-wrapper">
+                                    <% row.chitietsp.slice(0, 7).forEach((item, index)=> { %>
+                                        <% var rowname=row.name; %>
+                                            <div class="swiper-slide">
+                                                <div class="product-card position-relative">
+                                                    <div class="image-holder">
+                                                        <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item" class="img-fluid anh">
+                                                    </div>
+                                                    <div style="padding: 5%;" class="cart-concern position-absolute ">
+                                                        <div class="cart-button d-flex">
+                                                            <a style="font-size: 10px; max-height: 85%;" href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " - ") %>/<%=
+                                  encodeURIComponent(rowname).replace(/%20/g, "- " ) %>" class="btn btn-medium btn-danger">Chi tiết</a>
+                                                            <a href="/muangay/<%= item.id %>" style="font-size: 10px; height: 85%;" class="btn btn-medium btn-danger">Mua ngay</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-detail d-flex justify-content-between align-items-baseline pt-3 thanhphan">
+                                                        <h6>
+                                                            <a href="/getchitiet/<%= encodeURIComponent(item.name).replace(/%20/g, " - ") %>/<%=
+                                  encodeURIComponent(rowname).replace(/%20/g, "- " ) %>" class="name">
+                                                                <%= item.name %>
+                                                            </a>
+                                                        </h6>
+                                                        <span class="item-price text-primary price text-wrap">
                               <%= item.price %>
                             </span>
-                          </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                </div>
+                                <div class="swiper-pagination position-absolute text-center" style="top: 90%;"></div>
+                            </div>
                         </div>
-                      </div>
-                      <% }) %>
-                </div>
-                <div class="swiper-pagination position-absolute text-center" style="top: 90%;"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <% }) %>
-          <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale45"
-            style="background-image: url('/images/single-image1.png');background-position: right; background-repeat: no-repeat; background-size: cover;">
-            <div class="row d-flex flex-wrap ">
-              <div class="col-md-4 col-sm-8">
-                <div class="text-content divsale45">
-                  <h3 class="h3sale" style="color: aliceblue;">Sale lên đến 45%</h3>
-                  <h3 class="h3sale" style="color: aliceblue;">cho mọi sản phẩm</h3>
-                  <a href="/shop" class="btn btn-medium btn-dark text-uppercase btn-rounded-none ">Shop Sale</a>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="latest-blog" class="padding-large section">
-            <div class="container">
-              <div class="row">
-                <div class="display-header d-flex justify-content-between pb-3">
-                  <h2 class="display-7 text-dark text-uppercase">Phụ kiện đi kèm</h2>
-                  <div class="btn-right">
-                    <a href="blog.html" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
-                  </div>
-                </div>
-                <div class="post-grid d-flex flex-wrap justify-content-between">
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="card border-none me-3">
-                      <div class="card-image">
-                        <img src="/images/post-item1.jpg" alt="" class="img-fluid">
-                      </div>
                     </div>
-                    <div class="card-body text-uppercase">
-                      <div class="card-meta text-muted">
-                        <span class="meta-date">Hàng chính hãng</span>
-                        <span class="meta-category">- Bảo Minh Store</span>
-                      </div>
-                      <h3 class="card-title">
-                        <a href="#">Củ sạc nhanh Apple 20W Type-C</a>
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="card border-none me-3">
-                      <div class="card-image">
-                        <img src="/images/post-item2.jpg" alt="" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="card-body text-uppercase">
-                      <div class="card-meta text-muted">
-                        <span class="meta-date">Hàng chính hãng</span>
-                        <span class="meta-category">- Bảo Minh Store</span>
-                      </div>
-                      <h3 class="card-title">
-                        <a href="#">Dây cáp sạc nhanh Apple</a>
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-sm-12">
-                    <div class="card border-none me-3">
-                      <div class="card-image">
-                        <img src="/images/post-item3.jpg" alt="" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="card-body text-uppercase">
-                      <div class="card-meta text-muted">
-                        <span class="meta-date">Hàng chính hãng</span>
-                        <span class="meta-category">- Bảo Minh Store</span>
-                      </div>
-                      <h3 class="card-title">
-                        <a href="#">Ốp lưng dẻo thời trang, cường lực chắc chắn</a>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- <section id="latest-blog" class="padding-large section">
-            <div class="container">
-              <div class="row">
-                <div class="display-header d-flex justify-content-between pb-3">
-                  <h2 class="display-7 text-dark text-uppercase">Bài đăng và tiện ích</h2>
-                  <div class="btn-right">
-                    <a href="#" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
-                  </div>
-                </div>
-                <div class="post-grid d-flex flex-wrap justify-content-between">
-                  <% listBl.forEach((item)=> { %>
-                    <div class="col-lg-4 col-sm-12">
-                      <div class="card border-none me-3">
-                        <div class="card-image">
-                          <img src="data:img_blog/jpeg;base64, <%= item.img_blog %>" alt="product-item"
-                            class="img-fluid">
+                </section>
+                <% }) %>
+                    <section id="yearly-sale" class="bg-light-blue mt-2 mb-2 overflow-hidden sale45" style="background-image: url('/images/single-image1.png');background-position: right; background-repeat: no-repeat; background-size: cover;">
+                        <div class="row d-flex flex-wrap ">
+                            <div class="col-md-4 col-sm-8">
+                                <div class="text-content divsale45">
+                                    <h3 class="h3sale" style="color: aliceblue;">Sale lên đến 45%</h3>
+                                    <h3 class="h3sale" style="color: aliceblue;">cho mọi sản phẩm</h3>
+                                    <a href="/shop" class="btn btn-medium btn-dark text-uppercase btn-rounded-none ">Shop Sale</a>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="card-body text-uppercase">
-                        <div class="card-meta text-muted">
-                          <span class="meta-date">
-                            <% const limitedContent=item.noidung_blog.length> 30 ? item.noidung_blog.slice(0, 30) +
-                              '...'
-                              : item.noidung_blog;
-                              %>
-                              <%= limitedContent %>
-
-                          </span>
-
+                    </section>
+                    <section id="latest-blog" class="padding-large section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="display-header d-flex justify-content-between pb-3">
+                                    <h2 class="display-7 text-dark text-uppercase">Phụ kiện đi kèm</h2>
+                                    <div class="btn-right">
+                                        <a href="blog.html" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
+                                    </div>
+                                </div>
+                                <div class="post-grid d-flex flex-wrap justify-content-between">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="card border-none me-3">
+                                            <div class="card-image">
+                                                <img src="/images/post-item1.jpg" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-uppercase">
+                                            <div class="card-meta text-muted">
+                                                <span class="meta-date">Hàng chính hãng</span>
+                                                <span class="meta-category">- Bảo Minh Store</span>
+                                            </div>
+                                            <h3 class="card-title">
+                                                <a href="#">Củ sạc nhanh Apple 20W Type-C</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="card border-none me-3">
+                                            <div class="card-image">
+                                                <img src="/images/post-item2.jpg" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-uppercase">
+                                            <div class="card-meta text-muted">
+                                                <span class="meta-date">Hàng chính hãng</span>
+                                                <span class="meta-category">- Bảo Minh Store</span>
+                                            </div>
+                                            <h3 class="card-title">
+                                                <a href="#">Dây cáp sạc nhanh Apple</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="card border-none me-3">
+                                            <div class="card-image">
+                                                <img src="/images/post-item3.jpg" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-uppercase">
+                                            <div class="card-meta text-muted">
+                                                <span class="meta-date">Hàng chính hãng</span>
+                                                <span class="meta-category">- Bảo Minh Store</span>
+                                            </div>
+                                            <h3 class="card-title">
+                                                <a href="#">Ốp lưng dẻo thời trang, cường lực chắc chắn</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="card-title">
-                          <a href="/chitietblog/<%= item._id %>">
-                            <%= item.tieude_blog %>
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                    <% }); %>
-                </div>
-              </div>
-            </div>
-          </section> -->
+                    </section>
 
-          <section id="testimonials" class="position-relative section">
-            <div class="container">
-              <div class="row">
-                <div class="display-header d-flex justify-content-between pb-3">
-                  <h3 class="display-7 text-dark text-uppercase">Đánh giá</h3>
-                  <div class="btn-right">
-                    <a onclick="showSuccessDialog()" class="btn btn-medium btn-normal text-uppercase">Đánh giá</a>
-                    <a onclick="showSuccessDialogxemthem()" class="btn btn-medium btn-normal text-uppercase">ĐỌC
+                    <section id="testimonials" class="position-relative section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="display-header d-flex justify-content-between pb-3">
+                                    <h3 class="display-7 text-dark text-uppercase">Đánh giá</h3>
+                                    <div class="btn-right">
+                                        <a onclick="showSuccessDialog()" class="btn btn-medium btn-normal text-uppercase">Đánh giá</a>
+                                        <a onclick="showSuccessDialogxemthem()" class="btn btn-medium btn-normal text-uppercase">ĐỌC
                       THÊM</a>
-                  </div>
-                </div>
-                <div class="review-content position-relative">
-                  <div class="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center">
-                    <svg class="chevron-left">
+                                    </div>
+                                </div>
+                                <div class="review-content position-relative">
+                                    <div class="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center">
+                                        <svg class="chevron-left">
                       <use xlink:href="#chevron-left" />
                     </svg>
-                  </div>
-                  <div class="swiper testimonial-swiper">
+                                    </div>
+                                    <div class="swiper testimonial-swiper">
 
-                    <div class="swiper-wrapper">
-                      <% danhgiaIsReadTrue.slice(0, 3).forEach((row, index)=> { %>
-                        <div class="swiper-slide text-center d-flex justify-content-center">
-                          <div class="review-item col-md-10">
-                            <i class="icon icon-review"></i>
-                            <h6>“<%= row.content %>”
-                                </blockquote>
-                                <div class="rating">
-                                  <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
-                                  <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
-                                  <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
-                                  <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
-                                  <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
-                                </div>
-                                <div class="author-detail">
-                                  <div class="name text-dark text-uppercase pt-2">
-                                    <%= row.tenkhach %>
-                                  </div>
-                                </div>
-                          </div>
-                        </div>
-                        <% }) %>
-                    </div>
-                  </div>
-                  <div class="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center">
-                    <svg class="chevron-right">
+                                        <div class="swiper-wrapper">
+                                            <% danhgiaIsReadTrue.slice(0, 3).forEach((row, index)=> { %>
+                                                <div class="swiper-slide text-center d-flex justify-content-center">
+                                                    <div class="review-item col-md-10">
+                                                        <i class="icon icon-review"></i>
+                                                        <h6>“
+                                                            <%= row.content %>”
+                                                                </blockquote>
+                                                                <div class="rating">
+                                                                    <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
+                                                                    <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
+                                                                    <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
+                                                                    <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
+                                                                    <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
+                                                                </div>
+                                                                <div class="author-detail">
+                                                                    <div class="name text-dark text-uppercase pt-2">
+                                                                        <%= row.tenkhach %>
+                                                                    </div>
+                                                                </div>
+                                                    </div>
+                                                </div>
+                                                <% }) %>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center">
+                                        <svg class="chevron-right">
                       <use xlink:href="#chevron-right" />
                     </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </section>
 
-          <div id="dialogxemthem" class="dialog-overlay">
-            <div class="dialog-xemthem">
-              <h2>Đánh Giá</h2>
-              <% danhgiaIsReadTrue.forEach((row, index)=> { %>
-                <div class="d-flex flex-column">
-                  <div class="d-flex">
-                    <h6 class="me-3">
-                      <%= row.tenkhach %>
-                    </h6>
-                    <div class="rating">
-                      <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
-                      <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
-                      <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
-                      <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
-                      <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
+                    <div id="dialogxemthem" class="dialog-overlay">
+                        <div class="dialog-xemthem">
+                            <h2>Đánh Giá</h2>
+                            <% danhgiaIsReadTrue.forEach((row, index)=> { %>
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex">
+                                        <h6 class="me-3">
+                                            <%= row.tenkhach %>
+                                        </h6>
+                                        <div class="rating">
+                                            <span class="star <%= row.rating >= 1 ? 'selected' : '' %>">&#9733;</span>
+                                            <span class="star <%= row.rating >= 2 ? 'selected' : '' %>">&#9733;</span>
+                                            <span class="star <%= row.rating >= 3 ? 'selected' : '' %>">&#9733;</span>
+                                            <span class="star <%= row.rating >= 4 ? 'selected' : '' %>">&#9733;</span>
+                                            <span class="star <%= row.rating >= 5 ? 'selected' : '' %>">&#9733;</span>
+                                        </div>
+                                    </div>
+                                    <p>“
+                                        <%= row.content %>”</p>
+                                    <hr>
+                                </div>
+                                <% }) %>
+                                    <div class="dialog-button">
+                                        <button onclick="hideDialogxemthem()" class="btn btn-secondary btndong">Đóng</button>
+                                    </div>
+                        </div>
                     </div>
-                  </div>
-                  <p>“<%= row.content %>”</p>
-                  <hr>
-                </div>
-                <% }) %>
-                  <div class="dialog-button">
-                    <button onclick="hideDialogxemthem()" class="btn btn-secondary btndong">Đóng</button>
-                  </div>
-            </div>
-          </div>
 
-          <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden section">
-            <div class="container">
-              <div class="row">
-                <div
-                  class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
-                  <div class="col-md-6 col-sm-12">
-                    <div class="display-header pe-3">
-                      <h2 class="display-7 text-uppercase text-light">Đăng ký cho chúng tôi ngay</h2>
-                      <p>Nhận tin tức mới nhất, cập nhật và giao dịch được gửi trực tiếp đến hộp thư đến của bạn.</p>
-                    </div>
-                  </div>
-                  <div class="col-md-5 col-sm-12">
-                    <form class="subscription-form validate">
-                      <div class="input-group flex-wrap">
-                        <input class="form-control btn-rounded-none" type="email" name="EMAIL"
-                          placeholder="Địa chỉ email của bạn ở đây" required="">
-                        <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit"
-                          name="subscribe">Đăng ký</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+                    <section id="latest-blog" class="padding-large section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="display-header d-flex justify-content-between pb-3">
+                                    <h2 class="display-7 text-dark text-uppercase">Bài đăng và tiện ích</h2>
+                                    <div class="btn-right">
+                                        <a href="latest-blog" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
+                                    </div>
+                                </div>
+                                <div class="post-grid d-flex flex-wrap justify-content-between">
+                                    <% listBl.forEach((item)=> { %>
+                                        <div class="col-lg-4 col-sm-12">
+                                            <div class="card border-none me-3">
+                                                <div class="card-image">
+                                                    <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-uppercase">
+                                                <h3 class="card-title">
+                                                    <a href="/contentBlog/<%= item._id %>">
+                                                        <%= item.tieude_blog %>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
+                    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="display-header pe-3">
+                                            <h2 class="display-7 text-uppercase text-light">Đăng ký cho chúng tôi ngay</h2>
+                                            <p>Nhận tin tức mới nhất, cập nhật và giao dịch được gửi trực tiếp đến hộp thư đến của bạn.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+                                        <form class="subscription-form validate">
+                                            <div class="input-group flex-wrap">
+                                                <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Địa chỉ email của bạn ở đây" required="">
+                                                <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Đăng ký</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+        </div>
     </div>
-  </div>
-  <footer id="footer" class="overflow-hidden ft">
-    <div class="container">
-      <div class="row">
-        <div class="footer-top-area">
-          <div class="row d-flex flex-wrap justify-content-between">
-            <div class="col-lg-3 col-sm-6 pb-3">
-              <div class="footer-menu">
-                <img src="/images/main-logo.png" class="logo">
-                <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến
-                  cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới
-                  mẻ!</p>
-                <div class="social-links">
-                  <ul class="d-flex list-unstyled">
-                    <li>
-                      <a href="#">
-                        <svg class="facebook">
+    <footer id="footer" class="overflow-hidden ft">
+        <div class="container">
+            <div class="row">
+                <div class="footer-top-area">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu">
+                                <img src="/images/main-logo.png" class="logo">
+                                <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới mẻ!
+                                </p>
+                                <div class="social-links">
+                                    <ul class="d-flex list-unstyled">
+                                        <li>
+                                            <a href="#">
+                                                <svg class="facebook">
                           <use xlink:href="#facebook" />
                         </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <svg class="instagram">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <svg class="instagram">
                           <use xlink:href="#instagram" />
                         </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <svg class="twitter">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <svg class="twitter">
                           <use xlink:href="#twitter" />
                         </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <svg class="linkedin">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <svg class="linkedin">
                           <use xlink:href="#linkedin" />
                         </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <svg class="youtube">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <svg class="youtube">
                           <use xlink:href="#youtube" />
                         </svg>
-                      </a>
-                    </li>
-                  </ul>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 pb-3">
+                            <div class="footer-menu text-uppercase">
+                                <h5 class="widget-title pb-2">Đường dẫn nhanh</h5>
+                                <ul class="menu-list list-unstyled text-uppercase">
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Trang Chủ</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Thông Tin</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Cửa hàng</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Blogs</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Liên Hệ</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu text-uppercase">
+                                <h5 class="widget-title pb-2">Trợ giúp & Thông tin Trợ giúp</h5>
+                                <ul class="menu-list list-unstyled">
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Theo dõi đơn hàng của bạn</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Chính sách hoàn trả</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Liên hệ chúng tôi</a>
+                                    </li>
+                                    <li class="menu-item pb-2">
+                                        <a href="#">Câu hỏi thường gặp</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 pb-3">
+                            <div class="footer-menu contact-item">
+                                <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
+                                <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">baominhstore354@gmail.com</a>
+                                </p>
+                                <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0816 354 354</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="col-lg-2 col-sm-6 pb-3">
-              <div class="footer-menu text-uppercase">
-                <h5 class="widget-title pb-2">Đường dẫn nhanh</h5>
-                <ul class="menu-list list-unstyled text-uppercase">
-                  <li class="menu-item pb-2">
-                    <a href="#">Trang Chủ</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Thông Tin</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Cửa hàng</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Blogs</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Liên Hệ</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 pb-3">
-              <div class="footer-menu text-uppercase">
-                <h5 class="widget-title pb-2">Trợ giúp & Thông tin Trợ giúp</h5>
-                <ul class="menu-list list-unstyled">
-                  <li class="menu-item pb-2">
-                    <a href="#">Theo dõi đơn hàng của bạn</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Chính sách hoàn trả</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Liên hệ chúng tôi</a>
-                  </li>
-                  <li class="menu-item pb-2">
-                    <a href="#">Câu hỏi thường gặp</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 pb-3">
-              <div class="footer-menu contact-item">
-                <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
-                <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">baominhstore354@gmail.com</a>
-                </p>
-                <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0816 354 354</a>
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+        <hr>
+    </footer>
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row d-flex flex-wrap justify-content-between">
+                <div class="col-md-4 col-sm-6">
+                    <div class="Shipping d-flex">
+                        <p>We ship with:</p>
+                        <div class="card-wrap ps-2">
+                            <img src="/images/dhl.png" alt="visa">
+                            <img src="/images/shippingcard.png" alt="mastercard">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="payment-method d-flex">
+                        <p>Các phương thức thanh toán:</p>
+                        <div class="card-wrap ps-2">
+                            <img src="/images/visa.jpg" alt="visa">
+                            <img src="/images/mastercard.jpg" alt="mastercard">
+                            <img src="/images/paypal.jpg" alt="paypal">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="copyright">
+                        <p>© Copyright 2024 Bảo Minh Store.
+                            <a href="https://templatesjungle.com/"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <hr>
-  </footer>
-  <div id="footer-bottom">
-    <div class="container">
-      <div class="row d-flex flex-wrap justify-content-between">
-        <div class="col-md-4 col-sm-6">
-          <div class="Shipping d-flex">
-            <p>We ship with:</p>
-            <div class="card-wrap ps-2">
-              <img src="/images/dhl.png" alt="visa">
-              <img src="/images/shippingcard.png" alt="mastercard">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="payment-method d-flex">
-            <p>Các phương thức thanh toán:</p>
-            <div class="card-wrap ps-2">
-              <img src="/images/visa.jpg" alt="visa">
-              <img src="/images/mastercard.jpg" alt="mastercard">
-              <img src="/images/paypal.jpg" alt="paypal">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="copyright">
-            <p>© Copyright 2024 Bảo Minh Store.<a href="https://templatesjungle.com/"></a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const fanpageButton = document.getElementById("fanpageButton");
-      var leftImage = document.getElementById("left");
-      var rightImage = document.getElementById("right");
-      var footer = document.getElementById("footer");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fanpageButton = document.getElementById("fanpageButton");
+            var leftImage = document.getElementById("left");
+            var rightImage = document.getElementById("right");
+            var footer = document.getElementById("footer");
 
-      fanpageButton.addEventListener("click", function () {
-        // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
-        window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
-      });
-
-      leftImage.style.transition = "bottom 0.3s ease-in-out";
-      rightImage.style.transition = "bottom 0.3s ease-in-out";
-
-      window.addEventListener("scroll", function () {
-        var footerPosition = footer.getBoundingClientRect();
-        var imagePosition = leftImage.getBoundingClientRect();
-
-        // Kiểm tra nếu hình ảnh gần phần footer
-        if (imagePosition.bottom >= footerPosition.top) {
-
-          leftImage.style.bottom = "60%";
-          rightImage.style.bottom = "60%";
-        } else {
-          // Nếu không, đặt lại vị trí của hình ảnh
-          leftImage.style.bottom = "35%";
-          rightImage.style.bottom = "35%";
-        }
-      });
-    });
-  </script>
-  <script>
-    function makeCall() {
-      // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
-      var phoneNumber = "0833354354";
-
-      // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
-      if ("contacts" in navigator && "ContactsManager" in window) {
-        // Sử dụng API Contacts để gọi điện
-        navigator.contacts.select(["phone"]).then(contacts => {
-          // Gọi điện đến số điện thoại đã được chỉ định
-          contacts.forEach(contact => {
-            contact.phoneNumbers.forEach(phone => {
-              if (phone.value === phoneNumber) {
-                contact.pick();
-              }
+            fanpageButton.addEventListener("click", function() {
+                // Thay thế "URL_FANPAGE_FACEBOOK_CUA_BAN" bằng đường dẫn fanpage của bạn
+                window.location.href = "https://www.facebook.com/messages/t/102425705973353/";
             });
-          });
+
+            leftImage.style.transition = "bottom 0.3s ease-in-out";
+            rightImage.style.transition = "bottom 0.3s ease-in-out";
+
+            window.addEventListener("scroll", function() {
+                var footerPosition = footer.getBoundingClientRect();
+                var imagePosition = leftImage.getBoundingClientRect();
+
+                // Kiểm tra nếu hình ảnh gần phần footer
+                if (imagePosition.bottom >= footerPosition.top) {
+
+                    leftImage.style.bottom = "60%";
+                    rightImage.style.bottom = "60%";
+                } else {
+                    // Nếu không, đặt lại vị trí của hình ảnh
+                    leftImage.style.bottom = "35%";
+                    rightImage.style.bottom = "35%";
+                }
+            });
         });
-      } else {
-        // Mở giao diện gọi điện của trình duyệt
-        window.location.href = "tel:" + phoneNumber;
-      }
-    }
-  </script>
-  <script>
-    function encodeSpecialCharacters(name) {
-      // Thay thế các kí tự đặc biệt bằng dấu -
-      const replacedName = name.replace(/[^\w\s]/gi, '-');
-      // Mã hóa tên sản phẩm và trả về
-      return encodeURIComponent(replacedName);
-    }
-    var swiper = new Swiper('.swiper-container', {
-      // Cấu hình Swiper tại đây
-      // Ví dụ:
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-  </script>
-  <script>
-    function showSuccessDialog() {
-      event.preventDefault();
-      // Hiển thị dialog thành công
-      var dialog = document.getElementById('successDialog');
-      dialog.style.display = 'block';
-    }
+    </script>
+    <script>
+        function makeCall() {
+            // Thay đổi số điện thoại dưới đây bằng số điện thoại thực tế
+            var phoneNumber = "0833354354";
 
-    function hideDialog() {
-      // Ẩn dialog
-      event.preventDefault();
-      var dialog = document.getElementById('successDialog');
-      dialog.style.display = 'none';
-    }
-    function showSuccessDialogxemthem() {
-      event.preventDefault();
-      // Hiển thị dialog thành công
-      var dialog = document.getElementById('dialogxemthem');
-      dialog.style.display = 'block';
-    }
-
-    function hideDialogxemthem() {
-      // Ẩn dialog
-      event.preventDefault();
-      var dialog = document.getElementById('dialogxemthem');
-      dialog.style.display = 'none';
-    }
-    function showSendingMessage() {
-      document.getElementById("sendingMessage").style.display = "block"; // Hiển thị dòng văn bản "Đang gửi đánh giá, vui lòng đợi giây lát..."
-    }
-
-  </script>
-  <script>
-    let selectedRating = 0;
-
-    document.querySelectorAll('.star').forEach(star => {
-      star.addEventListener('click', () => {
-        const value = parseInt(star.getAttribute('data-value'));
-        if (value === selectedRating + 1) {
-          selectedRating = value;
-        } else {
-          selectedRating = value - 1; // Xóa chọn sao nếu nhấp vào sao đã chọn trước đó
+            // Kiểm tra xem trình duyệt có hỗ trợ gọi điện không
+            if ("contacts" in navigator && "ContactsManager" in window) {
+                // Sử dụng API Contacts để gọi điện
+                navigator.contacts.select(["phone"]).then(contacts => {
+                    // Gọi điện đến số điện thoại đã được chỉ định
+                    contacts.forEach(contact => {
+                        contact.phoneNumbers.forEach(phone => {
+                            if (phone.value === phoneNumber) {
+                                contact.pick();
+                            }
+                        });
+                    });
+                });
+            } else {
+                // Mở giao diện gọi điện của trình duyệt
+                window.location.href = "tel:" + phoneNumber;
+            }
         }
-        updateRating();
-      });
-    });
-
-    function updateRating() {
-      document.querySelectorAll('.star').forEach((star, index) => {
-        if (index < selectedRating) {
-          star.style.color = '#ff0'; // Yellow color for selected stars
-        } else {
-          star.style.color = '#ccc'; // Gray color for unselected stars
+    </script>
+    <script>
+        function encodeSpecialCharacters(name) {
+            // Thay thế các kí tự đặc biệt bằng dấu -
+            const replacedName = name.replace(/[^\w\s]/gi, '-');
+            // Mã hóa tên sản phẩm và trả về
+            return encodeURIComponent(replacedName);
         }
-      });
-      document.getElementById('ratingInput').value = selectedRating; // Update hidden input value
-    }
-  </script>
-  <script src="/js/jquery-1.11.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="/js/plugins.js"></script>
-  <script type="text/javascript" src="/js/script.js"></script>
+        var swiper = new Swiper('.swiper-container', {
+            // Cấu hình Swiper tại đây
+            // Ví dụ:
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+    <script>
+        function showSuccessDialog() {
+            event.preventDefault();
+            // Hiển thị dialog thành công
+            var dialog = document.getElementById('successDialog');
+            dialog.style.display = 'block';
+        }
+
+        function hideDialog() {
+            // Ẩn dialog
+            event.preventDefault();
+            var dialog = document.getElementById('successDialog');
+            dialog.style.display = 'none';
+        }
+
+        function showSuccessDialogxemthem() {
+            event.preventDefault();
+            // Hiển thị dialog thành công
+            var dialog = document.getElementById('dialogxemthem');
+            dialog.style.display = 'block';
+        }
+
+        function hideDialogxemthem() {
+            // Ẩn dialog
+            event.preventDefault();
+            var dialog = document.getElementById('dialogxemthem');
+            dialog.style.display = 'none';
+        }
+
+        function showSendingMessage() {
+            document.getElementById("sendingMessage").style.display = "block"; // Hiển thị dòng văn bản "Đang gửi đánh giá, vui lòng đợi giây lát..."
+        }
+    </script>
+    <script>
+        let selectedRating = 0;
+
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', () => {
+                const value = parseInt(star.getAttribute('data-value'));
+                if (value === selectedRating + 1) {
+                    selectedRating = value;
+                } else {
+                    selectedRating = value - 1; // Xóa chọn sao nếu nhấp vào sao đã chọn trước đó
+                }
+                updateRating();
+            });
+        });
+
+        function updateRating() {
+            document.querySelectorAll('.star').forEach((star, index) => {
+                if (index < selectedRating) {
+                    star.style.color = '#ff0'; // Yellow color for selected stars
+                } else {
+                    star.style.color = '#ccc'; // Gray color for unselected stars
+                }
+            });
+            document.getElementById('ratingInput').value = selectedRating; // Update hidden input value
+        }
+    </script>
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
 </body>
 
 </html>
