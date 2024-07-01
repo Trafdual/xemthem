@@ -322,7 +322,7 @@
                             </div>
                             <div class="card-body text-uppercase" style="word-wrap: break-word">
                                 <h3 class="card-title">
-                                    <a href="/chitietblog/<%= item._id %>">
+                                    <a href="/chitietblog/<%= encodeURIComponent(item.tieude_blog).replace(/%20/g, '-')%>">
                                         <%= item.tieude_blog %>
                                     </a>
                                 </h3>
