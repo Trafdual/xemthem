@@ -23,29 +23,100 @@
     ================================================== -->
     <script src="js/modernizr.js"></script>
     <style>
-        .section {
-            width: 90%;
-            padding-top: 7%;
-            padding-left: 1%;
-            padding-right: 1%;
-            background-color: rgb(245, 247, 249);
-            border-radius: 5%;
-            margin-right: 5%;
-            margin-left: 6%;
+        @media only screen and (max-width: 700px) {
+            .section {
+                width: 90%;
+                padding-top: 22%;
+                padding-left: 1%;
+                padding-right: 1%;
+                background-color: rgb(245, 247, 249);
+                margin-right: 5%;
+                margin-left: 6%;
+                border-radius: 5px;
+                margin-bottom: 1%
+            }
+            .section1 {
+                width: 90%;
+                padding-top: 5%;
+                padding-left: 1%;
+                padding-right: 1%;
+                background-color: rgb(245, 247, 249);
+                margin-right: 5%;
+                margin-left: 6%;
+                border-radius: 5px;
+                margin-bottom: 1%
+            }
+            body {
+                background-color: rgb(11, 10, 10)
+            }
+            .product-preview {
+                align-items: center;
+                justify-content: center;
+            }
+            .sanpham {
+                width: 30%;
+                height: 30%;
+            }
+            #subscribe {
+                margin-left: 2%;
+                margin-bottom: 1%;
+            }
+            #footer {
+                background-color: aliceblue;
+                color: black;
+            }
+            #footer-bottom {
+                background-color: aliceblue;
+                color: black;
+            }
         }
         
-        body {
-            background-color: rgb(11, 10, 10)
-        }
-        
-        .product-preview {
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .sanpham {
-            width: 30%;
-            height: 30%;
+        @media only screen and (min-width: 701px) {
+            .section {
+                width: 90%;
+                padding-top: 8%;
+                padding-left: 1%;
+                padding-right: 1%;
+                background-color: rgb(245, 247, 249);
+                margin-right: 5%;
+                margin-left: 6%;
+                border-radius: 5px;
+                margin-bottom: 1%
+            }
+            .section1 {
+                width: 90%;
+                padding-top: 3%;
+                padding-left: 1%;
+                padding-right: 1%;
+                background-color: rgb(245, 247, 249);
+                margin-right: 5%;
+                margin-left: 6%;
+                border-radius: 5px;
+                margin-bottom: 1%
+            }
+            body {
+                background-color: rgb(11, 10, 10)
+            }
+            .product-preview {
+                align-items: center;
+                justify-content: center;
+            }
+            .sanpham {
+                width: 30%;
+                height: 30%;
+            }
+            #subscribe {
+                margin-left: 2%;
+                margin-bottom: 1%;
+            }
+            #footer {
+                background-color: aliceblue;
+                color: black;
+            }
+            #footer-bottom {
+                background-color: aliceblue;
+                color: black;
+            }
         }
     </style>
 </head>
@@ -211,7 +282,7 @@
         <h3 itemprop="name" class="display-7 text-uppercase">
             <%= tieude %>
         </h3>
-        <div class="container mb-4">
+        <div class="container mb-4 pb-4">
             <div>
                 <% content.forEach((item) => { %>
                     <div class="mb-4">
@@ -221,16 +292,18 @@
                         <p>
                             <%= item.content %>
                         </p>
-                        <div class="product-preview mb-3 d-flex text-center">
-                            <img src="<%= item.img %>" alt="single-product" class="sanpham">
-                        </div>
+                        <% if (item.img) { %>
+                            <div class="product-preview mb-3 d-flex justify-content-center">
+                                <img src="<%= item.img %>" class="sanpham" alt="product image">
+                            </div>
+                            <% } %>
                     </div>
                     <% }); %>
             </div>
         </div>
     </section>
 
-    <section id="latest-blog" class=" section">
+    <section id="latest-blog" class=" section1">
         <div class="container">
             <div class="row">
                 <div class="display-header d-flex justify-content-between pb-3">

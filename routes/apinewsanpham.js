@@ -789,7 +789,7 @@ router.get('/contentBlog/:id', async(req, res) => {
             return {
                 tieude: noidung.tieude,
                 content: noidung.content,
-                img: noidung.img
+                img: noidung.img || ''
             }
         })
         res.render('home/chitietblog.ejs', { content, tieude: blog.tieude_blog, listBl })
