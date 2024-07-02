@@ -798,10 +798,8 @@ router.get('/contentBlog/:tieude', async(req, res) => {
                 img: noidung.img || ''
             }
         })
-        const tieudecontent = content.map(item => item.tieude).join(', ');
-        const imgcontent = content.map(item => item.img).join(', ');
 
-        res.render('home/chitietblog.ejs', { content, tieude: blog.tieude_blog, listBl, tieudecontent, imgcontent })
+        res.render('home/chitietblog.ejs', { content, tieude: blog.tieude_blog, listBl, image_blog: blog.img_blog })
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
