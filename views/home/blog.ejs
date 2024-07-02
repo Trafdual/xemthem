@@ -69,27 +69,8 @@
                 background-color: aliceblue;
                 color: black;
             }
-            .img-fluid {
+            #img-fluid {
                 height: 200px;
-            }
-            .container-fluid {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .section,
-            .section1 {
-                flex: 1 1 100%;
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-            }
-            .section1 {
-                order: 2;
-                /* Default order for mobile devices */
-            }
-            .section {
-                order: 1;
-                /* Default order for mobile devices */
             }
         }
         
@@ -140,26 +121,11 @@
                 background-color: aliceblue;
                 color: black;
             }
-            .img-fluid {
+            #img-fluid {
                 height: 200px;
             }
-            .container-fluid {
-                display: flex;
-                justify-content: space-between;
-            }
-            .section1,
-            .section {
-                flex: 0 1 auto;
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-            }
-            .post-grid {
-                display: flex;
-                flex-direction: column;
-            }
-            .card-title {
-                font-size: 15px;
+            .card-image {
+                height: 200px;
             }
         }
     </style>
@@ -322,64 +288,31 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid d-flex">
-
-        <section id="latest-blog" class="section1 flex-fill">
-            <div class="container">
-                <div class="row">
-                    <div class="display-header d-flex justify-content-between pb-3">
-                        <h5 class="display-7 text-dark text-uppercase">Các bài viết liên quan</h5>
-                        <div class="btn-right">
-                            <a href="/getblog" class="btn btn-medium btn-normal text-uppercase">ĐỌC THÊM</a>
-                        </div>
-                    </div>
-                    <div class="post-grid d-flex flex-column">
-                        <% listBl.forEach((item) => { %>
-                            <div class="col-lg-12 col-sm-12 mb-3">
-                                <div class="card border-none">
-                                    <div class="card-image justify-content-center align-items-center text-center">
-                                        <img src="<%= item.img_blog %>" alt="product-item" class="img-fluid">
-                                    </div>
-                                    <div class="card-body text-uppercase" style="word-wrap: break-word">
-                                        <h5 class="card-title">
-                                            <a href="/contentBlog/<%= encodeURIComponent(item.tieude_blog).replace(/%20/g, '-')%>">
-                                                <%= item.tieude_blog %>
-                                            </a>
-                                        </h5>
-                                    </div>
+    <section id="latest-blog" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="post-grid d-flex flex-wrap justify-content-between">
+                    <% listBl.forEach((item)=> { %>
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="card border-none me-3">
+                                <div class="card-image text-center overflow-hidden">
+                                    <img src="<%= item.img_blog %>" alt="product-item" id="img-fluid">
                                 </div>
                             </div>
-                            <% }); %>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="selling-product" class="section flex-fill" style="word-wrap: break-word">
-            <h3 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
-                <%= tieude %>
-            </h3>
-            <div class="container mb-4 pb-4">
-                <div>
-                    <% content.forEach((item) => { %>
-                        <div class="mb-4">
-                            <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
-                                <%= item.tieude %>
-                            </h6>
-                            <p style="color: black">
-                                <%- item.content.replace(/\\n/g, "<br>") %>
-                            </p>
-                            <% if (item.img) { %>
-                                <div class="product-preview mb-3 d-flex justify-content-center">
-                                    <img src="<%= item.img %>" class="sanpham" alt="product image">
-                                </div>
-                                <% } %>
+                            <div class="card-body text-uppercase" style="word-wrap: break-word">
+                                <h3 class="card-title">
+                                    <a href="/contentBlog/<%= encodeURIComponent(item.tieude_blog).replace(/%20/g, '-')%>">
+                                        <%= item.tieude_blog %>
+                                    </a>
+                                </h3>
+                            </div>
                         </div>
                         <% }); %>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
     <section id="subscribe" class="container-grid position-relative overflow-hidden">
         <div class="container">
             <div class="row">

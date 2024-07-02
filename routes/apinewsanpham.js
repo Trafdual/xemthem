@@ -827,4 +827,14 @@ router.post('/postblog', async(req, res) => {
 router.get('/getaddblog', async(req, res) => {
     res.render('home/addblog.ejs');
 })
+
+router.get('/getblog', async(req, res) => {
+    try {
+        const listBl = await myMDBlog.blogModel.find();
+        res.render('home/blog.ejs', { listBl })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
 module.exports = router;
