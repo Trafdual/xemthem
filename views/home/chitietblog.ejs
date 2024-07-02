@@ -19,6 +19,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= tieudecontent %>">
+    <meta property="og:description" content="Your page description here">
+    <meta property="og:image" content="<%= imgcontent %>">
+    <meta property="og:url" content="Your page URL here">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= tieudecontent %>">
+    <meta name="twitter:description" content="Your page description here">
+    <meta name="twitter:image" content="<%= imgcontent %>">
+
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
@@ -26,14 +39,14 @@
         @media only screen and (max-width: 700px) {
             .section {
                 width: 90%;
-                padding-top: 22%;
+                padding-top: 30%;
                 padding-left: 1%;
                 padding-right: 1%;
                 background-color: rgb(245, 247, 249);
                 margin-right: 5%;
                 margin-left: 6%;
                 border-radius: 5px;
-                margin-bottom: 1%
+                margin-bottom: 1%;
             }
             .section1 {
                 width: 90%;
@@ -54,8 +67,8 @@
                 justify-content: center;
             }
             .sanpham {
-                width: 45%;
-                height: 45%;
+                width: 80%;
+                height: 80%;
             }
             #subscribe {
                 margin-left: 2%;
@@ -160,6 +173,15 @@
             }
             .card-title {
                 font-size: 15px;
+            }
+            .buttonbaominh {
+                width: 300px;
+                font-size: 20px;
+                background-color: rgb(250, 24, 24);
+                color: aliceblue;
+                border: none;
+                border-radius: 20px;
+                height: 200px
             }
         }
     </style>
@@ -371,12 +393,14 @@
                             <% if (item.img) { %>
                                 <div class="product-preview mb-3 d-flex justify-content-center">
                                     <img src="<%= item.img %>" class="sanpham" alt="product image">
+
                                 </div>
                                 <% } %>
                         </div>
                         <% }); %>
                 </div>
             </div>
+            <a class="btn tn-medium btn-danger text-center mb-3" href="/">Mua Iphone Chính Hãng Tại Bảo Minh Store</a>
         </section>
 
     </div>
@@ -550,6 +574,18 @@
     <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/js/plugins.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
+</body>
+
+</html>
+</div>
+</div>
+</div>
+</div>
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/plugins.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
 </body>
 
 </html>
