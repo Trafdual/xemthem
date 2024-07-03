@@ -94,7 +94,7 @@ router.get('/main', checkAuth, async(req, res) => {
 router.get('/', async(req, res) => {
     try {
         const allsp = await LoaiSP.TenSP.find().populate('chitietsp');
-        const listBl = await myMDBlog.blogModel.find();
+        const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 });
         const danhgia = await DanhGia.danhgia.find()
 
         const tenspjson = await Promise.all(allsp.map(async(tensp) => {
@@ -789,7 +789,7 @@ router.get('/contentBlog/:tieude', async(req, res) => {
             return res.status(404).json({ message: 'Blog không tồn tại' });
         }
 
-        const listBl = await myMDBlog.blogModel.find();
+        const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 });
 
         const content = blog.noidung.map(noidung => {
             return {
@@ -831,7 +831,7 @@ router.get('/getaddblog', async(req, res) => {
 
 router.get('/getblog', async(req, res) => {
     try {
-        const listBl = await myMDBlog.blogModel.find();
+        const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 });
         res.render('home/blog.ejs', { listBl })
     } catch (error) {
         console.error(error);
