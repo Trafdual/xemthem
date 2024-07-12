@@ -5,9 +5,9 @@ var session = require('express-session');
 var settingsRouter = require('./routes/settings.route');
 var accountsRouter = require('./routes/accounts.route');
 var apiAccRouter = require('./routes/acc.api');
-var sitmaprouter=require('./routes/sitemap.xml');
+var sitmaprouter = require('./routes/sitemap.xml');
 var homeRouter = require('./routes/home.route');
-var apinewsanpham=require('./routes/apinewsanpham');
+var apinewsanpham = require('./routes/apinewsanpham');
 var methodOverride = require('method-override');
 var bodyParser = require("body-parser");
 const { log } = require('console');
@@ -17,19 +17,19 @@ var db = require('./models/db');
 const uri = "mongodb+srv://ducbinhnguyennd:ducbinhnguyennd@cluster0.geuahvt.mongodb.net/AntaoShop?retryWrites=true&w=majority";
 
 const mongoStoreOptions = {
-  mongooseConnection: db.mongoose.connection,
-  mongoUrl: uri ,
-  collection: 'sessions',
+    mongooseConnection: db.mongoose.connection,
+    mongoUrl: uri,
+    collection: 'sessions',
 };
 
 // app.set('view engine', 'ejs'); 
 // view engine setup
 app.use(session({
-  secret: 'adscascd8saa8sdv87ds78v6dsv87asvdasv8',
-  resave: false,
-  saveUninitialized: true,
-  store: MongoStore.create(mongoStoreOptions)
-  // ,cookie: { secure: true }
+    secret: 'adscascd8saa8sdv87ds78v6dsv87asvdasv8',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create(mongoStoreOptions)
+        // ,cookie: { secure: true }
 }))
 
 
@@ -46,16 +46,16 @@ app.use('/', settingsRouter);
 // app.use('/',sitmaprouter);
 
 // app.use('/test', testRouter);
-app.use('/',apinewsanpham)
+app.use('/', apinewsanpham)
 
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-app.use(function (req, res, next) {
-  next(createError(404));
+app.use(function(req, res, next) {
+    next(createError(404));
 });
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-  console.log(__dirname);
+app.listen(8080, () => {
+    console.log('Server is running on port 8080');
+    console.log(__dirname);
 });
-module.exports = app; 
+module.exports = app;

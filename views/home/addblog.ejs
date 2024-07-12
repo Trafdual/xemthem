@@ -1,7 +1,7 @@
 <%- include('../include/header.ejs') %>
     <div class="container">
         <h2>
-            <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Thêm sản phẩm</h2>
+            <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Thêm Blog</h2>
 
         <form action="/postblog" method="post">
             <form class="px-4 py-3">
@@ -23,6 +23,7 @@
                         </div>
                     </div>
                 </div>
+                <hr style="font-weight: bold;  border: 2px solid black;">
                 <input type="button" class="btn btn-danger" value="Thêm nội dung blog" onclick="themnoidung()">
                 <button class="btn btn-danger" type="submit">Lưu</button>
             </form>
@@ -43,6 +44,7 @@
             <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh">
         </div>
         <button style="margin-bottom:5px" type="button" class="btn btn-danger" onclick="xoanoidung(this)">Xóa Thẻ</button>
+        <hr style="font-weight: bold;  border: 2px solid black;">
     `;
 
                 // Thêm thẻ div mới vào trong container

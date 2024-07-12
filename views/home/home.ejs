@@ -134,14 +134,14 @@
                             <img src="<%= row.img_blog %>" alt="" style="width: 80px; height: 80px;">
                         </td>
                         <td>
-                            <a href="/home/editBlog/<%= row._id %>">
+                            <a href="/editblog/<%= row._id %>">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
                             <a href="/home/contentBlog/<%= row._id %>">
                                 <button type="button" class="btn btn-light">Nội dung</button>
                             </a>
 
-                            <form action="/home/deleteBlog/<%= row._id %>" method="post" id="deleteForm">
+                            <form action="/deleteblog/<%= row._id %>" method="post" id="deleteForm">
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteModal<%= row._id %>">
                                     Xóa
                                 </button>

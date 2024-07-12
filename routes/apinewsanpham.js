@@ -838,4 +838,65 @@ router.get('/getblog', async(req, res) => {
         res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
     }
 })
+router.get('/editblog/:idblog', async(req, res) => {
+    try {
+        const idblog = req.params.idblog;
+        const blog = await myMDBlog.blogModel.findById(idblog);
+        res.render('home/editBlog.ejs', {
+            blog
+        })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/editblog/:idblog', async(req, res) => {
+    try {
+        const { tieude_blog, img_blog, tieude, content, img } = req.body
+        const idblog = req.params.idblog;
+        const blog = await myMDBlog.blogModel.findById(idblog);
+        blog.tieude_blog = tieude_blog;
+        blog.img_blog = img_blog;
+
+        if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
+            blog.noidung.forEach((nd, index) => {
+                if (content[index]) {
+                    nd.content = content[index];
+                }
+                if (img[index]) {
+                    nd.img = img[index];
+                }
+                if (tieude[index]) {
+                    nd.tieude = tieude[index];
+                }
+            });
+
+            for (let i = blog.noidung.length; i < content.length; i++) {
+                blog.noidung.push({ content: content[i], img: img[i], tieude: tieude[i] });
+            }
+        } else {
+            blog.noidung.push({ content, img, tieude });
+        }
+
+        await blog.save();
+        res.redirect('/main');
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
+
+router.post('/deleteblog/:idblog', async(req, res) => {
+    try {
+
+        const idblog = req.params.idblog;
+        const blog = await myMDBlog.blogModel.findByIdAndDelete(idblog);
+        res.redirect('/main');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+    }
+})
 module.exports = router;

@@ -1,24 +1,63 @@
 <%- include('../include/header.ejs') %>
 
     <div class="container">
-        <h3><a href="/main"><img style="width: 30px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a>Sửa
-            Blog</h3>
+        <h2>
+            <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png">Sửa blog</a>
+        </h2>
 
-        <form action="/home/editBlog/<%= objSP._id %>" method="post" enctype="multipart/form-data">
-            <div class="px-4 py-3">
-                <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Ảnh blog</label>
-                    <input class="form-control" type="file" name="img_blog" id="formFileMultiple" multiple>
-                </div>
-
-                <label class="form-label">Tiêu đề</label>
-                <input type="text" name="tieude_blog" class="form-control" value="<%=objSP.tieude_blog %>"><br>
-
-                <label class="form-label">Nội dung</label>
-                <textarea name="noidung_blog" class="form-control" rows="10"><%=objSP.noidung_blog %></textarea><br>
-
-                <button type="submit" class="btn btn-danger">Cập nhật</button>
-                <%= msg %>
-            </div>
+        <form action="/editblog/<%= blog._id %>" method="post">
+            <form class="px-4 py-3">
+                <br>
+                <label class="form-label">Tiêu đề Blog</label>
+                <input type="text" name="tieude_blog" class="form-control" placeholder="Nhập tiêu đề blog" value="<%= blog.tieude_blog %>"><br>
+                <label class="form-label">Ảnh Blog</label>
+                <input type="text" name="img_blog" class="form-control" placeholder="Nhập link ảnh blog" value="<%= blog.img_blog %>"><br>
+                <h5>Nội Dung</h5>
+                <% blog.noidung.forEach((row)=> { %>
+                    <div id="blogContainer">
+                        <div class="noidung">
+                            <label class="form-label"> Tiêu đề nội dung</label>
+                            <input type="text" name="tieude" class="form-control" placeholder="Nhập tiêu đề nội dung Blog" value="<%= row.tieude %>"><br>
+                            <label class="form-label">Nội dung</label>
+                            <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog" value="<%= row.content %>"><br>
+                            <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
+                                <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh" value="<%= row.img %>">
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="font-weight: bold;  border: 2px solid black;">
+                    <% }); %>
+                        <input type="button" class="btn btn-danger" value="Thêm nội dung blog" onclick="themnoidung()">
+                        <button class="btn btn-danger" type="submit">Lưu</button>
+            </form>
         </form>
+        <script>
+            function themnoidung() {
+                var newDiv = document.createElement("div");
+                newDiv.className = "noidung";
+
+                // Thêm nội dung vào thẻ div mới
+                newDiv.innerHTML = `
+              <label class="form-label"> Tiêu đề nội dung</label>
+                    <input type="text" name="tieude" class="form-control" placeholder="Nhập nội dung Blog"><br>
+    <label class="form-label">Nội dung</label>
+    <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog"><br>
+    <div class="mb-3">
+        <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
+        <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh">
+    </div>
+    <button style="margin-bottom:5px" type="button" class="btn btn-danger" onclick="xoanoidung(this)">Xóa Thẻ</button>
+    <hr style="font-weight: bold;  border: 2px solid black;">
+`;
+
+                // Thêm thẻ div mới vào trong container
+                document.getElementById("blogContainer").appendChild(newDiv);
+            }
+
+            function xoanoidung(button) {
+                // Xóa thẻ div chứa nút bấm
+                button.parentElement.remove();
+            }
+        </script>
     </div>
