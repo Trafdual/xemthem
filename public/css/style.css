@@ -44,6 +44,8 @@ CSS STRUCTURE:
     --navbar-color-color: #131814;
     --swiper-theme-color: #4A4A4A;
     --swiper-pagination-color: #4A4A4A;
+    --font-family-sans-serif: "Roboto", sans-serif;
+    --font-family-monospace: "Roboto", monospace;
 }
 
 
@@ -101,6 +103,7 @@ body {
 p {
     font-size: 1.2em;
     color: var(--gray-color-500);
+    line-height: 30px;
 }
 
 ul.inner-list li {
