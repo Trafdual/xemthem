@@ -13,6 +13,7 @@ const DanhGia = require('../models/DanhGiaModel');
 const { linkSync } = require('fs');
 const moment = require('moment');
 const momenttimezone = require('moment-timezone');
+const unicode = require('unidecode')
 
 
 const storage = multer.memoryStorage();
@@ -782,8 +783,8 @@ router.post('/duyetdanhgia/:iddanhgia', async(req, res) => {
 
 router.get('/contentBlog/:tieude', async(req, res) => {
     try {
-        const tieude_blog = decodeURIComponent(req.params.tieude).replace(/-/g, ' ');
-        const blog = await myMDBlog.blogModel.findOne({ tieude_blog });
+        const tieude_khongdau = decodeURIComponent(req.params.tieude).replace(/-/g, ' ');
+        const blog = await myMDBlog.blogModel.findOne({ tieude_khongdau });
 
         if (!blog) {
             return res.status(404).json({ message: 'Blog không tồn tại' });
@@ -809,7 +810,10 @@ router.get('/contentBlog/:tieude', async(req, res) => {
 router.post('/postblog', async(req, res) => {
     try {
         const { tieude_blog, img, content, tieude, img_blog } = req.body;
-        const blog = new myMDBlog.blogModel({ tieude_blog, img_blog });
+        const tieude_khongdau = unicode(tieude_blog)
+
+        const blog = new myMDBlog.blogModel({ tieude_blog, img_blog,tieude_khongdau });
+        
         if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
             for (let i = 0; i < content.length; i++) {
                 blog.noidung.push({ content: content[i], img: img[i], tieude: tieude[i] });
@@ -858,6 +862,7 @@ router.post('/editblog/:idblog', async(req, res) => {
         const blog = await myMDBlog.blogModel.findById(idblog);
         blog.tieude_blog = tieude_blog;
         blog.img_blog = img_blog;
+        blog.tieude_khongdau=unicode(tieude_blog)
 
         if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
             blog.noidung.forEach((nd, index) => {

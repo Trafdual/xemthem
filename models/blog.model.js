@@ -1,6 +1,7 @@
 var db = require('./db');
 const blogChema = new db.mongoose.Schema({
     tieude_blog: { type: String, require: true },
+    tieude_khongdau:{ type: String, require: true },
     img_blog: { type: String },
     noidung: [{
         tieude: { type: String },
