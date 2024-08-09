@@ -34,7 +34,9 @@ router.post('/postloaisp', async(req, res) => {
     }
 
 });
-
+router.get('/gift', async(req, res) => {
+    res.render('home/gift.ejs')
+})
 router.post('/putloaisp/:id', async(req, res) => {
     try {
         const id = req.params.id;
