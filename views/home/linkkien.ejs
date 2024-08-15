@@ -4,7 +4,7 @@
 <head>
     <title>Bảo Minh Store</title>
     <meta charset="utf-8">
-    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
+    <meta name="google-site-verification" content="nXHafPjzQbcCTlbBFFc2qAA5CB95CzOEyv7uDEGgbpk" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -18,13 +18,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- script
     ================================================== -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4P4TDHPNZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-W4P4TDHPNZ');
+    </script>
     <script src="js/modernizr.js"></script>
     <style>
         @media only screen and (max-width: 700px) {
@@ -44,12 +54,10 @@
                 bottom: 70px;
                 right: 70px;
             }
-
             /* Thiết lập hiệu ứng lắc lắc rung rung */
             .message-button:hover {
                 animation: shake 0.5s;
             }
-
             .facezalo {
                 position: fixed;
                 right: 5%;
@@ -58,10 +66,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 z-index: 3;
-
             }
-
-
             .anhfacezalo {
                 width: 50%;
                 height: 50%;
@@ -71,24 +76,20 @@
                 transform-origin: center;
                 /* Đặt điểm xoay tại trung tâm của ảnh */
             }
-
             @keyframes shake {
                 0% {
                     transform: rotate(-10deg);
                     /* Góc xoay ban đầu */
                 }
-
                 50% {
                     transform: rotate(10deg);
                     /* Góc xoay giữa chừng */
                 }
-
                 100% {
                     transform: rotate(-10deg);
                     /* Góc xoay kết thúc */
                 }
             }
-
             @keyframes expand {
                 0% {
                     transform: scale(1);
@@ -96,14 +97,12 @@
                     opacity: 1;
                     /* Độ mờ ban đầu */
                 }
-
                 50% {
                     transform: scale(1.1);
                     /* Kích thước tăng lên */
                     opacity: 0.75;
                     /* Giảm độ mờ */
                 }
-
                 100% {
                     transform: scale(1);
                     /* Kích thước tăng lên */
@@ -111,7 +110,6 @@
                     /* Ẩn đi */
                 }
             }
-
             .anhfz {
                 position: relative;
                 text-align: center;
@@ -125,7 +123,6 @@
                 animation: expand 2s infinite;
                 display: inline-block;
             }
-
             .anhdt {
                 position: relative;
                 text-align: center;
@@ -139,67 +136,52 @@
                 animation: expand 2s infinite;
                 display: inline-block;
             }
-
             body {
-
                 background-color: aliceblue;
                 background-image: none;
-
             }
-
             .sanpham {
                 width: 90%;
                 height: 100%;
-
             }
-
             .anh {
                 width: 290px;
                 height: auto;
             }
-
             .nameh3 {
                 margin-left: 5%;
             }
-
             .ptragop {
                 color: aliceblue;
                 margin-top: 10%;
             }
-
             .tragop {
                 padding-left: 3%;
                 padding-right: 3%;
                 background-color: #fcc603;
                 border-radius: 10px;
             }
-
             .hrname {
                 margin-left: 5%;
                 margin-right: 5%;
             }
-
             .pricestrong {
                 color: #f70e0e;
             }
-
             .product-preview {
                 width: 100%;
             }
-
             .khuyenmai {
                 border-radius: 10px;
                 width: auto;
                 height: auto;
                 border: 1px solid #ffb6b6;
             }
-
             .loai {
                 max-width: 100%;
                 margin-bottom: 3%;
                 flex-wrap: wrap;
             }
-
             .divloai {
                 border: 1px solid #f86e6e;
                 border-radius: 10px;
@@ -209,29 +191,23 @@
                 flex-wrap: wrap;
                 margin-top: 2%;
             }
-
             .divconloai {
                 margin-left: 5%;
                 flex: 1;
             }
-
             .strongloai {
                 font-size: 100%;
             }
-
             .strongloai2 {
                 font-size: 100%;
                 color: #f70e0e;
             }
-
             .topkhuyenmai {
                 padding: 2%;
                 background-color: #ffb6b6;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
-
             }
-
             .dbodykhuyenmai {
                 width: 30px;
                 height: 25px;
@@ -240,13 +216,11 @@
                 padding-bottom: 1%;
                 margin-top: 0.01%;
             }
-
             .pbodykhuyenmai {
                 margin-left: 2%;
                 color: black;
                 flex: 1;
             }
-
             .baohanh {
                 padding: 2%;
                 margin-top: 2%;
@@ -255,24 +229,19 @@
                 height: auto;
                 border: 1px solid #9a9a9a;
             }
-
             .ibaohanh {
                 color: #f70e0e;
                 margin-top: 1%;
             }
-
             .pbaohanh {
                 margin-left: 2%;
                 flex: 1;
                 color: black;
             }
-
             .btnmua {
                 font-size: 15px;
                 margin-bottom: 3%;
             }
-
-
             .muangay {
                 border-radius: 5px;
                 width: 50%;
@@ -281,7 +250,6 @@
                 background-color: #f70e0e;
                 text-align: center;
             }
-
             .muatragop {
                 border-radius: 5px;
                 width: 50%;
@@ -290,7 +258,6 @@
                 background-color: #f48907;
                 text-align: center;
             }
-
             .section {
                 padding: 2%;
                 width: 100%;
@@ -298,7 +265,6 @@
                 margin-top: 1%;
                 background-color: #fffcfc;
             }
-
             .linhkien-container {
                 display: flex;
                 flex-wrap: wrap;
@@ -306,7 +272,6 @@
                 margin-bottom: -1%;
                 /* Đảm bảo không có khoảng cách giữa các hàng */
             }
-
             .linhkien {
                 width: calc(50% - 1%);
                 /* 50% chiều rộng của container */
@@ -321,23 +286,18 @@
                 box-shadow: 0 4px 8px rgba(116, 116, 116, 0.1);
                 /* Thêm hiệu ứng đổ bóng */
             }
-
             .product-swiper {
                 height: auto;
                 background-color: #ffffff;
             }
-
             .sp {
                 margin-top: 10%;
             }
-
             .nameh5 {
                 width: 100%;
                 background-color: #fffdfd;
                 margin-top: 2%;
             }
-
-
             #selling-product {
                 padding-left: 5%;
                 padding-right: 5%;
@@ -347,11 +307,9 @@
                 width: 100%;
                 margin: 0 auto;
             }
-
             .bodykhuyenmai {
                 padding: 2%;
             }
-
             .thongso {
                 padding: 2%;
                 background-color: rgb(251, 254, 255);
@@ -359,37 +317,30 @@
                 margin: 0 auto;
                 margin-top: 2%;
             }
-
             .pthongso {
                 background-color: #e3e3e3;
                 color: black;
                 padding: 1%;
             }
-
             .pthongso2 {
                 color: black;
                 padding: 1%;
             }
-
             .pthongso3 {
                 background-color: #e3e3e3;
                 color: black;
                 padding: 1%;
                 max-height: 100px;
                 overflow: hidden;
-
             }
-
             .divimgsale {
                 margin-top: 15%;
                 margin-bottom: 2%;
             }
-
             .imgsale {
                 width: 100%;
                 height: 100px;
             }
-
             #toggle-button {
                 width: 100%;
                 font-size: 20px;
@@ -397,7 +348,6 @@
                 color: #3498db;
                 background-color: #fff9f9;
             }
-
             .modal {
                 display: none;
                 /* Ẩn modal mặc định */
@@ -411,11 +361,9 @@
                 margin: 0 auto;
                 padding: 10%;
             }
-
             #modalContent {
                 color: black;
             }
-
             .close {
                 color: #aaa;
                 float: right;
@@ -423,66 +371,50 @@
                 font-weight: bold;
                 margin-left: 10px;
             }
-
             .close:hover,
             .close:focus {
                 color: black;
                 text-decoration: none;
                 cursor: pointer;
             }
-
-
             @keyframes shake {
                 0% {
                     transform: translate(0, 0);
                 }
-
                 10% {
                     transform: translate(-5px, 0);
                 }
-
                 20% {
                     transform: translate(5px, 0);
                 }
-
                 30% {
                     transform: translate(-5px, 0);
                 }
-
                 40% {
                     transform: translate(5px, 0);
                 }
-
                 50% {
                     transform: translate(-5px, 0);
                 }
-
                 60% {
                     transform: translate(5px, 0);
                 }
-
                 70% {
                     transform: translate(-5px, 0);
                 }
-
                 80% {
                     transform: translate(5px, 0);
                 }
-
                 90% {
                     transform: translate(-5px, 0);
                 }
-
                 100% {
                     transform: translate(0, 0);
                 }
-
             }
-
             #header {
                 height: 9%;
             }
-
             .aname {
                 border-radius: 30px;
                 border: 1px solid #7b7b7b;
@@ -492,9 +424,8 @@
                 margin-bottom: 2%;
                 font-weight: bold;
             }
-
         }
-
+        
         @media only screen and (min-width: 701px) {
             .message-button {
                 background-color: #3498db;
@@ -512,12 +443,10 @@
                 bottom: 70px;
                 right: 70px;
             }
-
             /* Thiết lập hiệu ứng lắc lắc rung rung */
             .message-button:hover {
                 animation: shake 0.5s;
             }
-
             .facezalo {
                 position: fixed;
                 bottom: 10%;
@@ -526,9 +455,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 z-index: 3;
-
             }
-
             .anhfacezalo {
                 width: 56%;
                 height: 56%;
@@ -538,34 +465,28 @@
                 transform-origin: center;
                 /* Đặt điểm xoay tại trung tâm của ảnh */
             }
-
             .cart-button {
                 padding-left: 5%;
                 padding-right: 20%;
             }
-
             .product-swiper {
                 height: 450px;
                 background-color: #edecec;
             }
-
             @keyframes shake {
                 0% {
                     transform: rotate(-10deg);
                     /* Góc xoay ban đầu */
                 }
-
                 50% {
                     transform: rotate(10deg);
                     /* Góc xoay giữa chừng */
                 }
-
                 100% {
                     transform: rotate(-10deg);
                     /* Góc xoay kết thúc */
                 }
             }
-
             @keyframes expand {
                 0% {
                     transform: scale(1);
@@ -573,14 +494,12 @@
                     opacity: 1;
                     /* Độ mờ ban đầu */
                 }
-
                 50% {
                     transform: scale(1.1);
                     /* Kích thước tăng lên */
                     opacity: 0.75;
                     /* Giảm độ mờ */
                 }
-
                 100% {
                     transform: scale(1);
                     /* Kích thước tăng lên */
@@ -588,8 +507,6 @@
                     /* Ẩn đi */
                 }
             }
-
-
             .anhfz {
                 position: relative;
                 text-align: center;
@@ -603,7 +520,6 @@
                 animation: expand 2s infinite;
                 display: inline-block;
             }
-
             .anhdt {
                 position: relative;
                 text-align: center;
@@ -617,66 +533,51 @@
                 animation: expand 2s infinite;
                 display: inline-block;
             }
-
             body {
-
                 background-color: #edecec;
-
             }
-
             .sanpham {
                 width: 400px;
                 height: 470px;
-
             }
-
             .anh {
                 width: 270px;
                 height: 310px;
             }
-
             .nameh3 {
                 margin-left: 5%;
             }
-
             .ptragop {
                 color: aliceblue;
                 margin-top: 10%;
             }
-
             .tragop {
                 padding-left: 3%;
                 padding-right: 3%;
                 background-color: #fcc603;
                 border-radius: 10px;
             }
-
             .hrname {
                 margin-left: 5%;
                 margin-right: 5%;
             }
-
             .pricestrong {
                 color: #f70e0e;
             }
-
             .product-preview {
                 width: 500px;
             }
-
             .khuyenmai {
                 border-radius: 10px;
                 width: auto;
                 height: auto;
                 border: 1px solid #ffb6b6;
             }
-
             .loai {
                 max-width: 100%;
                 margin-bottom: 3%;
                 flex-wrap: wrap;
             }
-
             .divloai {
                 border: 1px solid #f86e6e;
                 border-radius: 10px;
@@ -686,29 +587,23 @@
                 flex-wrap: wrap;
                 margin-top: 2%;
             }
-
             .divconloai {
                 margin-left: 5%;
                 flex: 1;
             }
-
             .strongloai {
                 font-size: 140%;
             }
-
             .strongloai2 {
                 font-size: 140%;
                 color: #f70e0e;
             }
-
             .topkhuyenmai {
                 padding: 2%;
                 background-color: #ffb6b6;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
-
             }
-
             .dbodykhuyenmai {
                 width: 30px;
                 height: 25px;
@@ -717,13 +612,11 @@
                 padding-bottom: 1%;
                 margin-top: 0.01%;
             }
-
             .pbodykhuyenmai {
                 margin-left: 2%;
                 color: black;
                 flex: 1;
             }
-
             .baohanh {
                 padding: 2%;
                 margin-top: 2%;
@@ -732,23 +625,19 @@
                 height: auto;
                 border: 1px solid #9a9a9a;
             }
-
             .ibaohanh {
                 color: #f70e0e;
                 margin-top: 1%;
             }
-
             .pbaohanh {
                 margin-left: 2%;
                 flex: 1;
                 color: black;
             }
-
             .btnmua {
                 margin-left: 13%;
                 width: 100%;
             }
-
             .muangay {
                 border-radius: 5px;
                 width: 50%;
@@ -757,7 +646,6 @@
                 background-color: #3498db;
                 text-align: center;
             }
-
             .muatragop {
                 border-radius: 5px;
                 width: 50%;
@@ -766,7 +654,6 @@
                 background-color: #00cf0a;
                 text-align: center;
             }
-
             .section {
                 padding: 2%;
                 width: 100%;
@@ -774,7 +661,6 @@
                 margin-top: 1%;
                 background-color: #edecec;
             }
-
             .linhkien {
                 padding: 0.5%;
                 background-color: #ffffff;
@@ -784,17 +670,14 @@
                 /* Thêm hiệu ứng đổ bóng */
                 flex-wrap: wrap;
             }
-
             .sp {
                 margin-top: 5%;
             }
-
             .divimgsale {
                 margin-top: 5%;
                 margin-bottom: 2%;
                 margin-left: 10%;
             }
-
             #selling-product {
                 padding-left: 5%;
                 padding-right: 5%;
@@ -802,11 +685,9 @@
                 width: 90%;
                 margin: 0 auto;
             }
-
             .bodykhuyenmai {
                 padding: 2%;
             }
-
             .thongso {
                 padding: 2%;
                 background-color: rgb(251, 254, 255);
@@ -814,32 +695,26 @@
                 margin: 0 auto;
                 margin-top: 2%;
             }
-
             .pthongso {
                 background-color: #e3e3e3;
                 color: black;
                 padding: 1%;
             }
-
             .pthongso2 {
                 color: black;
                 padding: 1%;
             }
-
             .pthongso3 {
                 background-color: #e3e3e3;
                 color: black;
                 padding: 1%;
                 max-height: 100px;
                 overflow: hidden;
-
             }
-
             .pthongso3.show-more {
                 max-height: none;
                 /* Hiển thị toàn bộ nội dung */
             }
-
             #toggle-button {
                 width: 100%;
                 font-size: 20px;
@@ -847,7 +722,6 @@
                 color: #3498db;
                 background-color: #fff9f9;
             }
-
             .modal {
                 display: none;
                 /* Ẩn modal mặc định */
@@ -862,101 +736,78 @@
                 margin: 0 auto;
                 padding: 2%;
             }
-
             #modalContent {
                 color: black;
             }
-
             .close {
                 color: #aaa;
                 float: right;
                 font-size: 28px;
                 font-weight: bold;
             }
-
             .close:hover,
             .close:focus {
                 color: black;
                 text-decoration: none;
                 cursor: pointer;
             }
-
             .thanhphan {
                 max-width: 90%;
             }
-
             @keyframes shake {
                 0% {
                     transform: translate(0, 0);
                 }
-
                 10% {
                     transform: translate(-5px, 0);
                 }
-
                 20% {
                     transform: translate(5px, 0);
                 }
-
                 30% {
                     transform: translate(-5px, 0);
                 }
-
                 40% {
                     transform: translate(5px, 0);
                 }
-
                 50% {
                     transform: translate(-5px, 0);
                 }
-
                 60% {
                     transform: translate(5px, 0);
                 }
-
                 70% {
                     transform: translate(-5px, 0);
                 }
-
                 80% {
                     transform: translate(5px, 0);
                 }
-
                 90% {
                     transform: translate(-5px, 0);
                 }
-
                 100% {
                     transform: translate(0, 0);
                 }
-
             }
-
             .list {
                 width: 100%;
                 background-color: #edecec;
-
             }
-
             .sp {
                 margin-top: 1%;
                 margin-left: 2%;
                 margin-right: 2%;
                 margin-bottom: 2%;
             }
-
             #header {
                 width: 100%;
-
             }
-
             .nameh5 {
                 font-weight: bold;
                 margin-top: 0.5%;
                 margin-bottom: 1%;
                 padding-left: 2%;
             }
-
             .aname {
                 border-radius: 30px;
                 border: 1px solid #7b7b7b;
@@ -965,11 +816,9 @@
                 margin-left: 2%;
                 font-weight: bold;
             }
-
             .aname:hover {
                 text-decoration: underline;
             }
-
         }
     </style>
 
@@ -978,7 +827,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-6T0NMTNKGR');
@@ -988,13 +840,11 @@
 <body>
     <div class="facezalo">
         <div class="anhfz">
-            <img class="anhfacezalo" id="fanpageButton" src="https://cdn-icons-png.flaticon.com/512/1617/1617222.png"
-                alt="">
+            <img class="anhfacezalo" id="fanpageButton" src="https://cdn-icons-png.flaticon.com/512/1617/1617222.png" alt="">
         </div>
 
         <div class="anhdt">
-            <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt=""
-                onclick="makeCall()">
+            <img class="anhfacezalo" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png" alt="" onclick="makeCall()">
         </div>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -1014,85 +864,76 @@
             <path fill-rule="evenodd"
                 d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
         </svg>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="cart-outline" viewBox="0 0 16 16">
-            <path
-                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="quality" viewBox="0 0 16 16">
-            <path
-                d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
-            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="price-tag" viewBox="0 0 16 16">
-            <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
-            <path
-                d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="shield-plus" viewBox="0 0 16 16">
-            <path
-                d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-            <path
-                d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
-            <path
-                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="star-empty" viewBox="0 0 16 16">
-            <path
-                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="star-half" viewBox="0 0 16 16">
-            <path
-                d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="quote" viewBox="0 0 24 24">
-            <path fill="currentColor" d="m15 17l2-4h-4V6h7v7l-2 4h-3Zm-9 0l2-4H4V6h7v7l-2 4H6Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
-            <path fill="currentColor"
-                d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 32 32">
-            <path fill="currentColor"
-                d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 256 256">
-            <path fill="currentColor"
-                d="m245.66 77.66l-29.9 29.9C209.72 177.58 150.67 232 80 232c-14.52 0-26.49-2.3-35.58-6.84c-7.33-3.67-10.33-7.6-11.08-8.72a8 8 0 0 1 3.85-11.93c.26-.1 24.24-9.31 39.47-26.84a110.93 110.93 0 0 1-21.88-24.2c-12.4-18.41-26.28-50.39-22-98.18a8 8 0 0 1 13.65-4.92c.35.35 33.28 33.1 73.54 43.72V88a47.87 47.87 0 0 1 14.36-34.3A46.87 46.87 0 0 1 168.1 40a48.66 48.66 0 0 1 41.47 24H240a8 8 0 0 1 5.66 13.66Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
-            <path fill="currentColor"
-                d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="linkedin" viewBox="0 0 24 24">
-            <path fill="currentColor"
-                d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="nav-icon" viewBox="0 0 16 16">
-            <path
-                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 16 16">
-            <path
-                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
-            <path
-                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
-        </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="cart-outline" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="quality" viewBox="0 0 16 16">
+        <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z"
+        />
+        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="price-tag" viewBox="0 0 16 16">
+        <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
+        <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="shield-plus" viewBox="0 0 16 16">
+        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+        />
+        <path d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="star-empty" viewBox="0 0 16 16">
+        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="star-half" viewBox="0 0 16 16">
+        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="quote" viewBox="0 0 24 24">
+        <path fill="currentColor" d="m15 17l2-4h-4V6h7v7l-2 4h-3Zm-9 0l2-4H4V6h7v7l-2 4H6Z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 32 32">
+        <path fill="currentColor" d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 256 256">
+        <path fill="currentColor" d="m245.66 77.66l-29.9 29.9C209.72 177.58 150.67 232 80 232c-14.52 0-26.49-2.3-35.58-6.84c-7.33-3.67-10.33-7.6-11.08-8.72a8 8 0 0 1 3.85-11.93c.26-.1 24.24-9.31 39.47-26.84a110.93 110.93 0 0 1-21.88-24.2c-12.4-18.41-26.28-50.39-22-98.18a8 8 0 0 1 13.65-4.92c.35.35 33.28 33.1 73.54 43.72V88a47.87 47.87 0 0 1 14.36-34.3A46.87 46.87 0 0 1 168.1 40a48.66 48.66 0 0 1 41.47 24H240a8 8 0 0 1 5.66 13.66Z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
+        <path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"
+        />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="linkedin" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="nav-icon" viewBox="0 0 16 16">
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+    </symbol>
     </svg>
 
     <div class="search-popup">
         <div class="search-popup-container">
 
             <form role="search" method="get" class="search-form" action="">
-                <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value=""
-                    name="s" />
+                <input type="search" id="search-form" class="search-field" placeholder="Nhập từ khóa tìm kiếm" value="" name="s" />
                 <button type="submit" class="search-submit"><svg class="search">
                         <use xlink:href="#search"></use>
                     </svg></button>
@@ -1119,32 +960,26 @@
         </div>
     </div>
 
-    <header id="header"
-        class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden top-0 ">
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden top-0 ">
         <nav id="header-nav" class="navbar navbar-expand-lg px-2">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="/images/main-logo.png" class="logo">
                 </a>
-                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <svg class="navbar-icon">
                         <use xlink:href="#navbar-icon"></use>
                     </svg>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
-                    aria-labelledby="bdNavbarOffcanvasLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
                     <div class="offcanvas-header px-4 pb-0">
                         <a class="navbar-brand" href="/">
                             <img src="/images/main-logo.png" class="logo">
                         </a>
-                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
-                            aria-label="Close" data-bs-target="#bdNavbar"></button>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul id="navbar"
-                            class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
                             <li class="nav-item">
                                 <a class="nav-link me-4 active" href="/">Trang Chủ</a>
                             </li>
@@ -1206,8 +1041,7 @@
 
     <section id="mobile-products" class="product-store position-relative no-padding-top" style=" margin: 0 auto;">
         <div class="container sp">
-            <h4 style="font-weight: bold; color: #f70e0e; border-left: 5px solid red; padding-left: 1%;"
-                class="text-uppercase">Sửa chữa Iphone</h4>
+            <h4 style="font-weight: bold; color: #f70e0e; border-left: 5px solid red; padding-left: 1%;" class="text-uppercase">Sửa chữa Iphone</h4>
             <div class="row">
                 <div class="display-header d-flex flex-wrap">
                     <% loailinhkienjson.forEach((row, index)=> { %>
@@ -1221,8 +1055,7 @@
     </section>
 
     <% loailinhkienjson.forEach((row, index)=> { %>
-        <section id="mobile-products"
-            class="product-store position-relative section no-padding-bottom no-padding-top overflow-hidden">
+        <section id="mobile-products" class="product-store position-relative section no-padding-bottom no-padding-top overflow-hidden">
             <h5 class="nameh5 text-uppercase">
                 <%= row.name %>
             </h5>
@@ -1235,18 +1068,14 @@
                                     <div class="linhkien">
                                         <div class="product-card position-relative">
                                             <div class="image-holder">
-                                                <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item"
-                                                    class="img-fluid anh">
+                                                <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item" class="img-fluid anh">
                                             </div>
                                             <div class="divbtn cart-concern position-absolute">
                                                 <div class="cart-button d-flex btnmua">
-                                                    <p onclick="mess()"
-                                                        style="font-size: 12px; height: 75%; width: 100%;"
-                                                        class="btn btn-medium btn-danger ">Liên hệ</p>
+                                                    <p onclick="mess()" style="font-size: 12px; height: 75%; width: 100%;" class="btn btn-medium btn-danger ">Liên hệ</p>
                                                 </div>
                                             </div>
-                                            <div
-                                                class="card-detail justify-content-between align-items-baseline text-center pt-3 thanhphan">
+                                            <div class="card-detail justify-content-between align-items-baseline text-center pt-3 thanhphan">
                                                 <h5 style="font-weight: bold;">
                                                     <a href="" class="name">
                                                         <%= item.name %>
@@ -1271,24 +1100,20 @@
             <section id="subscribe" class="container-grid position-relative overflow-hidden pt-4 pb-4">
                 <div class="container">
                     <div class="row">
-                        <div
-                            class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+                        <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
                             <div class="col-md-6 col-sm-12">
                                 <div class="display-header pe-3">
                                     <h2 class="display-7 text-uppercase text-light">Đăng ký cho chúng tôi ngay</h2>
                                     <p>
-                                        Nhận tin tức mới nhất, cập nhật và giao dịch được gửi trực tiếp đến hộp thư đến
-                                        của bạn.
+                                        Nhận tin tức mới nhất, cập nhật và giao dịch được gửi trực tiếp đến hộp thư đến của bạn.
                                     </p>
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-12">
                                 <form class="subscription-form validate">
                                     <div class="input-group flex-wrap">
-                                        <input class="form-control btn-rounded-none" type="email" name="EMAIL"
-                                            placeholder="Địa chỉ email của bạn ở đây" required="">
-                                        <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none"
-                                            type="submit" name="subscribe">Đăng ký</button>
+                                        <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Địa chỉ email của bạn ở đây" required="">
+                                        <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Đăng ký</button>
                                     </div>
                                 </form>
                             </div>
@@ -1365,13 +1190,8 @@
                                 <div class="col-lg-3 col-sm-6 pb-3">
                                     <div class="footer-menu">
                                         <img src="/images/main-logo.png" class="logo">
-                                        <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn
-                                            cầm nó
-                                            vào tay. Hãy đến
-                                            cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám
-                                            phá thế
-                                            giới công nghệ mới
-                                            mẻ!</p>
+                                        <p> Chúng tôi tin rằng bạn sẽ yêu thích điện thoại này ngay từ lần đầu tiên bạn cầm nó vào tay. Hãy đến cửa hàng của chúng tôi để trải nghiệm sản phẩm này và cùng chúng tôi khám phá thế giới công nghệ mới mẻ!
+                                        </p>
                                         <div class="social-links">
                                             <ul class="d-flex list-unstyled">
                                                 <li>
@@ -1457,8 +1277,7 @@
                                 <div class="col-lg-3 col-sm-6 pb-3">
                                     <div class="footer-menu contact-item">
                                         <h5 class="widget-title text-uppercase pb-2">Contact Us</h5>
-                                        <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a
-                                                href="mailto:">baominhstore354@gmail.com</a>
+                                        <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không?<a href="mailto:">baominhstore354@gmail.com</a>
                                         </p>
                                         <p>Nếu bạn cần hỗ trợ? Hãy gọi cho chúng tôi. <a href="">+0816 354 354</a>
                                         </p>
@@ -1494,7 +1313,8 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="copyright">
-                                <p>© Copyright 2023 Bảo Minh Store.<a href="https://templatesjungle.com/"></a>
+                                <p>© Copyright 2023 Bảo Minh Store.
+                                    <a href="https://templatesjungle.com/"></a>
                                 </p>
                             </div>
                         </div>
@@ -1549,18 +1369,18 @@
                 var modalContent = document.getElementById("modalContent");
 
                 // Bấm vào nút "Xem thêm"
-                readMoreBtn.onclick = function () {
+                readMoreBtn.onclick = function() {
                     modal.style.display = "block"; // Hiển thị modal
                     modalContent.innerHTML = document.getElementById("product-info").textContent; // Gán nội dung của thẻ p vào modal
                 }
 
                 // Bấm vào nút đóng modal
-                span.onclick = function () {
+                span.onclick = function() {
                     modal.style.display = "none"; // Ẩn modal
                 }
 
                 // Bấm ra ngoài modal để đóng nó
-                window.onclick = function (event) {
+                window.onclick = function(event) {
                     if (event.target == modal) {
                         modal.style.display = "none"; // Ẩn modal
                     }
@@ -1568,7 +1388,7 @@
                 const pricestrongInitialValue = document.querySelector('.pricestrong').textContent.trim();
 
                 document.querySelectorAll('.inputloai').forEach(item => {
-                    item.addEventListener('click', function () {
+                    item.addEventListener('click', function() {
                         // Loại bỏ chọn các checkbox khác
                         document.querySelectorAll('.inputloai').forEach(otherCheckbox => {
                             if (otherCheckbox !== this) {
