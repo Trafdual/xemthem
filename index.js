@@ -5,7 +5,6 @@ var session = require('express-session');
 var settingsRouter = require('./routes/settings.route');
 var accountsRouter = require('./routes/accounts.route');
 var apiAccRouter = require('./routes/acc.api');
-var sitmaprouter = require('./routes/sitemap.xml');
 var homeRouter = require('./routes/home.route');
 var apinewsanpham = require('./routes/apinewsanpham');
 var methodOverride = require('method-override');
@@ -15,6 +14,7 @@ const app = express();
 const MongoStore = require('connect-mongo');
 var db = require('./models/db');
 const uri = "mongodb+srv://ducbinhnguyennd:ducbinhnguyennd@cluster0.geuahvt.mongodb.net/AntaoShop?retryWrites=true&w=majority";
+
 
 const mongoStoreOptions = {
     mongooseConnection: db.mongoose.connection,
@@ -48,6 +48,7 @@ app.use('/', settingsRouter);
 
 // app.use('/test', testRouter);
 app.use('/', apinewsanpham)
+
 
 app.use(express.static(path.join(__dirname, '/public')));
 
