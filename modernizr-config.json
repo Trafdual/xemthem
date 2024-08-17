@@ -1,0 +1,14 @@
+{
+    "minify": true,
+    "options": [
+        "setClasses"
+    ],
+    "feature-detects": [
+        "input",
+        "video",
+        "audio",
+        "geolocation",
+        "css/transform",
+        "css/flexbox"
+    ]
+}
