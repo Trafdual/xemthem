@@ -68,7 +68,7 @@
             `;
         } else {
             elm.innerHTML = `
-                <p style="transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);" class="text text-2">
+                <p style="transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);" class="text text-1">
                     <b>${item.text}</b>
                 </p>
                 <img src="${item.img}" alt="${item.text}" class="image">
@@ -113,6 +113,7 @@
         // Danh sách phần thưởng chỉ quay vào hai phần thưởng cụ thể
         const specialGifts = [
             { text: 'Sạc dự phòng 10.000W', index: listGift.findIndex(gift => gift.text === 'Sạc dự phòng 10.000W') },
+            { text: 'Quay thêm lượt', index: listGift.findIndex(gift => gift.text === 'Tai nghe không dây') },
             { text: 'Tai nghe không dây', index: listGift.findIndex(gift => gift.text === 'Tai nghe không dây') }
         ];
 
