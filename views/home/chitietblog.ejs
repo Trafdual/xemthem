@@ -381,6 +381,7 @@
                             </div>
                             <% }); %>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -402,6 +403,30 @@
                                 <div class="product-preview mb-3 d-flex justify-content-center">
                                     <img src="<%= item.img %>" class="sanpham" alt="product image">
 
+                                </div>
+                                <% } %>
+                        </div>
+                        <% }); %>
+                </div>
+                <div>
+                    <% contentLink.splice(0.5).forEach((item) => { %>
+                        <div class="mb-4">
+                            <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
+                                <%= item.tieude %>
+                            </h6>
+                            <p style="color: black">
+                                <% item.noidung.forEach((i) => { %>
+                                    <%- i.nd.replace(/\\n/g, "<br>") %>
+                                        <% i.a.forEach((j) => { %>
+                                            <a class="text-primary" href="<%= j.link %>">
+                                                <%= j.name %>
+                                            </a>
+                                            <% }); %>
+                                                <% }); %>
+                            </p>
+                            <% if (item.img) { %>
+                                <div class="product-preview mb-3 d-flex justify-content-center">
+                                    <img src="<%= item.img %>" class="sanpham w-50 h-50">
                                 </div>
                                 <% } %>
                         </div>

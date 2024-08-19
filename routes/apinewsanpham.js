@@ -783,53 +783,159 @@ router.post('/duyetdanhgia/:iddanhgia', async(req, res) => {
 })
 
 
-router.get('/contentBlog/:tieude', async(req, res) => {
-    try {
-        const tieude_khongdau = decodeURIComponent(req.params.tieude).replace(/-/g, ' ');
-        const blog = await myMDBlog.blogModel.findOne({ tieude_khongdau });
+router.get('/contentBlog/:tieude', async (req, res) => {
+  try {
+    const tieude_khongdau = decodeURIComponent(req.params.tieude).replace(
+      /-/g,
+      ' '
+    )
+    const blog = await myMDBlog.blogModel.findOne({ tieude_khongdau })
+    const allsp = await LoaiSP.TenSP.find().populate('chitietsp')
 
-        if (!blog) {
-            return res.status(404).json({ message: 'Blog không tồn tại' });
-        }
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog không tồn tại' })
+    }
 
-        const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 });
+    const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 })
 
-        const content = blog.noidung.map(noidung => {
-            return {
-                tieude: noidung.tieude,
-                content: noidung.content.replace(/\\n/g, '<br>'),
-                img: noidung.img || ''
-            }
+    const content = blog.noidung.map(noidung => {
+      return {
+        tieude: noidung.tieude || '',
+        content:
+          (typeof noidung.content === 'string'
+            ? noidung.content.replace(/\\n/g, '<br>')
+            : '') || '',
+        img: noidung.img || ''
+      }
+    })
+    const contentLink = blog.contentLink.map(noidung => {
+      return {
+        tieude: noidung.tieude,
+        noidung: noidung.noidung.map(noidung => {
+          return {
+            nd:
+              (typeof noidung.nd === 'string'
+                ? noidung.nd.replace(/\\n/g, '<br>')
+                : '') || '',
+            a: noidung.a.map(a => {
+              return {
+                name: a.name,
+                link: a.link
+              }
+            })
+          }
+        }),
+        img: noidung.img
+      }
+    })
+
+    res.render('home/chitietblog.ejs', {
+      content,
+      contentLink,
+      tieude: blog.tieude_blog,
+      listBl,
+      image_blog: blog.img_blog,
+      allsp
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
+  }
+})
+
+
+router.post('/postblog', async (req, res) => {
+  try {
+    const {
+      tieude_blog,
+      img,
+      content,
+      tieude,
+      img_blog,
+      tieudeLink,
+      name,
+      link,
+      imgLink,
+      ndLink
+    } = req.body
+
+    const tieude_khongdau = unicode(tieude_blog)
+    const blog = new myMDBlog.blogModel({
+      tieude_blog,
+      img_blog,
+      tieude_khongdau
+    })
+
+    // Thêm các nội dung blog
+    if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
+      for (let i = 0; i < content.length; i++) {
+        blog.noidung.push({
+          content: content[i],
+          img: img[i],
+          tieude: tieude[i]
         })
-
-        res.render('home/chitietblog.ejs', { content, tieude: blog.tieude_blog, listBl, image_blog: blog.img_blog })
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+      }
+    } else {
+      blog.noidung.push({ content, img, tieude })
     }
-})
 
-router.post('/postblog', async(req, res) => {
-    try {
-        const { tieude_blog, img, content, tieude, img_blog } = req.body;
-        const tieude_khongdau = unicode(tieude_blog)
+    // Xử lý contentLink và noidung
+    let currentContentLinkIndex = -1
 
-        const blog = new myMDBlog.blogModel({ tieude_blog, img_blog,tieude_khongdau });
-        
-        if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
-            for (let i = 0; i < content.length; i++) {
-                blog.noidung.push({ content: content[i], img: img[i], tieude: tieude[i] });
-            }
-        } else {
-            blog.noidung.push({ content, img, tieude });
+    if (Array.isArray(tieudeLink)) {
+      for (let i = 0; i < ndLink.length; i++) {
+        if (tieudeLink[i] || i === 0 || currentContentLinkIndex === -1) {
+          // Khi có tieudeLink mới, hoặc khi đây là lần đầu tiên, tạo một newContentLink mới
+          const newContentLink = {
+            tieude: tieudeLink[i] || tieudeLink[currentContentLinkIndex],
+            img: imgLink[i] || tieudeLink[currentContentLinkIndex],
+            noidung: []
+          }
+          blog.contentLink.push(newContentLink)
+          currentContentLinkIndex = blog.contentLink.length - 1
         }
-        await blog.save();
-        res.redirect('/main');
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` });
+
+        // Thêm noidung vào contentLink hiện tại
+        const newNoidung = {
+          nd: Array.isArray(ndLink) ? ndLink[i] : ndLink,
+          a: [
+            {
+              name: Array.isArray(name) ? name[i] : name,
+              link: Array.isArray(link) ? link[i] : link
+            }
+          ]
+        }
+        blog.contentLink[currentContentLinkIndex].noidung.push(newNoidung)
+      }
+    } else {
+      // Trường hợp tieudeLink không phải là mảng
+      const newContentLink = {
+        tieude: tieudeLink,
+        img: imgLink,
+        noidung: []
+      }
+      const newNoidung = {
+        nd: ndLink,
+        a: [
+          {
+            name: name,
+            link: link
+          }
+        ]
+      }
+      newContentLink.noidung.push(newNoidung)
+      blog.contentLink.push(newContentLink)
     }
+
+    await blog.save()
+    console.log(blog.contentLink)
+    res.redirect('/main')
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
+  }
 })
+
 
 router.get('/getaddblog', async(req, res) => {
     res.render('home/addblog.ejs');
