@@ -52,10 +52,6 @@ app.use('/', apinewsanpham)
 
 app.use(express.static(path.join(__dirname, '/public')));
 
-
-app.use(function(req, res, next) {
-    next(createError(404));
-});
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
     console.log(__dirname);
