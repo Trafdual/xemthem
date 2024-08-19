@@ -8273,7 +8273,7 @@ fieldset:disabled .btn {
 
 .text-danger {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity))!important
+    color: rgb(255 0 24) !important
 }
 
 .text-light {
