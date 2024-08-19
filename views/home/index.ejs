@@ -4,7 +4,7 @@
 <head>
     <title>BẢO MINH STORE - CHUYÊN IPHONE CÁC LOẠI</title>
     <meta charset="utf-8">
-    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
+    <meta name="google-site-verification" content="nXHafPjzQbcCTlbBFFc2qAA5CB95CzOEyv7uDEGgbpk" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         @media only screen and (max-width: 700px) {
@@ -43,7 +43,7 @@
                 animation: shake 0.5s;
             }
             body {
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-family: "Roboto", sans-serif;
                 font-size: 10px;
                 font-weight: 500;
                 line-height: 1.6;
@@ -743,8 +743,6 @@
             }
         }
     </style>
-
-
     <!-- script
     ================================================== -->
     <!-- Google tag (gtag.js) -->
@@ -764,7 +762,7 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-KB5DNX5V');
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T0NMTNKGR"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4P4TDHPNZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -773,9 +771,8 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-6T0NMTNKGR');
+        gtag('config', 'G-W4P4TDHPNZ');
     </script>
-    <script src="js/modernizr.js"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
@@ -906,7 +903,81 @@
         </div>
     </div>
 
-    <%- include('../include/header.ejs') %>
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light mx-auto overflow-hidden position-relative">
+        <nav id="header-nav" class="navbar navbar-expand-lg px-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/main-logo.png" class="logo">
+                </a>
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <svg class="navbar-icon">
+            <use xlink:href="#navbar-icon"></use>
+          </svg>
+        </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <a class="navbar-brand" href="/">
+                            <img src="/images/main-logo.png" class="logo">
+                        </a>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                            <li class="nav-item">
+                                <a class="nav-link me-4 active" href="#billboard">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#suachua">Sửa chữa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#mobile-products">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#latest-blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/thanhtoan">Thanh toán</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/contact">Liên hệ</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <div class="user-items ps-5">
+                                    <ul class="d-flex justify-content-end list-unstyled">
+                                        <li class="search-item pe-3">
+                                            <a href="#" class="search-button">
+                                                <svg class="search">
+                          <use xlink:href="#search"></use>
+                        </svg>
+                                            </a>
+                                        </li>
+                                        <li class="pe-3">
+                                            <a href="/login">
+                                                <svg class="user">
+                          <use xlink:href="#user"></use>
+                        </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/thanhtoan">
+                                                <svg class="cart">
+                          <use xlink:href="#cart"></use>
+                        </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <form action="/danhgia" method="post">
 
         <div id="successDialog" class="dialog-overlay">

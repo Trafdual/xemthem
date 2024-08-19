@@ -6,7 +6,7 @@
         <%= tieude %>
     </title>
     <meta charset="utf-8">
-    <meta name="google-site-verification" content="w8EqMC0tywLwLb7tQHtpOo506Dl-99uo2BkzYLiPDxo" />
+    <meta name="google-site-verification" content="nXHafPjzQbcCTlbBFFc2qAA5CB95CzOEyv7uDEGgbpk" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -19,19 +19,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:w*ght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <meta property="og:image" content="<%= image_blog %>">
 
     <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
+    =============================y===================== -->
+
     <style>
         @media only screen and (max-width: 700px) {
+            html {
+                font-family: sans-serif;
+            }
             .section {
                 width: 90%;
                 padding-top: 30%;
-                padding-left: 1%;
-                padding-right: 1%;
+                padding-left: 0%;
+                padding-right: 0%;
                 background-color: rgb(245, 247, 249);
                 margin-right: 5%;
                 margin-left: 6%;
@@ -41,8 +44,8 @@
             .section1 {
                 width: 90%;
                 padding-top: 5%;
-                padding-left: 1%;
-                padding-right: 1%;
+                padding-left: 0%;
+                padding-right: 0%;
                 background-color: rgb(245, 247, 249);
                 margin-right: 5%;
                 margin-left: 6%;
@@ -50,7 +53,9 @@
                 margin-bottom: 1%
             }
             body {
-                background-color: rgb(11, 10, 10)
+                font-family: "Roboto", sans-serif;
+                background-color: rgb(245, 247, 249);
+                font-weight: 300;
             }
             .product-preview {
                 align-items: center;
@@ -120,6 +125,7 @@
                 margin-bottom: 1%
             }
             body {
+                font-family: "Roboto", sans-serif;
                 background-color: rgb(255, 255, 255)
             }
             .product-preview {
@@ -175,6 +181,18 @@
             }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4P4TDHPNZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-W4P4TDHPNZ');
+    </script>
 </head>
 
 <body>

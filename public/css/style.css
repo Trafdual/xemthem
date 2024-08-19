@@ -63,7 +63,7 @@ CSS STRUCTURE:
 /* Fonts */
 
 :root {
-    --body-font: "Lato", sans-serif;
+    --body-font: "Roboto", sans-serif;
     --heading-font: "Jost", sans-serif;
 }
 
@@ -95,7 +95,7 @@ html {
 body {
     font-family: var(--body-font);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.6;
     margin: 0;
 }
@@ -989,8 +989,8 @@ icon messenger
 }
 
 .swiper-pagination span.swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
 }
 
 
