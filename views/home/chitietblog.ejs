@@ -394,7 +394,7 @@
                     <% content.forEach((item) => { %>
                         <div class="mb-4">
                             <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
-                                <%= item.tieude %>
+                                <%= item.tieude.replace(/\\n/g, "<br>") %>
                             </h6>
                             <p style="color: black">
                                 <%- item.content.replace(/\\n/g, "<br>") %>

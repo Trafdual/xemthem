@@ -272,13 +272,12 @@
                 margin-top: 2%;
             }
             #selling-product {
-                padding-left: 5%;
-                padding-right: 5%;
-                padding-top: 10%;
                 padding-bottom: 2%;
                 background-color: rgb(251, 254, 255);
                 width: 100%;
                 margin: 0 auto;
+                margin-top: 70px;
+                padding-left: 5%;
             }
             .bodykhuyenmai {
                 padding: 2%;
@@ -376,6 +375,12 @@
                 100% {
                     transform: translate(0, 0);
                 }
+            }
+            .itemMobile {
+                display: block;
+            }
+            .itemMobile2 {
+                display: none;
             }
         }
         
@@ -718,6 +723,12 @@
                     transform: translate(0, 0);
                 }
             }
+            .itemMobile {
+                display: none;
+            }
+            .itemMobile2 {
+                display: block;
+            }
         }
     </style>
 
@@ -906,21 +917,19 @@
             </div>
         </nav>
     </header>
-    <section id="selling-product" class="single-product padding-xlarge">
+    <section id="selling-product" class="single-product padding-small">
         <h3 itemprop="name" class="display-7 text-uppercase nameh3">
             <%= mangjson.spjson.name %>
         </h3>
         <hr class="hrname" style="opacity: 0.1;">
-        <div class="container">
-            <div class="row mt-5">
+        <div class="container" style="width: 100%;">
+            <div class="row mt-5 justify-content-center w-100">
                 <div class="col-lg-6 product-preview">
+
                     <div class="product-preview mb-3">
                         <img src="data:image/jpeg;base64, <%= mangjson.spjson.image %>" alt="single-product" class="img-fluid sanpham">
                     </div>
-
-                </div>
-                <div class="col-lg-6">
-                    <div class="product-info">
+                    <div class="itemMobile">
                         <div class="element-header">
                             <div class="rating-container d-flex align-items-center">
                                 <div class="rating" data-rating="1" onclick=rate(1)>
@@ -942,6 +951,75 @@
                         <p>
                             <%= mangjson.spjson.content %>
                         </p>
+                    </div>
+                    <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
+                        </h4>
+                        <div>
+                            <p class="pthongso">Màn hình:
+                                <%= mangjson.spjson.manhinh %>
+                            </p>
+                            <p class="pthongso2">Chip:
+                                <%= mangjson.spjson.chip %>
+                            </p>
+                            <p class="pthongso">Ram:
+                                <%= mangjson.spjson.ram %>
+                            </p>
+                            <p class="pthongso2">Dung lượng:
+                                <%= mangjson.spjson.dungluong %>
+                            </p>
+                            <p class="pthongso">Camera sau:
+                                <%= mangjson.spjson.camera %>
+                            </p>
+                            <p class="pthongso2">Pin:
+                                <%= mangjson.spjson.pinsac %>
+                            </p>
+                            <p class="pthongso">Cổng sạc:
+                                <%= mangjson.spjson.congsac %>
+                            </p>
+                            <p class="pthongso2">Hãng:
+                                <%= mangjson.spjson.hang %>
+                            </p>
+                            <p class="pthongso3" id="product-info">Thông tin sản phẩm:
+                                <%= mangjson.spjson.thongtin %>
+                            </p>
+                            <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
+
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <p id="modalContent"></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 hi">
+                    <div class="product-info">
+                        <div class="itemMobile2">
+                            <div class="element-header">
+                                <div class="rating-container d-flex align-items-center">
+                                    <div class="rating" data-rating="1" onclick=rate(1)>
+                                        <svg class="star star-fill">
+                    <use xlink:href="#star-fill"></use>
+                  </svg>
+                                        <span class="rating-count ps-2">5.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-price pt-3 pb-3 d-flex align-items-center">
+                                <strong class="display-6 fw-bold pricestrong">
+                <%= mangjson.spjson.price %>
+              </strong>
+                                <div class="tragop ms-3">
+                                    <p class="ptragop">Trả góp 0%</p>
+                                </div>
+                            </div>
+                            <p>
+                                <%= mangjson.spjson.content %>
+                            </p>
+                        </div>
+
 
                         <div class="cart-wrap">
                             <div class="product-quantity">
@@ -969,7 +1047,7 @@
                                     </div>
                                     <div class="bodykhuyenmai">
                                         <div class="d-flex">
-                                            <div class="dbodykhuyenmai">
+                                            <div class="dbodykhuyenmai ">
                                                 <p style="color: aliceblue; text-align: center;">1</p>
                                             </div>
                                             <p class="pbodykhuyenmai"> Tặng thêm quà tặng trị giá 1.750.000đ áp dụng từ ngày 9/3 đến 15/3/2024</p>
@@ -1063,46 +1141,7 @@
 
                                     </div>
                                 </div>
-                                <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                    <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
-                                    </h4>
-                                    <div>
-                                        <p class="pthongso">Màn hình:
-                                            <%= mangjson.spjson.manhinh %>
-                                        </p>
-                                        <p class="pthongso2">Chip:
-                                            <%= mangjson.spjson.chip %>
-                                        </p>
-                                        <p class="pthongso">Ram:
-                                            <%= mangjson.spjson.ram %>
-                                        </p>
-                                        <p class="pthongso2">Dung lượng:
-                                            <%= mangjson.spjson.dungluong %>
-                                        </p>
-                                        <p class="pthongso">Camera sau:
-                                            <%= mangjson.spjson.camera %>
-                                        </p>
-                                        <p class="pthongso2">Pin:
-                                            <%= mangjson.spjson.pinsac %>
-                                        </p>
-                                        <p class="pthongso">Cổng sạc:
-                                            <%= mangjson.spjson.congsac %>
-                                        </p>
-                                        <p class="pthongso2">Hãng:
-                                            <%= mangjson.spjson.hang %>
-                                        </p>
-                                        <p class="pthongso3" id="product-info">Thông tin sản phẩm:
-                                            <%= mangjson.spjson.thongtin %>
-                                        </p>
-                                        <button onclick="toggleProductInfo()" id="toggle-button">Xem thêm</button>
 
-                                        <div id="myModal" class="modal">
-                                            <span class="close">&times;</span>
-                                            <p id="modalContent"></p>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -1156,7 +1195,7 @@
         </div>
     </section>
 
-    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+    <section id="subscribe" class="container-grid padding-small position-relative overflow-hidden">
         <div class="container">
             <div class="row">
                 <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
@@ -1179,67 +1218,6 @@
             </div>
         </div>
     </section>
-    <!-- <section id="instagram" class="padding-large overflow-hidden no-padding-top">
-      <div class="container">
-        <div class="row">
-          <div class="display-header text-uppercase text-dark text-center pb-3">
-            <h2 class="display-7">Shop Our Insta</h2>
-          </div>
-          <div class="d-flex flex-wrap">
-            <figure class="instagram-item pe-2">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item1.jpg" alt="instagram" class="insta-image">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-              </a>
-            </figure>
-            <figure class="instagram-item pe-2">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item2.jpg" alt="instagram" class="insta-image">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-              </a>
-            </figure>
-            <figure class="instagram-item pe-2">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item3.jpg" alt="instagram" class="insta-image">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-              </a>
-            </figure>
-            <figure class="instagram-item pe-2">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item4.jpg" alt="instagram" class="insta-image">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-              </a>
-            </figure>
-            <figure class="instagram-item pe-2">
-              <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item5.jpg" alt="instagram" class="insta-image">
-                <div class="icon-overlay position-absolute d-flex justify-content-center">
-                  <svg class="instagram">
-                    <use xlink:href="#instagram"></use>
-                  </svg>
-                </div>
-              </a>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <footer id="footer" class="overflow-hidden">
         <div class="container">
             <div class="row">
