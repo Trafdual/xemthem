@@ -994,7 +994,6 @@ router.post('/postblog', async (req, res) => {
   }
 })
 
-
 router.get('/getaddblog', async (req, res) => {
   res.render('home/addblog.ejs')
 })
@@ -1011,9 +1010,29 @@ router.get('/getblog', async (req, res) => {
 router.get('/editblog/:idblog', async (req, res) => {
   try {
     const idblog = req.params.idblog
-    const blog = await myMDBlog.blogModel.findById(idblog)
+    const blogg = await myMDBlog.blogModel.findById(idblog)
+
+    // Hàm để loại bỏ tất cả các thẻ <a> khỏi nội dung
+    function removeAllLinks (content) {
+      // Biểu thức chính quy để tìm và loại bỏ tất cả các thẻ <a> cùng với nội dung của chúng
+      return content.replace(/<a[^>]*>(.*?)<\/a>/gi, '$1')
+    }
+
+    const blog = blogg.noidung.map(bl => {
+      return {
+        content: removeAllLinks(bl.content),
+        img: bl.img,
+        tieude: bl.tieude,
+        keywords: bl.keywords,
+        urlBase: bl.urlBase
+      }
+    })
+
     res.render('home/editBlog.ejs', {
-      blog
+      idblog,
+      blog,
+      tieude_blog: blogg.tieude_blog,
+      img_blog: blogg.img_blog
     })
   } catch (error) {
     console.error(error)
@@ -1039,9 +1058,10 @@ router.post('/editblog/:idblog', async (req, res) => {
             keywords[index],
             urlBase[index]
           )
-
           nd.content = updatedContent
         }
+        nd.keywords = keywords[index]
+        nd.urlBase = urlBase[index]
         if (img[index]) {
           nd.img = img[index]
         }
@@ -1071,13 +1091,15 @@ router.post('/editblog/:idblog', async (req, res) => {
         keywords,
         urlBase
       )
+      blog.noidung = blog.noidung.slice(0, content.length)
 
-      blog.noidung.push({
-        content: updatedContent,
-        img,
-        tieude,
-        keywords,
-        keywords
+      blog.noidung = blog.noidung.map(nd => {
+        nd.content = updatedContent
+        nd.img = img
+        nd.tieude = tieude
+        nd.keywords = keywords
+        nd.urlBase = urlBase
+        return nd
       })
     }
 

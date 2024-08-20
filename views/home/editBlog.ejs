@@ -5,7 +5,7 @@
             <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png">Sửa blog</a>
         </h2>
 
-        <form action="/editblog/<%= blog._id %>" method="post">
+        <form action="/editblog/<%= idblog %>" method="post">
             <form class="px-4 py-3">
                 <br>
                 <label class="form-label">Tiêu đề Blog</label>
@@ -14,7 +14,7 @@
                 <input type="text" name="img_blog" class="form-control" placeholder="Nhập link ảnh blog" value="<%= blog.img_blog %>"><br>
                 <h5>Nội Dung</h5>
                 <div id="blogContentContainer">
-                    <% blog.noidung.forEach((row, index) => { %>
+                    <% blog.forEach((row, index) => { %>
                         <div class="blogContainer" data-index="<%= index %>">
                             <div class="noidung">
                                 <label class="form-label"> Tiêu đề nội dung</label>
