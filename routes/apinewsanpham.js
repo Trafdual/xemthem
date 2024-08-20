@@ -889,10 +889,7 @@ router.get('/contentBlog/:tieude', async (req, res) => {
     const content = blog.noidung.map(noidung => {
       return {
         tieude: noidung.tieude || '',
-        content:
-          (typeof noidung.content === 'string'
-            ? noidung.content.replace(/\\n/g, '<br>')
-            : '') || '',
+        content:noidung.content.replace(/\\n/g, '<br>'),
         img: noidung.img || ''
       }
     })
