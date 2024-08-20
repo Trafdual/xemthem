@@ -910,6 +910,11 @@ router.get('/contentBlog/:tieude', async (req, res) => {
   }
 })
 
+function escapeRegExp (string) {
+  // Thoát các ký tự đặc biệt trong biểu thức chính quy
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
 function replaceKeywordsWithLinks (content, keywords, urlBase) {
   // Nếu keywords không phải là mảng, chuyển đổi nó thành mảng chứa một từ khóa duy nhất
   if (!Array.isArray(keywords)) {
@@ -923,19 +928,19 @@ function replaceKeywordsWithLinks (content, keywords, urlBase) {
 
   // Thay thế từng từ khóa bằng thẻ <a>
   keywords.forEach(keyword => {
+    if (keyword === '') {
+      return
+    }
+    // Thoát các ký tự đặc biệt trong từ khóa
+    const escapedKeyword = escapeRegExp(keyword)
     // Tạo một biểu thức chính quy để tìm từ khóa
-    const regex = new RegExp(`\\b${keyword}\\b`, 'gi')
+    const regex = new RegExp(`\\b${escapedKeyword}\\b`, 'gi')
     // Thay thế từ khóa bằng thẻ <a> với đường link
-    content = content.replace(
-      regex,
-      `<a href="${urlBase}">${keyword}</a>`
-    )
+    content = content.replace(regex, `<a href="${urlBase}">${keyword}</a>`)
   })
 
   return content
 }
-
-
 router.post('/postblog', async (req, res) => {
   try {
     const { tieude_blog, img, content, tieude, img_blog, keywords, urlBase } =
@@ -989,6 +994,7 @@ router.post('/postblog', async (req, res) => {
   }
 })
 
+
 router.get('/getaddblog', async (req, res) => {
   res.render('home/addblog.ejs')
 })
@@ -1017,7 +1023,8 @@ router.get('/editblog/:idblog', async (req, res) => {
 
 router.post('/editblog/:idblog', async (req, res) => {
   try {
-    const { tieude_blog, img_blog, tieude, content, img } = req.body
+    const { tieude_blog, img_blog, tieude, content, img, keywords, urlBase } =
+      req.body
     const idblog = req.params.idblog
     const blog = await myMDBlog.blogModel.findById(idblog)
     blog.tieude_blog = tieude_blog
@@ -1027,7 +1034,13 @@ router.post('/editblog/:idblog', async (req, res) => {
     if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
       blog.noidung.forEach((nd, index) => {
         if (content[index]) {
-          nd.content = content[index]
+          const updatedContent = replaceKeywordsWithLinks(
+            content[index],
+            keywords[index],
+            urlBase[index]
+          )
+
+          nd.content = updatedContent
         }
         if (img[index]) {
           nd.img = img[index]
@@ -1038,14 +1051,34 @@ router.post('/editblog/:idblog', async (req, res) => {
       })
 
       for (let i = blog.noidung.length; i < content.length; i++) {
+        const updatedContent = replaceKeywordsWithLinks(
+          content[i],
+          keywords[i],
+          urlBase[i]
+        )
+
         blog.noidung.push({
-          content: content[i],
+          content: updatedContent,
           img: img[i],
-          tieude: tieude[i]
+          tieude: tieude[i],
+          keywords: keywords[i],
+          urlBase: urlBase[i]
         })
       }
     } else {
-      blog.noidung.push({ content, img, tieude })
+      const updatedContent = replaceKeywordsWithLinks(
+        content,
+        keywords,
+        urlBase
+      )
+
+      blog.noidung.push({
+        content: updatedContent,
+        img,
+        tieude,
+        keywords,
+        keywords
+      })
     }
 
     await blog.save()
