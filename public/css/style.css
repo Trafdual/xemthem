@@ -111,7 +111,7 @@ ul.inner-list li {
 }
 
 a {
-    color: var(--dark-color);
+    color: #0059ff;
     text-decoration: none;
     transition: 0.3s color ease-out;
 }
@@ -121,8 +121,8 @@ a.light {
 }
 
 a:hover {
-    text-decoration: none;
-    color: var(--primary-color);
+    text-decoration: solid underline;
+    color: #00379c;
 }
 
 
