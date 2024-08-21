@@ -889,7 +889,7 @@ router.get('/contentBlog/:tieude', async (req, res) => {
     const content = blog.noidung.map(noidung => {
       return {
         tieude: noidung.tieude,
-        content: noidung.content.replace(/\\n/g, '<br>'),
+        content:noidung.content.replace(/\\n/g, '<br>'),
         img: noidung.img || ''
       }
     })
@@ -907,30 +907,33 @@ router.get('/contentBlog/:tieude', async (req, res) => {
   }
 })
 
-function escapeRegExp (string) {
+function escapeRegExp(string) {
   // Hàm thoát ký tự đặc biệt trong biểu thức chính quy
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function replaceKeywordsWithLinks (content, keywords, urls) {
-  if (
-    !Array.isArray(keywords) ||
-    !Array.isArray(urls) ||
-    keywords.length !== urls.length
-  ) {
-    throw new Error(
-      'Keywords và URLs phải là mảng và có cùng số lượng phần tử.'
-    )
+function replaceKeywordsWithLinks (content, keywords, urlBase) {
+  // Nếu keywords không phải là mảng, chuyển đổi nó thành mảng chứa một từ khóa duy nhất
+  if (!Array.isArray(keywords)) {
+    keywords = [keywords]
+  }
+
+  // Nếu không có từ khóa, trả lại nội dung gốc
+  if (!keywords || keywords.length === 0) {
+    return content
   }
 
   // Thay thế từng từ khóa bằng thẻ <a>
-  keywords.forEach((keyword, index) => {
-    if (keyword === '') return
-
-    const url = urls[index] || '#' // Nếu không có URL, sử dụng '#' làm URL mặc định
+  keywords.forEach(keyword => {
+    if (keyword === '') {
+      return
+    }
+    // Thoát các ký tự đặc biệt trong từ khóa
     const escapedKeyword = escapeRegExp(keyword)
+    // Tạo một biểu thức chính quy để tìm từ khóa
     const regex = new RegExp(`\\b${escapedKeyword}\\b`, 'gi')
-    content = content.replace(regex, `<a href="${url}">${keyword}</a>`)
+    // Thay thế từ khóa bằng thẻ <a> với đường link
+    content = content.replace(regex, `<a href="${urlBase}">${keyword}</a>`)
   })
 
   return content
