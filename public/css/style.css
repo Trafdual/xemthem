@@ -111,7 +111,7 @@ ul.inner-list li {
 }
 
 a {
-    color: var(--dark-color);
+    color: #0059ff;
     text-decoration: none;
     transition: 0.3s color ease-out;
 }
@@ -121,8 +121,8 @@ a.light {
 }
 
 a:hover {
-    text-decoration: none;
-    color: var(--primary-color);
+    text-decoration: solid underline;
+    color: #00379c;
 }
 
 
@@ -774,6 +774,8 @@ icon messenger
     width: 100%;
     z-index: 10;
     transition: background 0.3s ease-out;
+    top: 0;
+    height: 70px;
 }
 
 .navbar-toggler svg.navbar-icon {
@@ -788,7 +790,7 @@ icon messenger
 .navbar-nav .nav-item a.nav-link.active,
 .navbar-nav .nav-item a.nav-link:focus,
 .navbar-nav .nav-item a.nav-link:hover {
-    color: var(--primary-color);
+    color: #ff0000;
 }
 
 

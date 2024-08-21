@@ -393,8 +393,8 @@
                 <div>
                     <% content.forEach((item) => { %>
                         <div class="mb-4">
-                            <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
-                                <%= item.tieude %>
+                            <h6 itemprop="name" class="display-7" style="font-weight: bold;">
+                                <%= item.tieude.replace(/\\n/g, "<br>") %>
                             </h6>
                             <p style="color: black">
                                 <%- item.content.replace(/\\n/g, "<br>") %>
@@ -409,28 +409,13 @@
                         <% }); %>
                 </div>
                 <div>
-                    <% contentLink.splice(0.5).forEach((item) => { %>
-                        <div class="mb-4">
-                            <h6 itemprop="name" class="display-7 text-uppercase" style="font-weight: bold;">
-                                <%= item.tieude %>
-                            </h6>
-                            <p style="color: black">
-                                <% item.noidung.forEach((i) => { %>
-                                    <%- i.nd.replace(/\\n/g, "<br>") %>
-                                        <% i.a.forEach((j) => { %>
-                                            <a class="text-primary" href="<%= j.link %>">
-                                                <%= j.name %>
-                                            </a>
-                                            <% }); %>
-                                                <% }); %>
-                            </p>
-                            <% if (item.img) { %>
-                                <div class="product-preview mb-3 d-flex justify-content-center">
-                                    <img src="<%= item.img %>" class="sanpham w-50 h-50">
-                                </div>
-                                <% } %>
-                        </div>
-                        <% }); %>
+                    <h5 style="font-weight: bold;">Xem Thêm</h5>
+                    <li>
+                        <a href="https://www.baominhmobile.com/contentBlog/Cach-xoa-anh-tren-Locket-cuc-de-dang%2C-don-dep-bot-nhung-buc-anh-cu-hoac-khong-con-phu-hop-nua" style="font-size: 18px;">Cách xóa ảnh trên Locket dễ dàng, dọn dẹp bớt những bức hình cũ hoặc không còn phù hợp</a>
+                    </li>
+                    <li>
+                        <a href="https://www.baominhmobile.com/contentBlog/TOP-5-CUA-HANG-MUA-BAN-IPHONE-GIA-TOT-NHAT-TAI-HA-NOI" style="font-size: 18px;">Top 5 Cửa Hàng Mua Bán Iphone Giá Tốt Nhất Tại Hà Nội</a>
+                    </li>
                 </div>
             </div>
             <a class="btn tn-medium btn-danger text-center mb-3" href="/">Mua Iphone Chính Hãng Tại Bảo Minh Store</a>

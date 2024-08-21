@@ -7,26 +7,9 @@ const blogChema = new db.mongoose.Schema({
         tieude: { type: String },
         content: { type: String },
         img: { type: String },
+        keywords:{type:String},
+        urlBase:{type:String},
     }],
-    contentLink: [
-      {
-        tieude: { type: String },
-        noidung: [
-          {
-            nd: { type: String },
-            a: [
-              {
-                name: { type: String },
-                link: { type: String }
-              }
-            ],
-          }
-        ],
-        img: {
-          type: String
-        }
-      }
-    ]
 }, {
     collection: 'Blog'
 });

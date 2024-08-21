@@ -5,59 +5,87 @@
             <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png">Sửa blog</a>
         </h2>
 
-        <form action="/editblog/<%= blog._id %>" method="post">
+        <form action="/editblog/<%= idblog %>" method="post">
             <form class="px-4 py-3">
                 <br>
                 <label class="form-label">Tiêu đề Blog</label>
-                <input type="text" name="tieude_blog" class="form-control" placeholder="Nhập tiêu đề blog" value="<%= blog.tieude_blog %>"><br>
+                <input type="text" name="tieude_blog" class="form-control" placeholder="Nhập tiêu đề blog" value="<%= tieude_blog %>"><br>
                 <label class="form-label">Ảnh Blog</label>
-                <input type="text" name="img_blog" class="form-control" placeholder="Nhập link ảnh blog" value="<%= blog.img_blog %>"><br>
+                <input type="text" name="img_blog" class="form-control" placeholder="Nhập link ảnh blog" value="<%= img_blog %>"><br>
                 <h5>Nội Dung</h5>
-                <% blog.noidung.forEach((row)=> { %>
-                    <div id="blogContainer">
-                        <div class="noidung">
-                            <label class="form-label"> Tiêu đề nội dung</label>
-                            <input type="text" name="tieude" class="form-control" placeholder="Nhập tiêu đề nội dung Blog" value="<%= row.tieude %>"><br>
-                            <label class="form-label">Nội dung</label>
-                            <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog" value="<%= row.content %>"><br>
-                            <div class="mb-3">
-                                <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
-                                <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh" value="<%= row.img %>">
+                <div id="blogContentContainer">
+                    <% blog.forEach((row, index) => { %>
+                        <div class="blogContainer" data-index="<%= index %>">
+                            <div class="noidung">
+                                <label class="form-label"> Tiêu đề nội dung</label>
+                                <input type="text" name="tieude" class="form-control" placeholder="Nhập tiêu đề nội dung Blog" value="<%= row.tieude %>"><br>
+                                <label class="form-label">Nội dung</label>
+                                <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog" value="<%= row.content %>"><br>
+                                <label class="form-label">Từ khóa</label>
+                                <input type="text" name="keywords" class="form-control" placeholder="Nhập từ khóa" value="<%= row.keywords %>"><br>
+                                <label class="form-label">Link từ khóa</label>
+                                <input type="text" name="urlBase" class="form-control" placeholder="Nhập link từ khóa" value="<%= row.urlBase %>"><br>
+                                <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
+                                    <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh" value="<%= row.img %>">
+                                </div>
+                                <button style="margin-bottom:5px; display: block;" type="button" class="btn btn-danger delete-btn" onclick="xoanoidung(this)">Xóa Thẻ</button>
                             </div>
+                            <hr style="font-weight: bold;  border: 2px solid black;">
                         </div>
-                    </div>
-                    <hr style="font-weight: bold;  border: 2px solid black;">
-                    <% }); %>
-                        <input type="button" class="btn btn-danger" value="Thêm nội dung blog" onclick="themnoidung()">
-                        <button class="btn btn-danger" type="submit">Lưu</button>
+                        <% }); %>
+                </div>
+                <input type="button" class="btn btn-danger" value="Thêm nội dung blog" onclick="themnoidung()">
+                <button class="btn btn-danger" type="submit">Lưu</button>
             </form>
         </form>
         <script>
             function themnoidung() {
                 var newDiv = document.createElement("div");
-                newDiv.className = "noidung";
-
-                // Thêm nội dung vào thẻ div mới
+                newDiv.className = "blogContainer";
                 newDiv.innerHTML = `
-              <label class="form-label"> Tiêu đề nội dung</label>
-                    <input type="text" name="tieude" class="form-control" placeholder="Nhập nội dung Blog"><br>
-    <label class="form-label">Nội dung</label>
-    <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog"><br>
-    <div class="mb-3">
-        <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
-        <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh">
-    </div>
-    <button style="margin-bottom:5px" type="button" class="btn btn-danger" onclick="xoanoidung(this)">Xóa Thẻ</button>
-    <hr style="font-weight: bold;  border: 2px solid black;">
-`;
+                <div class="noidung">
+                    <label class="form-label"> Tiêu đề nội dung</label>
+                    <input type="text" name="tieude" class="form-control" placeholder="Nhập tiêu đề nội dung Blog"><br>
+                    <label class="form-label">Nội dung</label>
+                    <input type="text" name="content" class="form-control" placeholder="Nhập nội dung Blog"><br>
+                    <label class="form-label">Từ khóa</label>
+                    <input type="text" name="keywords" class="form-control" placeholder="Nhập từ khóa"><br>
+                    <label class="form-label">Link từ khóa</label>
+                    <input type="text" name="urlBase" class="form-control" placeholder="Nhập link từ khóa"><br>
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Ảnh Blog</label>
+                        <input class="form-control" type="text" name="img" id="formFileMultiple" placeholder="Nhập link ảnh">
+                    </div>
+                    <button style="margin-bottom:5px" type="button" class="btn btn-danger delete-btn" onclick="xoanoidung(this)">Xóa Thẻ</button>
+                </div>
+                <hr style="font-weight: bold;  border: 2px solid black;">
+            `;
 
-                // Thêm thẻ div mới vào trong container
-                document.getElementById("blogContainer").appendChild(newDiv);
+                // Thêm thẻ div mới vào cuối container
+                document.getElementById("blogContentContainer").appendChild(newDiv);
+                updateDeleteButtons(); // Cập nhật hiển thị nút Xóa Thẻ
             }
 
             function xoanoidung(button) {
                 // Xóa thẻ div chứa nút bấm
-                button.parentElement.remove();
+                button.parentElement.parentElement.remove();
+                updateDeleteButtons(); // Cập nhật hiển thị nút Xóa Thẻ
             }
+
+            function updateDeleteButtons() {
+                var containers = document.querySelectorAll(".blogContainer");
+                containers.forEach(container => {
+                    var deleteBtn = container.querySelector(".delete-btn");
+                    if (containers.length <= 1) {
+                        deleteBtn.style.display = "none";
+                    } else {
+                        deleteBtn.style.display = "block";
+                    }
+                });
+            }
+
+            // Gọi hàm updateDeleteButtons khi trang được tải
+            document.addEventListener("DOMContentLoaded", updateDeleteButtons);
         </script>
     </div>
