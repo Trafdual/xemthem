@@ -888,7 +888,7 @@ router.get('/contentBlog/:tieude', async (req, res) => {
 
     const content = blog.noidung.map(noidung => {
       return {
-        tieude: noidung.tieude.replace(/\\n/g, '<br>') || '',
+        tieude: noidung.tieude,
         content:noidung.content.replace(/\\n/g, '<br>'),
         img: noidung.img || ''
       }
