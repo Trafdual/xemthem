@@ -1058,7 +1058,7 @@
                             </div>
                             <div class="swiper product-swiper swiper-container">
                                 <div class="swiper-wrapper">
-                                    <% row.chitietsp.forEach((item, index)=> { %>
+                                    <% row.chitietsp.slice(0, 7).forEach((item, index)=> { %>
                                         <% var rowname=row.name; %>
                                             <div class="swiper-slide">
                                                 <div class="product-card position-relative">
@@ -1264,7 +1264,7 @@
                                     </div>
                                 </div>
                                 <div class="post-grid d-flex flex-wrap justify-content-between">
-                                    <% listBl.forEach((item)=> { %>
+                                    <% listBl.slice(0, 3).forEach((item)=> { %>
                                         <div class="col-lg-4 col-sm-12">
                                             <div class="card border-none me-3">
                                                 <div class="card-image text-center overflow-hidden">
