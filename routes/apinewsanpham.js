@@ -311,7 +311,7 @@ router.get('/getchitiet/:namesp/:nameloai', async (req, res) => {
       mangloai: mangloai
     }
     // res.json(mangjson)
-    res.render('home/single-product.ejs', { mangjson, namesp })
+    res.render('home/single-product.ejs', { mangjson, nameloai, namesp })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
