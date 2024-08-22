@@ -907,9 +907,9 @@ router.get('/contentBlog/:tieude', async (req, res) => {
   }
 })
 
-function escapeRegExp (string) {
-  // Thoát các ký tự đặc biệt trong biểu thức chính quy
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+function escapeRegExp(string) {
+  // Hàm thoát ký tự đặc biệt trong biểu thức chính quy
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function replaceKeywordsWithLinks (content, keywords, urlBase) {
@@ -938,6 +938,7 @@ function replaceKeywordsWithLinks (content, keywords, urlBase) {
 
   return content
 }
+
 router.post('/postblog', async (req, res) => {
   try {
     const { tieude_blog, img, content, tieude, img_blog, keywords, urlBase } =

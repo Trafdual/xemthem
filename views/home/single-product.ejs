@@ -623,6 +623,7 @@
                 background-color: rgb(251, 254, 255);
                 width: 90%;
                 margin: 0 auto;
+                margin-top: 60px;
             }
             .bodykhuyenmai {
                 padding: 2%;
@@ -953,6 +954,21 @@
                         <p>
                             <%= mangjson.spjson.content %>
                         </p>
+                        <div class="d-flex loai">
+                            <% mangjson.mangloai.forEach((item,index)=> { %>
+                                <div class="d-flex divloai">
+                                    <input type="checkbox" id="myCheckbox<%= index %>" name="myCheckbox" class="inputloai" data-price="<%= item.price %>" data-index="<%= index %>">
+                                    <div class="divconloai">
+                                        <strong class="strongloai">
+                          <%= item.name %>
+                        </strong>
+                                        <strong class="strongloai2 price<%= index %>">
+                          <%= item.price %>
+                        </strong>
+                                    </div>
+                                </div>
+                                <% }); %>
+                        </div>
                     </div>
                     <div class="tab-pane fade show active border-top border-bottom padding-small thongsoo" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <h4 style="font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-bottom: 2%;">THÔNG SỐ
@@ -1010,12 +1026,27 @@
                                 </div>
                             </div>
                             <div class="product-price pt-3 pb-3 d-flex align-items-center">
-                                <strong class="display-6 fw-bold pricestrong">
+                                <strong class="display-6 fw-bold pricemobile2">
                 <%= mangjson.spjson.price %>
               </strong>
                                 <div class="tragop ms-3">
                                     <p class="ptragop">Trả góp 0%</p>
                                 </div>
+                            </div>
+                            <div class="d-flex loai ">
+                                <% mangjson.mangloai.forEach((item,index)=> { %>
+                                    <div class="d-flex divloai">
+                                        <input type="checkbox" id="myCheckbox<%= index %>" name="myCheckbox" class="inputloai" data-price="<%= item.price %>" data-index="<%= index %>">
+                                        <div class="divconloai">
+                                            <strong class="strongloai">
+                          <%= item.name %>
+                        </strong>
+                                            <strong class="strongloai2 price<%= index %>">
+                          <%= item.price %>
+                        </strong>
+                                        </div>
+                                    </div>
+                                    <% }); %>
                             </div>
                             <p>
                                 <%= mangjson.spjson.content %>
@@ -1026,21 +1057,7 @@
                         <div class="cart-wrap">
                             <div class="product-quantity">
 
-                                <div class="d-flex loai">
-                                    <% mangjson.mangloai.forEach((item,index)=> { %>
-                                        <div class="d-flex divloai">
-                                            <input type="checkbox" id="myCheckbox<%= index %>" name="myCheckbox" class="inputloai" data-price="<%= item.price %>" data-index="<%= index %>">
-                                            <div class="divconloai">
-                                                <strong class="strongloai">
-                          <%= item.name %>
-                        </strong>
-                                                <strong class="strongloai2" id="price<%= index %>">
-                          <%= item.price %>
-                        </strong>
-                                            </div>
-                                        </div>
-                                        <% }); %>
-                                </div>
+
 
                                 <div class="khuyenmai">
                                     <div class="d-flex topkhuyenmai">
@@ -1389,7 +1406,8 @@
         }
     </script>
     <script>
-        // Lấy modal
+        document.title = '<%= nameloai %>'
+            // Lấy modal
         var modal = document.getElementById("myModal");
 
         // Lấy nút đóng modal
@@ -1419,7 +1437,7 @@
             }
         }
         const pricestrongInitialValue = document.querySelector('.pricestrong').textContent.trim();
-
+        const pricestrongInitialValue2 = document.querySelector('.pricemobile2').textContent.trim();
         document.querySelectorAll('.inputloai').forEach(item => {
             item.addEventListener('click', function() {
                 // Loại bỏ chọn các checkbox khác
@@ -1432,14 +1450,17 @@
                 const price = parseFloat(this.getAttribute('data-price'));
                 const index = this.getAttribute('data-index');
                 const pricestrong = document.querySelector('.pricestrong');
-                const priceElement = document.querySelector(`#price${index}`);
+                const pricestrong2 = document.querySelector('.pricemobile2');
+                const priceElement = document.querySelector(`.price${index}`);
                 const priceValue = priceElement.textContent.trim();
 
                 if (this.checked) {
                     pricestrong.textContent = priceValue;
+                    pricestrong2.textContent = priceValue;
                 } else {
                     // Khôi phục giá trị ban đầu của pricestrong
                     pricestrong.textContent = pricestrongInitialValue;
+                    pricestrong2.textContent = pricestrongInitialValue2;
                 }
             });
         });
