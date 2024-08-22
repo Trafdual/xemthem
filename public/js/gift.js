@@ -1,7 +1,7 @@
 (() => {
     const $ = document.querySelector.bind(document);
 
-    let timeRotate = 7000; // Thời gian quay 7 giây
+    let timeRotate = 7000; 
     let currentRotate = 0;
     let isRotating = false;
     const wheel = $('.wheel');
@@ -13,32 +13,32 @@
         {
             text: 'Sạc dự phòng 10.000W',
             percent: 10 / 100,
-            img: 'http://localhost:8080/images/review-item1.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'http://localhost:8080/images/review-item1.jpg', 
         },
         {
-            text: 'Sh 150i Abs',
+            text: 'Wave Alpha 110',
             percent: 10 / 100,
-            img: 'images/review-item2.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'images/review-item2.jpg', 
         },
         {
             text: 'Quay thêm lượt',
             percent: 5 / 100,
-            img: 'images/review-item1.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'images/review-item1.jpg', 
         },
         {
             text: 'Tai nghe không dây',
             percent: 5 / 100,
-            img: 'images/review-item1.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'images/review-item1.jpg', 
         },
         {
             text: 'Iphone 13',
             percent: 40 / 100,
-            img: 'images/review-item1.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'images/review-item1.jpg', 
         },
         {
             text: '5.000.000đ',
             percent: 20 / 100,
-            img: 'images/review-item2.jpg', // Thay bằng đường dẫn hình ảnh của bạn
+            img: 'images/review-item2.jpg', 
         },
     ];
 
@@ -59,21 +59,16 @@
         elm.style.transform = `rotate(${rotate * index}deg) skewY(-${skewY}deg)`;
 
         // Thêm văn bản và hình ảnh vào thẻ li
-        if (index % 2 === 0) {
-            elm.innerHTML = `
-                <p style="transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);" class="text text-1">
-                    <b>${item.text}</b>
-                </p>
-                <img src="${item.img}" alt="${item.text}" class="image">
-            `;
-        } else {
-            elm.innerHTML = `
-                <p style="transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);" class="text text-1">
-                    <b>${item.text}</b>
-                </p>
-                <img src="${item.img}" alt="${item.text}" class="image">
-            `;
-        }
+        const textClasses = ['text-1', 'text-2'];
+const textClass = textClasses[index % textClasses.length];
+
+elm.innerHTML = `
+    <p style="transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);" class="text ${textClass}">
+        <b>${item.text}</b>
+    </p>
+    <img src="${item.img}" alt="${item.text}" class="image">
+`;
+
 
         // Thêm vào thẻ ul
         wheel.appendChild(elm);
