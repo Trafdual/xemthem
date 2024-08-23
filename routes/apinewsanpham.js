@@ -134,31 +134,27 @@ router.get('/main', checkAuth, async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const allsp = await LoaiSP.TenSP.find().populate('chitietsp')
-    const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 })
-    const danhgia = await DanhGia.danhgia.find()
+    // Tải tất cả các sản phẩm và thông tin chi tiết
+    const allsp = await LoaiSP.TenSP.find().populate('chitietsp').lean()
+    // Tải các blog và sắp xếp theo thứ tự giảm dần của _id
+    const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 }).lean()
+    // Tải đánh giá
+    const danhgia = await DanhGia.danhgia.find().lean()
 
-    const tenspjson = await Promise.all(
-      allsp.map(async tensp => {
-        const chitietspJson = await Promise.all(
-          tensp.chitietsp.map(async chitietsp => {
-            return {
-              id: chitietsp._id,
-              name: chitietsp.name,
-              noidung: chitietsp.content,
-              price: chitietsp.price,
-              image: chitietsp.image
-            }
-          })
-        )
-        return {
-          id: tensp._id,
-          name: tensp.name,
-          chitietsp: chitietspJson
-        }
-      })
-    )
+    // Chuyển đổi dữ liệu sản phẩm
+    const tenspjson = allsp.map(tensp => ({
+      id: tensp._id,
+      name: tensp.name,
+      chitietsp: tensp.chitietsp.map(chitietsp => ({
+        id: chitietsp._id,
+        name: chitietsp.name,
+        noidung: chitietsp.content,
+        price: chitietsp.price,
+        image: chitietsp.image
+      }))
+    }))
 
+    // Lọc và chuyển đổi đánh giá
     const danhgiaIsReadTrue = danhgia
       .filter(d => d.isRead === true)
       .map(d => ({
@@ -167,10 +163,12 @@ router.get('/', async (req, res) => {
         content: d.content,
         rating: d.rating
       }))
+
+    // Render trang
     res.render('home/index.ejs', { tenspjson, listBl, danhgiaIsReadTrue })
   } catch (error) {
     console.error(error)
-    res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
+    res.status(500).json({ message: `Đã xảy ra lỗi: ${error.message}` })
   }
 })
 
