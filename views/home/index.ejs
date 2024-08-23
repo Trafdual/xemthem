@@ -21,7 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
     <style>
         @media only screen and (max-width: 700px) {
             .message-button {
@@ -1064,7 +1063,7 @@
                                             <div class="swiper-slide">
                                                 <div class="product-card position-relative">
                                                     <div class="image-holder">
-                                                        <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item" class="img-fluid anh" >
+                                                        <img src="data:image/jpeg;base64, <%= item.image %>" alt="product-item" class="img-fluid anh" loading="lazy">
                                                     </div>
                                                     <div style="padding: 5%;" class="cart-concern position-absolute ">
                                                         <div class="cart-button d-flex">
@@ -1509,6 +1508,12 @@
         }
     </script>
     <script>
+        function encodeSpecialCharacters(name) {
+            // Thay thế các kí tự đặc biệt bằng dấu -
+            const replacedName = name.replace(/[^\w\s]/gi, '-');
+            // Mã hóa tên sản phẩm và trả về
+            return encodeURIComponent(replacedName);
+        }
         var swiper = new Swiper('.swiper-container', {
             // Cấu hình Swiper tại đây
             // Ví dụ:
@@ -1522,27 +1527,32 @@
         });
     </script>
     <script>
-        function toggleDialog(id, show) {
-            event.preventDefault();
-            var dialog = document.getElementById(id);
-            dialog.style.display = show ? 'block' : 'none';
-        }
-
         function showSuccessDialog() {
-            toggleDialog('successDialog', true);
+            event.preventDefault();
+            // Hiển thị dialog thành công
+            var dialog = document.getElementById('successDialog');
+            dialog.style.display = 'block';
         }
 
         function hideDialog() {
-            toggleDialog('successDialog', false);
+            // Ẩn dialog
+            event.preventDefault();
+            var dialog = document.getElementById('successDialog');
+            dialog.style.display = 'none';
         }
 
         function showSuccessDialogxemthem() {
-            toggleDialog('dialogxemthem', true);
+            event.preventDefault();
+            // Hiển thị dialog thành công
+            var dialog = document.getElementById('dialogxemthem');
+            dialog.style.display = 'block';
         }
 
         function hideDialogxemthem() {
-            toggleDialog('dialogxemthem', false);
-
+            // Ẩn dialog
+            event.preventDefault();
+            var dialog = document.getElementById('dialogxemthem');
+            dialog.style.display = 'none';
         }
 
         function showSendingMessage() {
@@ -1576,8 +1586,8 @@
         }
     </script>
     <script src="/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/js/plugins.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
 </body>
