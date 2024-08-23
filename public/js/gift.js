@@ -106,8 +106,8 @@ elm.innerHTML = `
     // Hàm lấy phần thưởng, chỉ chọn hai phần thưởng cụ thể
     const getGift = randomNumber => {
         // Danh sách phần thưởng chỉ quay vào hai phần thưởng cụ thể
-        const specialGifts = [
-           
+        const specialGifts = [          
+            { text: 'Tai nghe không dây', index: listGift.findIndex(gift => gift.text === 'Tai nghe không dây') },
             { text: 'Tai nghe không dây', index: listGift.findIndex(gift => gift.text === 'Tai nghe không dây') }
         ];
 
