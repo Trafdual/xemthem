@@ -10,6 +10,7 @@ const blogChema = new db.mongoose.Schema({
         keywords:{type:String},
         urlBase:{type:String},
     }],
+    theloai:{type: db.mongoose.Schema.Types.ObjectId, ref: 'TheLoaiBlog'}
 }, {
     collection: 'Blog'
 });

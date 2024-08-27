@@ -14,8 +14,8 @@
                 </form>
             </div>
             <div class="col-sm-4 col-md-2">
-                <a type="button" class="btn btn-danger" href="/addtheloaiblog">
-                    ➕ Thêm thể loại blog
+                <a type="button" class="btn btn-danger" href="/getaddblog/<%= idtheloai %>">
+                    ➕ Thêm Blog
                 </a>
             </div>
         </div>
@@ -29,7 +29,9 @@
             <table class="table table-bordered table-striped" style="text-align: center;">
                 <tr>
                     <th>ID</th>
-                    <th>Tên thể loại</th>
+                    <th>Tiêu đề</th>
+                    <th>Ảnh</th>
+
                     <th></th>
                 </tr>
 
@@ -40,15 +42,18 @@
                         </td>
                         <td style="word-wrap: break-word">
                             <a href="/chitietblog/<%= row._id %>">
-                                <%= row.name %>
+                                <%= row.tieude_blog %>
                             </a>
+                        </td>
+                        <td style="text-align: center;">
+                            <img src="<%= row.img_blog %>" alt="" style="width: 80px; height: 80px;">
                         </td>
                         <td>
                             <a href="#">
                                 <button type="button" class="btn btn-light">Sửa</button>
                             </a>
-                            <a href="/getblogtl/<%= row._id %>">
-                                <button type="button" class="btn btn-light">Chi tiết</button>
+                            <a href="#">
+                                <button type="button" class="btn btn-light">Nội dung</button>
                             </a>
 
                             <!-- <form action="/deleteblog/<%= row._id %>" method="post" id="deleteForm">
