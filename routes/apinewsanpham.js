@@ -94,11 +94,30 @@ router.get('/contentBlog/:tieude', async (req, res) => {
   }
 })
 
-router.get('/getblog', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const listBl = await myMDBlog.blogModel.find().sort({ _id: -1 })
+    // Lấy dữ liệu các thể loại
+    const theloai = await theloaiblog.theloaiblogModel.find().lean()
 
-    res.render('home/blog.ejs', { listBl })
+    // Lấy dữ liệu các blog liên quan đến thể loại
+    const flattenedListBl = await Promise.all(
+      theloai.map(async tl => ({
+        tentheloai: tl.name,
+        blog: await Promise.all(
+          tl.blog.map(async bl => {
+            const blo = await myMDBlog.blogModel.findById(bl._id)
+            return {
+              _id: blo._id,
+              tieude_blog: blo.tieude_blog,
+              img_blog: blo.img_blog,
+              tieude_khongdau: blo.tieude_khongdau
+            }
+          })
+        )
+      }))
+    )
+
+    res.render('home/blog.ejs', { flattenedListBl })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
@@ -240,17 +259,13 @@ router.post('/editblog/:idblog', async (req, res) => {
       content,
       img,
       keywords,
-      urlBase,
-      idtheloai
+      urlBase
     } = req.body
     const idblog = req.params.idblog
     const blog = await myMDBlog.blogModel.findById(idblog)
-    const theloai = await theloaiblog.theloaiblogModel.findById(idtheloai)
-    theloai.blog.push(blog._id)
     blog.tieude_blog = tieude_blog
     blog.img_blog = img_blog
     blog.tieude_khongdau = unicode(tieude_blog)
-    blog.theloai = idtheloai
 
     if (Array.isArray(content) && Array.isArray(img) && Array.isArray(tieude)) {
       blog.noidung.forEach((nd, index) => {
