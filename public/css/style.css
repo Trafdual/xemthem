@@ -770,12 +770,12 @@ icon messenger
 /*----------------------------------------------*/
 
 .site-header {
-    position: fixed;
     width: 100%;
     z-index: 10;
     transition: background 0.3s ease-out;
-    top: 0;
+    top: 6%;
     height: 70px;
+    background-color: rgb(0, 79, 197)
 }
 
 .navbar-toggler svg.navbar-icon {
@@ -784,13 +784,20 @@ icon messenger
 }
 
 .navbar-nav .nav-item a.nav-link {
-    color: var(--accent-color);
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .navbar-nav .nav-item a.nav-link.active,
 .navbar-nav .nav-item a.nav-link:focus,
 .navbar-nav .nav-item a.nav-link:hover {
-    color: #ff0000;
+    color: #fafafa;
+    background-color: rgb(0, 211, 211);
+    border-radius: 15px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 

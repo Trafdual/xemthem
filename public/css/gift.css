@@ -5,13 +5,19 @@
 }
 
 .header-container {
-    position: relative;
+    position: fixed;
     width: 100%;
     max-width: 100%;
+    top: 0;
+    z-index: 10;
 }
 
-.divblog :hover {
-    background-color: #ff0000;
+.divblog:hover {
+    background-color: #0165fc;
+}
+
+.divblog:hover a {
+    color: white;
 }
 
 .navigate-button {
@@ -30,6 +36,38 @@
 
 .navigate-button:hover {
     background-color: #ff0000;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-left: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown.show .dropdown-toggle::after {
+    transform: rotate(180deg);
+    /* Rotate the arrow when menu is open */
 }
 
 @media only screen and (max-width: 700px) {
@@ -76,7 +114,7 @@
 @media only screen and (min-width: 701px) {
     .section {
         width: 70%;
-        margin-top: 5%;
+        margin-top: 3%;
         padding-top: 2%;
         padding-bottom: 3%;
         padding-left: 1%;
@@ -85,7 +123,6 @@
         margin-right: 5%;
         margin-left: 16%;
         border-radius: 5px;
-        margin-bottom: 1%;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
     body {

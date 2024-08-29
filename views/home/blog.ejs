@@ -14,8 +14,10 @@
     <meta name="Giới Thiệu" content="">
     <link rel="shortcut icon" type="x-icon" href="/images/banner-image1.png">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/gift.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
@@ -39,10 +41,84 @@
 </head>
 
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path fill="currentColor"
+                d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.922 9.922 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8z" />
+        </symbol>
+    </svg>
     <div class="header-container">
         <img src="../../public/images/banner0.png" alt="Banner Image" class="header-image">
         <button class="navigate-button" onclick="navigateToPage('/target-page')">Mua ngay</button>
     </div>
+
+    <header id="header" class="site-header header-scrolled position-fixed text-white mx-auto">
+        <nav id="header-nav" class="navbar navbar-expand-lg px-2 mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/main-logo.png" class="logo" alt="chua">
+                </a>
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg class="navbar-icon">
+                        <use xlink:href="#navbar-icon"></use>
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <a class="navbar-brand" href="/">
+                            <img src="/images/main-logo.png" class="logo" alt="chua">
+                        </a>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                            <li class="nav-item">
+                                <a class="nav-link me-4 active" href="/#billboard">Trang Chủ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <div class="d-flex">
+                                    <a class="nav-link dropdown-toggle me-4">Thể loại</a>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Thể loại 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Thể loại 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Thể loại 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/#mobile-products">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/#latest-blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/shop">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/thanhtoan">Thanh toán</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="/contact">Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="user-items">
+                                    <ul class="d-flex justify-content-end list-unstyled">
+                                        <li class="search-item pe-3">
+                                            <a href="#" class="search-button" style="color: white; font-weight: bold;">
+                                                <svg class="search">
+                                                    <use xlink:href="#search"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <% flattenedListBl.forEach((row)=> { %>
         <section id="latest-blog" class="section">
             <h2>
@@ -50,7 +126,7 @@
             </h2>
             <div class="container">
                 <div class="row">
-                    <div class="d-flex flex-wrap">
+                    <div class="d-flex flex-wrap ">
                         <% row.blog.forEach((item)=> { %>
                             <div class="col-lg-3 col-sm-12 divblog">
                                 <div class="card border-none">
@@ -90,6 +166,25 @@
                     function navigateToPage(url) {
                         window.location.href = 'https://www.giahuystore.com/';
                     }
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var dropdown = document.querySelector('.nav-item.dropdown');
+                        var dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                        var toggleButton = dropdown.querySelector('.dropdown-toggle');
+
+                        toggleButton.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            dropdownMenu.classList.toggle('show');
+                        });
+
+
+                        // Đóng menu khi nhấp bên ngoài
+                        document.addEventListener('click', function(e) {
+                            if (!dropdown.contains(e.target)) {
+                                dropdownMenu.classList.remove('show');
+                            }
+                        });
+                    });
                 </script>
 </body>
 
