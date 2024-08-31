@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="x-icon" href="/images/banner-image1.png">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/gift.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/gift.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,7 @@
                         <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-2">
+                        <ul id="navbar" class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-2 fs-6">
                             <li class="nav-item">
                                 <a class="nav-link me-4 active" href="/#billboard">Trang Chủ</a>
                             </li>
@@ -80,9 +80,13 @@
                                     <a class="nav-link dropdown-toggle me-4">Thể loại</a>
                                 </div>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Thể loại 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Thể loại 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Thể loại 3</a></li>
+                                    <% flattenedListBl.forEach((row)=> { %>
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <%= row.tentheloai %>
+                                            </a>
+                                        </li>
+                                        <% }); %>
                                 </ul>
                             </li>
                             <li class="nav-item">

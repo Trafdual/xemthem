@@ -52,13 +52,26 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 120%;
     left: 0;
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 0;
     margin: 0;
     z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dropdown-item:hover {
+    background-color: #0157d8;
+    color: white;
+    text-decoration: none;
 }
 
 .dropdown-menu.show {
