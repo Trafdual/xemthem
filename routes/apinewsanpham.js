@@ -328,5 +328,19 @@ router.post('/editblog/:idblog', async (req, res) => {
     res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
   }
 })
+router.post('/deleteblog/:idblog', async (req, res) => {
+  try {
+    const idblog = req.params.idblog
+    const blog = await myMDBlog.blogModel.findById(idblog)
+    const theloai=await theloaiblog.theloaiblogModel.findById(blog.theloai);
+    theloai.blog=theloai.blog.filter(b=>b.toString()!==idblog);
+    await blog.remove()
+    await theloai.save()
+    res.redirect('/main')
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
+  }
+})
 
 module.exports = router
