@@ -334,8 +334,9 @@ router.post('/deleteblog/:idblog', async (req, res) => {
     const blog = await myMDBlog.blogModel.findById(idblog)
     const theloai=await theloaiblog.theloaiblogModel.findById(blog.theloai);
     theloai.blog=theloai.blog.filter(b=>b.toString()!==idblog);
-    await blog.remove()
     await theloai.save()
+    await myMDBlog.blogModel.findByIdAndDelete(idblog)
+
     res.redirect('/main')
   } catch (error) {
     console.error(error)
