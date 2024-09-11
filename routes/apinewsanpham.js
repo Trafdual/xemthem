@@ -6,6 +6,7 @@ var myMDBlog = require('../models/blog.model')
 var theloaiblog = require('../models/theloaiblog')
 const checkAuth = require('../controllers/checkAuth')
 const unicode = require('unidecode')
+const uploads = require('./upload')
 
 router.get('/main', checkAuth, async (req, res) => {
   try {
@@ -155,6 +156,13 @@ function replaceKeywordsWithLinks (content, keywords, urlBase) {
 
   return content
 }
+function removeSpecialChars (str) {
+  // Danh sách các ký tự đặc biệt bạn muốn xóa
+  const specialChars = /[:+,!@#$%^&*()-?/]/g // Thay đổi biểu thức chính quy theo các ký tự bạn muốn xóa
+
+  // Xóa các ký tự đặc biệt
+  return str.replace(specialChars, '')
+}
 
 router.post('/postblog/:idtheloai', async (req, res) => {
   try {
@@ -211,6 +219,86 @@ router.post('/postblog/:idtheloai', async (req, res) => {
     res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
   }
 })
+router.post(
+  '/postblog2/:idtheloai',
+  uploads.fields([
+    { name: 'imgblog', maxCount: 1 }, // Một ảnh duy nhất
+    { name: 'img', maxCount: 100000 } // Nhiều ảnh (có thể điều chỉnh số lượng tối đa)
+  ]),
+  async (req, res) => {
+    try {
+      const { tieude_blog, content, tieude, keywords, urlBase } = req.body
+      const idtheloai = req.params.idtheloai
+      const theloai = await theloaiblog.theloaiblogModel.findById(idtheloai)
+      // Xác định domain
+      const domain = 'https://baotech.vn' // Thay đổi thành domain của bạn
+
+      // Lấy tên file ảnh từ req.files và thêm domain vào trước tên file
+      const imgblog = req.files['imgblog']
+        ? `${domain}/${req.files['imgblog'][0].filename}`
+        : null
+      const img = req.files['img']
+        ? req.files['img'].map(file => `${domain}/${file.filename}`)
+        : []
+
+      const tieude_khongdau1 = unicode(tieude_blog)
+      const tieude_khongdau = removeSpecialChars(tieude_khongdau1)
+
+      const blog = new myMDBlog.blogModel({
+        tieude_blog,
+        img_blog: imgblog, // URL ảnh đơn
+        tieude_khongdau,
+        theloai:idtheloai
+      })
+      theloai.blog.push(blog._id)
+
+      // Thêm các nội dung blog
+      if (
+        Array.isArray(content) &&
+        Array.isArray(tieude) &&
+        Array.isArray(keywords) &&
+        Array.isArray(urlBase)
+      ) {
+        for (let i = 0; i < content.length; i++) {
+          const updatedContent = replaceKeywordsWithLinks(
+            content[i],
+            keywords[i],
+            urlBase[i]
+          )
+
+          blog.noidung.push({
+            content: updatedContent,
+            img: img[i] || null, // Sử dụng ảnh từ mảng hoặc null nếu không có
+            tieude: tieude[i],
+            keywords: keywords[i],
+            urlBase: urlBase[i]
+          })
+        }
+      } else {
+        const updatedContent = replaceKeywordsWithLinks(
+          content,
+          keywords,
+          urlBase
+        )
+
+        blog.noidung.push({
+          content: updatedContent,
+          img: img[0] || null, // Nếu chỉ có một ảnh, chọn ảnh đầu tiên hoặc null
+          tieude,
+          keywords,
+          urlBase
+        })
+      }
+
+      await blog.save()
+      await theloai.save()
+      res.redirect('/main')
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
+    }
+  }
+)
 
 router.get('/getaddblog/:idtheloai', async (req, res) => {
   const idtheloai = req.params.idtheloai
@@ -252,15 +340,8 @@ router.get('/editblog/:idblog', async (req, res) => {
 
 router.post('/editblog/:idblog', async (req, res) => {
   try {
-    const {
-      tieude_blog,
-      img_blog,
-      tieude,
-      content,
-      img,
-      keywords,
-      urlBase
-    } = req.body
+    const { tieude_blog, img_blog, tieude, content, img, keywords, urlBase } =
+      req.body
     const idblog = req.params.idblog
     const blog = await myMDBlog.blogModel.findById(idblog)
     blog.tieude_blog = tieude_blog
@@ -332,8 +413,13 @@ router.post('/deleteblog/:idblog', async (req, res) => {
   try {
     const idblog = req.params.idblog
     const blog = await myMDBlog.blogModel.findById(idblog)
-    const theloai=await theloaiblog.theloaiblogModel.findById(blog.theloai);
-    theloai.blog=theloai.blog.filter(b=>b.toString()!==idblog);
+    const theloai = await theloaiblog.theloaiblogModel.findById(blog.theloai)
+    if (!blog) {
+      // Nếu không tìm thấy blog, trả về lỗi 404
+      return res.status(404).json({ message: 'Blog không tìm thấy' })
+    }
+
+    theloai.blog = theloai.blog.filter(b => b.toString() !== idblog)
     await theloai.save()
     await myMDBlog.blogModel.findByIdAndDelete(idblog)
 
@@ -342,6 +428,9 @@ router.post('/deleteblog/:idblog', async (req, res) => {
     console.error(error)
     res.status(500).json({ message: `Đã xảy ra lỗi: ${error}` })
   }
+})
+router.get('/test', async (req, res) => {
+  res.render('home/test.ejs')
 })
 
 module.exports = router

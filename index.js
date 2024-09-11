@@ -41,6 +41,8 @@ app.use('/', settingsRouter)
 
 app.use(express.static(path.join(__dirname, '/public')))
 app.use('/public', express.static('public'));
+app.use(express.static(path.join(__dirname, '/uploads')))
+
 
 app.listen(3004, () => {
   console.log('Server is running on port 3004')

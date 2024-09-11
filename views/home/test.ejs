@@ -1,0 +1,54 @@
+<%- include('../include/header.ejs') %>
+    <div class="container">
+        <h2>
+            <a href="/"><img style="width: 35px;" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></a> Thêm sản phẩm</h2>
+
+        <form action="/postblog" method="post">
+            <div class="px-4 py-3">
+                <br>
+                <label class="form-label">Tiêu đề Blog</label>
+                <input type="text" name="tieude_blog" class="form-control" placeholder="Nhập tiêu đề blog"><br>
+                <label class="form-label">Ảnh Blog</label>
+                <input type="text" name="img_blog" class="form-control" placeholder="Nhập link ảnh blog"><br>
+                <h5>Nội Dung</h5>
+                <!-- Container for Quill editor -->
+                <div id="editor-container" style="height: 400px;"></div>
+                <input type="hidden" name="content" id="editor-content">
+                <br>
+                <button class="btn btn-danger" type="submit">Lưu</button>
+            </div>
+        </form>
+
+        <!-- Quill Initialization Script -->
+        <script>
+            var quill = new Quill('#editor-container', {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        [{
+                            'header': '1'
+                        }, {
+                            'header': '2'
+                        }],
+                        [{
+                            'list': 'ordered'
+                        }, {
+                            'list': 'bullet'
+                        }],
+                        ['bold', 'italic', 'underline'],
+                        ['link', 'image'],
+                        [{
+                            'align': []
+                        }],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Update hidden input with Quill content on form submission
+            document.querySelector('form').addEventListener('submit', function() {
+                var content = document.querySelector('#editor-content');
+                content.value = quill.root.innerHTML;
+            });
+        </script>
+    </div>
